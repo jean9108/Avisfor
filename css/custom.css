@@ -1,0 +1,167 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 06-jun-2017, 19:40:19
+    Author     : Joana
+*/
+/*fondos*/
+@import url('https://fonts.googleapis.com/css?family=Iceland');
+@import url('https://fonts.googleapis.com/css?family=Khula');
+
+/*Menu principal*/
+.navbar-default {
+    border-color: transparent !important;
+}
+.logoeci a{
+    font-family: 'Iceland', cursive;
+    font-size: 4.5em;
+    color: #228DFF !important;
+}
+
+.logoeci a:hover{
+    -webkit-animation: neon2 1.5s ease-in-out infinite alternate;
+    -moz-animation: neon2 1.5s ease-in-out infinite alternate;
+    animation: neon2 1.5s ease-in-out infinite alternate;
+}
+
+#logo {
+    padding: 20px;
+    font-size: 18px;
+    transition: all ease .5s;
+}
+
+nav{
+    height: 70px;
+    background: transparent;
+    display: block;
+    position: fixed;
+    width: 100%;
+    z-index: 99999;
+    transition: all ease .1s;
+}
+
+.navbar-default {
+    background-color: transparent;
+}
+
+nav.navbar.shrink{
+    height: 60px;
+    padding-top: 0px;
+    background: #052837 !important;
+
+}
+.navbar-default nav.navbar.shrink>li>a {
+    color: #0044cc;
+    padding-top: 30px;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: floralwhite !important;
+}
+
+/*imagen principal*/
+.intro {
+    width: 100%;
+    position: relative;
+    background: url(../images/inicio.png) no-repeat top center;
+    background-size: cover;
+    height: auto;
+    background-image: url(../images/inicio.png);
+}
+
+#intro.intro {
+    padding: 20% 0 0 0;
+}
+
+.slogan h2{
+    font-family: 'Iceland';
+    font-size: 4.5em;
+    color: #052837;
+}
+
+/*primera parte*/
+#page {
+    margin-top: 0px !important;
+    border: 0px !important;
+}
+/*index*/
+.person {
+    border: 10px solid transparent;
+    margin-bottom: 25px;
+    width: 40%;
+    height: 40%;
+}
+.person:hover {
+    border-color: #f1f1f1;
+}
+
+.int1{
+    text-align: center;
+}
+
+.int2{
+    text-align: center;
+}
+
+.titulo h1{
+    font-family: 'Iceland';
+    text-align: center;
+    color: #052837;
+    font-size: 5.0em;
+    margin-bottom: 7%;
+}
+
+.int1 p strong{
+    font-family: 'Iceland';
+    color: #052837;
+    font-size: 1.9em;
+}
+
+.int1 p{
+    font-family: 'Khula', sans-serif;
+    font-size: 1.0em;
+    color: #000;
+}
+
+.int2 p strong{
+    font-family: 'Iceland';
+    color: #052837;
+    font-size: 1.9em;
+}
+
+.int2 p{
+    font-family: 'Khula', sans-serif;
+    font-size: 1.0em;
+    color: #000;
+}
+
+.foo{
+    background-color: #052837;
+}
+
+.ini{
+    text-align: center;
+    font-family: 'Khula', sans-serif;
+    font-size: 1.0em;
+    color: #FFF;
+}
+
+.ini1{
+    text-align: center;
+    font-family: 'Khula', sans-serif;
+    font-size: 1.0em;
+    color: #FFF;
+    margin-top: 23px;
+}
+/*titulo*/
+@-webkit-keyframes neon2 {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #228DFF, 0 0 70px #228DFF, 0 0 80px #228DFF, 0 0 100px #228DFF, 0 0 150px #228DFF;
+    }
+    to {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #228DFF, 0 0 35px #228DFF, 0 0 40px #228DFF, 0 0 50px #228DFF, 0 0 75px #228DFF;
+    }
+}
