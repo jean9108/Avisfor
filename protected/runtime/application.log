@@ -24,3 +24,115 @@ REQUEST_URI=/avisfor/index.php?r=site/index
 in C:\xampp\htdocs\avisfor\protected\views\layouts\main.php (48)
 in C:\xampp\htdocs\avisfor\protected\views\layouts\column1.php (6)
 in C:\xampp\htdocs\avisfor\protected\controllers\SiteController.php (32)
+2017/06/11 20:35:06 [error] [exception.CDbException] CDbException: La tabla "cruge_session" definida en la clase active record "CrugeSession" no se ha podido encontrar en la base de datos. in C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php:2390
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(413): CActiveRecordMetaData->__construct(Object(CrugeSession))
+#1 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(663): CActiveRecord->getMetaData()
+#2 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1493): CActiveRecord->getTableSchema()
+#3 C:\xampp\htdocs\Avisfor\protected\modules\cruge\models\data\CrugeSession.php(90): CActiveRecord->findByPk('0')
+#4 C:\xampp\htdocs\Avisfor\protected\modules\cruge\components\CrugeFactory.php(46): CrugeSession::loadModel('0')
+#5 C:\xampp\htdocs\Avisfor\protected\modules\cruge\components\CrugeUserManager.php(412): CrugeFactory->getICrugeSession('0')
+#6 C:\xampp\htdocs\Avisfor\protected\modules\cruge\components\CrugeWebUser.php(451): CrugeUserManager->loadSession('0')
+#7 C:\xampp\htdocs\Avisfor\protected\modules\cruge\components\CrugeWebUser.php(229): CrugeWebUser->getICrugeSession()
+#8 C:\xampp\htdocs\Avisfor\protected\modules\cruge\components\CrugeWebUser.php(242): CrugeWebUser->getId()
+#9 C:\xampp\htdocs\yii\framework\web\auth\CWebUser.php(201): CrugeWebUser->getIsGuest()
+#10 C:\xampp\htdocs\Avisfor\protected\modules\cruge\components\CrugeWebUser.php(45): CWebUser->init()
+#11 C:\xampp\htdocs\yii\framework\base\CModule.php(394): CrugeWebUser->init()
+#12 C:\xampp\htdocs\yii\framework\base\CModule.php(103): CModule->getComponent('user')
+#13 C:\xampp\htdocs\Avisfor\protected\views\layouts\main.php(32): CModule->__get('user')
+#14 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#15 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#16 C:\xampp\htdocs\yii\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#17 C:\xampp\htdocs\yii\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#18 C:\xampp\htdocs\yii\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#19 C:\xampp\htdocs\yii\framework\web\CBaseController.php(215): COutputProcessor->run()
+#20 C:\xampp\htdocs\yii\framework\web\CBaseController.php(309): CBaseController->endWidget('CContentDecorat...')
+#21 C:\xampp\htdocs\Avisfor\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#22 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#23 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#24 C:\xampp\htdocs\yii\framework\web\CController.php(787): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#25 C:\xampp\htdocs\Avisfor\protected\controllers\SiteController.php(32): CController->render('index')
+#26 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#27 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#28 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#29 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#30 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('')
+#31 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#32 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#33 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#34 {main}
+REQUEST_URI=/Avisfor/
+---
+2017/06/11 20:53:16 [error] [exception.CDbException] CDbException: La tabla "cruge_session" definida en la clase active record "CrugeSession" no se ha podido encontrar en la base de datos. in C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php:2390
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(413): CActiveRecordMetaData->__construct(Object(CrugeSession))
+#1 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(663): CActiveRecord->getMetaData()
+#2 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1493): CActiveRecord->getTableSchema()
+#3 C:\xampp\htdocs\Avisfor\protected\modules\cruge\models\data\CrugeSession.php(90): CActiveRecord->findByPk('0')
+#4 C:\xampp\htdocs\Avisfor\protected\modules\cruge\components\CrugeFactory.php(46): CrugeSession::loadModel('0')
+#5 C:\xampp\htdocs\Avisfor\protected\modules\cruge\components\CrugeUserManager.php(412): CrugeFactory->getICrugeSession('0')
+#6 C:\xampp\htdocs\Avisfor\protected\modules\cruge\components\CrugeWebUser.php(451): CrugeUserManager->loadSession('0')
+#7 C:\xampp\htdocs\Avisfor\protected\modules\cruge\components\CrugeWebUser.php(229): CrugeWebUser->getICrugeSession()
+#8 C:\xampp\htdocs\Avisfor\protected\modules\cruge\components\CrugeWebUser.php(242): CrugeWebUser->getId()
+#9 C:\xampp\htdocs\yii\framework\web\auth\CWebUser.php(201): CrugeWebUser->getIsGuest()
+#10 C:\xampp\htdocs\Avisfor\protected\modules\cruge\components\CrugeWebUser.php(45): CWebUser->init()
+#11 C:\xampp\htdocs\yii\framework\base\CModule.php(394): CrugeWebUser->init()
+#12 C:\xampp\htdocs\yii\framework\base\CModule.php(103): CModule->getComponent('user')
+#13 C:\xampp\htdocs\Avisfor\protected\views\layouts\main.php(32): CModule->__get('user')
+#14 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#15 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#16 C:\xampp\htdocs\yii\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#17 C:\xampp\htdocs\yii\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#18 C:\xampp\htdocs\yii\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#19 C:\xampp\htdocs\yii\framework\web\CBaseController.php(215): COutputProcessor->run()
+#20 C:\xampp\htdocs\yii\framework\web\CBaseController.php(309): CBaseController->endWidget('CContentDecorat...')
+#21 C:\xampp\htdocs\Avisfor\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#22 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#23 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#24 C:\xampp\htdocs\yii\framework\web\CController.php(787): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#25 C:\xampp\htdocs\Avisfor\protected\controllers\SiteController.php(32): CController->render('index')
+#26 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#27 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#28 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#29 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#30 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('')
+#31 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#32 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#33 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#34 {main}
+REQUEST_URI=/Avisfor/
+---
+2017/06/11 21:02:22 [error] [exception.CHttpException.404] CHttpException: No es posible resolver la solicitud "index.php" in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('index.php')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Avisfor/index.php/index.php
+HTTP_REFERER=http://localhost/Avisfor/index.php
+---
+2017/06/11 21:03:03 [error] [exception.CHttpException.404] CHttpException: No es posible resolver la solicitud "index.php" in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('index.php')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Avisfor/index.php/index.php
+---
+2017/06/11 21:03:06 [error] [exception.CHttpException.404] CHttpException: No es posible resolver la solicitud "index.php" in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('index.php')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Avisfor/index.php/index.php
+HTTP_REFERER=http://localhost/Avisfor/index.php
+---
+2017/06/11 21:03:26 [error] [application] UiController
+CrugeUser->validate es false
+<div class="errorSummary"><p>Por favor corrija los siguientes errores de ingreso:</p>
+<ul>
+<li>clave invalida</li>
+</ul></div>
+in C:\xampp\htdocs\Avisfor\protected\modules\cruge\controllers\UiController.php (157)
+in C:\xampp\htdocs\Avisfor\index.php (13)

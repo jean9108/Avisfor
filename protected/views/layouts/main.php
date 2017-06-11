@@ -23,46 +23,70 @@
     </head>
 
     <body>
-        <!--Menu principal-->
-        <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container-fluid">
-                <div class="navbar-header logoeci  page-scroll">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span> 
-                    </button>
-                    <a class="navbar-brand header-t" href="#">
-                        Avisfor
-                    </a>
+        <?php
+//        $this->widget('zii.widgets.CMenu', array(
+//            'items' => array(
+//                array('label' => 'Home', 'url' => array('/site/index')),
+//                array('label' => 'About', 'url' => array('/site/page', 'view' => 'about')),
+//                array('label' => 'Contact', 'url' => array('/site/contact')),
+//                array('label' => 'Administrar Usuarios'
+//                    , 'url' => Yii::app()->user->ui->userManagementAdminUrl
+//                    , 'visible' => !Yii::app()->user->isGuest),
+//                array('label' => 'Login'
+//                    , 'url' => Yii::app()->user->ui->loginUrl
+//                    , 'visible' => Yii::app()->user->isGuest),
+//                array('label' => 'Logout (' . Yii::app()->user->name . ')'
+//                    , 'url' => Yii::app()->user->ui->logoutUrl
+//                    , 'visible' => !Yii::app()->user->isGuest),
+//            ),
+//        ));
+        ?>
+        <!--Menu Inicial e Imagen Inicial-->
+        <?php if (Yii::app()->user->isGuest) { ?>
+            <!--Menu principal-->
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header logoeci  page-scroll">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span> 
+                        </button>
+                        <a class="navbar-brand header-t" href="#">
+                            Avisfor
+                        </a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <?php echo Chtml::link('Inicio', array('/site/index')) ?>
+                            </li>
+                            <li>
+                                <?php echo Chtml::link('Contactenos', array('/site/contact')) ?>
+                            </li>
+                            <li>
+                                <?php echo Chtml::link('<i class="fa fa-sign-in" aria-hidden="true"></i> Ingresar', array('/cruge/ui/login')) ?>
+                            </li>
+                            <li>
+                                <?php echo Chtml::link('<i class="fa fa-users" aria-hidden="true"></i> Registrarse', array('/site/login')) ?>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="collapse navbar-collapse" id="myNavbar">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                                <?php echo Chtml::link('Inicio',array('/site/index'))?>
-                        </li>
-                        <li>
-                                <?php echo Chtml::link('Contactenos',array('/site/contact'))?>
-                        </li>
-                        <li>
-                                <?php echo Chtml::link('<i class="fa fa-sign-in" aria-hidden="true"></i> Ingresar',array('/site/login'))?>
-                        </li>
-                        <li>
-                                <?php echo Chtml::link('<i class="fa fa-users" aria-hidden="true"></i> Registrarse',array('/site/login'))?>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+            </nav>
 
-        <section id = "intro" class="intro">
-            <div class="slogan">
-                <h2>Sistemas Formales<br />
-                    Escuela Colombiana de ingeniería
-                </h2>
-            </div>    
-        </section>
-
+            <section id = "intro" class="intro">
+                <div class="slogan">
+                    <h2>Sistemas Formales<br />
+                        Escuela Colombiana de ingeniería
+                    </h2>
+                </div>    
+            </section>
+        <?php } ?>
+        
+        <?php if(Yii::app()->user->isSuperAdmin){?>
+            
+        <?php }?>    
         <div class="container" id="page">
             <!--            <div id="mainmenu">
             <?php
@@ -85,7 +109,7 @@
                 ?><!-- breadcrumbs -->
             <?php endif ?>
 
-            <?php echo $content; ?>
+<?php echo $content; ?>
 
             <div class="clear"></div>
         </div><!-- page -->
