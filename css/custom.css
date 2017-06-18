@@ -82,6 +82,103 @@ nav.navbar.shrink{
     color: #052837;
 }
 
+/*Imagen Administrador*/
+.admin{
+    width: 100%;
+    position: relative;
+    background: url(../images/administrador.png);
+    background-size: cover;
+    height: auto;
+    background-image: url(../images/administrador.png);
+}
+#admin.admin{
+    padding: 20% 0 0 0;
+}
+
+.slogan#slo h2{
+    color: #ffc107 !important;
+}
+
+/*Tablas*/
+.grid-view table.items th {
+    background: #052837 !important;
+    font-family: 'Khula', sans-serif;
+}
+
+.grid-view table.items tr.odd {
+    background: #91a0a7 !important;
+    font-family: 'Khula', sans-serif;
+    color: #FFF;
+}
+
+.grid-view table.items tr.selected {
+    background: #607d8b !important;
+    color:#FFF;
+}
+
+.grid-view table.items tbody tr:hover {
+    background: #60638b !important;
+    color:#FFF;
+}
+
+.grid-view table.items tr.even {
+    font-family: 'Khula', sans-serif;
+}
+
+
+/*Login*/
+.tituloP h1{
+    font-family: 'Khula', sans-serif;
+    color: #052837;
+    text-align: center;
+}
+
+.login{
+    border-radius: 23px;
+    background: #D4D5D9; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#EFEFEF, #D4D5D9); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#EFEFEF, #D4D5D9); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#EFEFEF, #D4D5D9); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#EFEFEF, #D4D5D9); /* Standard syntax */
+    box-shadow: 10px 10px 5px #888888;
+    margin-bottom: 25px;
+    font-family: 'Khula', sans-serif;
+    font-size: 1.2em;
+}
+
+.sep{
+    margin-top: 10px;
+}
+
+.botonlogin{
+    text-align: center;
+}
+
+.botonlogin .btn-primary{
+    background: #052837 !important;
+    font-family: 'Khula', sans-serif;
+}
+
+.botonlogin .btn-primary:hover {
+    background: #60638b !important;
+}
+.recordar{
+    text-align: left; 
+}
+.recordar a{
+    font-family: 'Khula', sans-serif;
+    color: #60638b;
+
+}
+.clave{
+    text-align: right;
+}
+.clave a{
+    font-family: 'Khula', sans-serif;
+    color: #60638b;
+
+}
+
 /*primera parte*/
 #page {
     margin-top: 0px !important;
@@ -156,6 +253,39 @@ nav.navbar.shrink{
     color: #FFF;
     margin-top: 23px;
 }
+
+/**Vistas**/
+table.detail-view tr.odd {
+    background:#91a0a7 !important;
+    color: #FFF;
+    font-family: 'Khula', sans-serif;
+    font-size: 1.12em;
+}
+
+table.detail-view tr.even{
+    font-family: 'Khula', sans-serif;
+    font-size: 1.12em;
+}
+
+
+/** boton Actualizar**/
+.actualizar{
+    padding: 19px;
+    text-align: center;
+}
+
+.actualizar .btn-success{
+    font-family: 'Iceland';
+    font-size: 1.5em;
+    background-color: #052837 !important;
+    border-color: #052837 !important;
+}
+
+.actualizar .btn-success:hover {
+    background-color: #91a0a7;
+    border-color: #91a0a7;
+}
+
 /*titulo*/
 @-webkit-keyframes neon2 {
     from {

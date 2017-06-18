@@ -23,24 +23,7 @@
     </head>
 
     <body>
-        <?php
-//        $this->widget('zii.widgets.CMenu', array(
-//            'items' => array(
-//                array('label' => 'Home', 'url' => array('/site/index')),
-//                array('label' => 'About', 'url' => array('/site/page', 'view' => 'about')),
-//                array('label' => 'Contact', 'url' => array('/site/contact')),
-//                array('label' => 'Administrar Usuarios'
-//                    , 'url' => Yii::app()->user->ui->userManagementAdminUrl
-//                    , 'visible' => !Yii::app()->user->isGuest),
-//                array('label' => 'Login'
-//                    , 'url' => Yii::app()->user->ui->loginUrl
-//                    , 'visible' => Yii::app()->user->isGuest),
-//                array('label' => 'Logout (' . Yii::app()->user->name . ')'
-//                    , 'url' => Yii::app()->user->ui->logoutUrl
-//                    , 'visible' => !Yii::app()->user->isGuest),
-//            ),
-//        ));
-        ?>
+
         <!--Menu Inicial e Imagen Inicial-->
         <?php if (Yii::app()->user->isGuest) { ?>
             <!--Menu principal-->
@@ -83,24 +66,98 @@
                 </div>    
             </section>
         <?php } ?>
-        
-        <?php if(Yii::app()->user->isSuperAdmin){?>
-            
-        <?php }?>    
+
+        <!--Administrador del Sitio-->    
+        <?php if (Yii::app()->user->isSuperAdmin) { ?>
+            <section id = "admin" class="admin">
+                <div class="slogan" id = "slo">
+                    <h2>Administrador de Usuarios<br />
+                        Escuela Colombiana de Ingeniería
+                    </h2>
+                </div>
+                <!--Menu principal-->
+                <nav class="navbar navbar-default navbar-fixed-top">
+                    <div class="container-fluid">
+                        <div class="navbar-header logoeci  page-scroll">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span> 
+                            </button>
+                            <a class="navbar-brand header-t" href="#">
+                                Avisfor
+                            </a>
+                        </div>
+                        <div class="collapse navbar-collapse" id="myNavbar">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li>
+                                    <?php echo Chtml::link('Inicio', array('/site/index')) ?>
+                                </li>
+                                <li>
+                                    <?php echo Chtml::link('<i class="fa fa-user-secret" aria-hidden="true"></i> Administrar Usuarios', array('/cruge/ui/usermanagementadmin')) ?>
+                                </li>
+                                <li>
+                                    <?php echo Chtml::link('<i class="fa fa-sign-out" aria-hidden="true"></i> Cerrar Sesión', array('/cruge/ui/logout')) ?>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </section>
+        <?php } ?>    
+
+        <!--Estudiante y tpro-->
+        <?php if (Yii::app()->user->checkAccess('tpro') && !Yii::app()->user->isSuperAdmin || Yii::app()->user->checkAccess('estudiante') && !Yii::app()->user->isSuperAdmin) { ?>
+            <section id = "admin" class="admin">
+                <div class="slogan" id = "slo">
+                    <h2>Administrador de Usuarios<br />
+                        Escuela Colombiana de Ingeniería
+                    </h2>
+                </div>
+                
+                <!--Menu principal-->
+                <nav class="navbar navbar-default navbar-fixed-top">
+                    <div class="container-fluid">
+                        <div class="navbar-header logoeci  page-scroll">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span> 
+                            </button>
+                            <a class="navbar-brand header-t" href="/site/index">
+                                Avisfor
+                            </a>
+                        </div>
+                        <div class="collapse navbar-collapse" id="myNavbar">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li>
+                                    <?php echo Chtml::link('Inicio', array('/site/index')) ?>
+                                </li>
+                                <li>
+                                    <?php $user = Yii::app()->user->id; ?>
+                                        <?php if(!$estudiante = Estudiantes::model()->findAll("cruge_user_iduser = $user") ){?>
+                                            <?php echo Chtml::link('Actualizar Perfil', array('/estudiantes/create'))?>
+                                        <?php } else {?>
+                                            <?php $estudiante = Estudiantes::model()->find("cruge_user_iduser=:cruge_user_iduser",array("cruge_user_iduser"=>Yii::app()->user->id));?>
+                                            <?php echo Chtml::link('Perfil',array('/estudiantes/view/'.$estudiante->idestudiante))?>
+                                        <?php }?>
+                                </li>
+                                <li>
+                                       <?php echo Chtml::link('Mis Sistemas Formales',array('/sistemas/misSistemas/'))?>
+                                </li>
+                                <li>
+                                    <?php echo Chtml::link('<i class="fa fa-sign-out" aria-hidden="true"></i> Cerrar Sesión', array('/cruge/ui/logout')) ?>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </section>
+        <?php } ?>
         <div class="container" id="page">
-            <!--            <div id="mainmenu">
-            <?php
-//                $this->widget('zii.widgets.CMenu', array(
-//                    'items' => array(
-//                        array('label' => 'Home', 'url' => array('/site/index')),
-//                        array('label' => 'About', 'url' => array('/site/page', 'view' => 'about')),
-//                        array('label' => 'Contact', 'url' => array('/site/contact')),
-//                        array('label' => 'Login', 'url' => array('/site/login'), 'visible' => Yii::app()->user->isGuest),
-//                        array('label' => 'Logout (' . Yii::app()->user->name . ')', 'url' => array('/site/logout'), 'visible' => !Yii::app()->user->isGuest)
-//                    ),
-//                ));
-            ?>
-                        </div> mainmenu -->
+
             <?php if (isset($this->breadcrumbs)): ?>
                 <?php
                 $this->widget('zii.widgets.CBreadcrumbs', array(
@@ -109,7 +166,7 @@
                 ?><!-- breadcrumbs -->
             <?php endif ?>
 
-<?php echo $content; ?>
+            <?php echo $content; ?>
 
             <div class="clear"></div>
         </div><!-- page -->

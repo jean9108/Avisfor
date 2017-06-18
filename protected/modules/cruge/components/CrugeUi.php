@@ -210,7 +210,7 @@ class CrugeUi extends CComponent
     public function getPasswordRecoveryLink($label = null)
     {
         if ($label === null) {
-            $label = 'Lost Password?';
+            $label = 'Recordar Clave';
         }
         return CHtml::link(CrugeTranslator::t('logon', $label), self::getPasswordRecoveryUrl());
     }
@@ -242,7 +242,7 @@ class CrugeUi extends CComponent
     public function getRegistrationLink($label = null)
     {
         if ($label === null) {
-            $label = 'Register';
+            $label = 'Registrate';
         }
         return CHtml::link(CrugeTranslator::t('logon', $label), self::getRegistrationUrl());
     }
@@ -273,6 +273,7 @@ class CrugeUi extends CComponent
     public function getAdminItems()
     {
         return array(
+           
             array('label' => CrugeTranslator::t('admin', 'User Manager')),
             array(
                 'label' => CrugeTranslator::t('admin', 'Update Profile')
