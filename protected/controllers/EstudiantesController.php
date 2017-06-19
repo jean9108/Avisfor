@@ -70,10 +70,11 @@ class EstudiantesController extends Controller {
                 $fileName = "{$unique}-{$file}";
                 $model->foto = $fileName;
             }
+
             $model->cruge_user_iduser = Yii::app()->user->id;
             if ($model->save()) {
                 if (is_object($file) && get_class($file) === 'CuploadedFile') {
-                    $file->saveAs(Yii::app()->basePath . '/../uploads/' . $fileName);
+                    $file->saveAs(Yii::app()->basePath.'/../uploads/'.$fileName);
                 }
                 $this->redirect(array('view', 'id' => $model->idestudiante));
             }
@@ -99,19 +100,25 @@ class EstudiantesController extends Controller {
             //Formato Hora
             $unique = date('Ymdhi');
             $model->attributes = $_POST['Estudiantes'];
-             $file = CUploadedFile::getInstance($model, 'foto');
+            $file = CUploadedFile::getInstance($model, 'foto');
             if ($file != NULL) {
                 if (is_object($file) && get_class($file)) {
+                    
                     $fileName = "{$unique}-{$file}";
                     $model->foto = $fileName;
+                    
                 }
             }else{
+
                 $model->foto = $foto;
             }
             if ($model->save()){
-                if (is_object($file) && get_class($file) === 'CuploadedFile') {
-                    $file->saveAs(Yii::app()->basePath . '/../uploads/' . $fileName);
+
+                if ($file!= NULL) {
+                    
+                    $file->saveAs(Yii::app()->basePath.'/../uploads/'.$fileName);
                 }
+
                 $this->redirect(array('view', 'id' => $model->idestudiante));
             }
         }

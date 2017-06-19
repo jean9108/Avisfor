@@ -144,6 +144,9 @@
                                         <?php }?>
                                 </li>
                                 <li>
+                                        <?php echo Chtml::link('Prolog', array('/sistemas/prologView'))?>
+                                </li>
+                                <li>
                                        <?php echo Chtml::link('Mis Sistemas Formales',array('/sistemas/misSistemas/'))?>
                                 </li>
                                 <li>

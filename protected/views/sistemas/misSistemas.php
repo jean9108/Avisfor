@@ -12,11 +12,19 @@ $this->breadcrumbs = array(
 </div>
 
 <!--Botones de selección para cada acción--> 
-<?php if (Yii::app()->user->checkAccess('tpro') && !Yii::app()->user->isSuperAdmin) { ?>
-    <?php echo CHtml::link('Crear Sistema Formal', array('/sistemas/create'), array('class' => 'btn btn-success')); ?>
-    <?php // echo Chtml::link('Descargar Programa', array('//'), array)?>
-    <a href="<?php echo Yii::app()->baseUrl; ?>/programa/sisfor.zip" download="sisfor.zip">Descargar</a>
-<?php } ?>
-<?php 
-system("sisfor.EXE"); 
-?> 
+<div class = "col-sm-12" onload="launchCalc()">
+	<?php if (Yii::app()->user->checkAccess('tpro') && !Yii::app()->user->isSuperAdmin) { ?>
+		<div class = "col-sm-6 actualizar">
+    		<?php echo CHtml::link('Crear Sistema Formal', array('/sistemas/create'), array('class' => 'btn btn-primary')); ?>
+		</div>
+		<div class = "col-sm-6 actualizar">
+    		<a href="<?php echo Yii::app()->baseUrl; ?>/programa/sisfor.zip" download="sisfor.zip" class = "btn btn-primary">Descargar</a> 
+		</div>
+	<?php } ?>
+
+
+<?php
+$file = Yii::app()->basePath."/../programa/sisfor.EXE";
+  echo exec($file);
+?>
+</div>

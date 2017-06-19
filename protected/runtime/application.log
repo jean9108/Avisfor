@@ -767,3 +767,631 @@ CrugeUser->validate es false
 </ul></div>
 in C:\xampp\htdocs\Avisfor\protected\modules\cruge\controllers\UiController.php (157)
 in C:\xampp\htdocs\Avisfor\index.php (13)
+2017/06/19 02:17:47 [error] [application] UiController
+CrugeUser->validate es false
+<div class="errorSummary"><p>Por favor corrija los siguientes errores de ingreso:</p>
+<ul>
+<li>clave invalida</li>
+</ul></div>
+in C:\xampp\htdocs\Avisfor\protected\modules\cruge\controllers\UiController.php (157)
+in C:\xampp\htdocs\Avisfor\index.php (13)
+2017/06/19 02:39:35 [error] [exception.ParseError] ParseError: syntax error, unexpected 'if' (T_IF) in C:\xampp\htdocs\Avisfor\protected\controllers\EstudiantesController.php:105
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): CWebApplication->createController('update/')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('estudiantes/upd...')
+#2 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#3 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#4 {main}
+REQUEST_URI=/avisfor/index.php/estudiantes/update/1
+HTTP_REFERER=http://localhost/avisfor/index.php/estudiantes/update/1
+---
+2017/06/19 02:42:46 [error] [exception.CHttpException.403] CHttpException: Usted no se encuentra autorizado a realizar esta acción. in C:\xampp\htdocs\yii\framework\web\auth\CAccessControlFilter.php:183
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CrugeWebUser), 'Usted no se enc...')
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('')
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('estudiantes')
+#9 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/Avisfor/index.php/estudiantes
+---
+2017/06/19 02:58:42 [error] [php] A non-numeric value encountered (C:\xampp\htdocs\Avisfor\protected\controllers\EstudiantesController.php:104)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): EstudiantesController->runAction()
+#3 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): EstudiantesController->filterAccessControl()
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(265): EstudiantesController->runActionWithFilters()
+#9 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): EstudiantesController->run()
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\Avisfor\index.php(13): CWebApplication->run()
+REQUEST_URI=/Avisfor/index.php/estudiantes/update/1
+in C:\xampp\htdocs\Avisfor\protected\controllers\EstudiantesController.php (104)
+in C:\xampp\htdocs\Avisfor\index.php (13)
+2017/06/19 03:08:09 [error] [exception.Error] Error: Call to a member function saveAs() on null in C:\xampp\htdocs\Avisfor\protected\controllers\EstudiantesController.php:119
+Stack trace:
+#0 [internal function]: EstudiantesController->actionUpdate('1')
+#1 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs(Object(EstudiantesController), Array)
+#2 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(EstudiantesController), Object(ReflectionMethod), Array)
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#7 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('update')
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('estudiantes/upd...')
+#13 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/Avisfor/index.php/estudiantes/update/1
+HTTP_REFERER=http://localhost/Avisfor/index.php/estudiantes/update/1
+---
+2017/06/19 03:11:15 [error] [exception.CHttpException.403] CHttpException: Usted no se encuentra autorizado a realizar esta acción. in C:\xampp\htdocs\yii\framework\web\auth\CAccessControlFilter.php:183
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CrugeWebUser), 'Usted no se enc...')
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('')
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('estudiantes')
+#9 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/avisfor/index.php/estudiantes/
+---
+2017/06/19 04:02:44 [error] [exception.ParseError] ParseError: syntax error, unexpected '{', expecting '(' in C:\xampp\htdocs\Avisfor\protected\views\sistemas\misSistemas.php:25
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', NULL, true)
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', NULL, true)
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(785): CController->renderPartial('misSistemas', NULL, true)
+#3 C:\xampp\htdocs\Avisfor\protected\controllers\SistemasController.php(144): CController->render('misSistemas')
+#4 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SistemasController->actionMisSistemas()
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#7 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#9 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('misSistemas')
+#14 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sistemas/misSis...')
+#15 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#16 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/Avisfor/index.php/sistemas/misSistemas
+HTTP_REFERER=http://localhost/Avisfor/index.php/cruge/ui/login
+---
+2017/06/19 04:06:44 [error] [php] Use of undefined constant tam - assumed 'tam' (C:\xampp\htdocs\Avisfor\protected\views\sistemas\misSistemas.php:27)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(872): SistemasController->renderFile()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(785): SistemasController->renderPartial()
+#2 C:\xampp\htdocs\Avisfor\protected\controllers\SistemasController.php(144): SistemasController->render()
+#3 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SistemasController->actionMisSistemas()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): SistemasController->runAction()
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#8 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): SistemasController->filterAccessControl()
+#9 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(265): SistemasController->runActionWithFilters()
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SistemasController->run()
+#13 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\Avisfor\index.php(13): CWebApplication->run()
+REQUEST_URI=/Avisfor/index.php/sistemas/misSistemas
+in C:\xampp\htdocs\Avisfor\protected\views\sistemas\misSistemas.php (27)
+in C:\xampp\htdocs\Avisfor\protected\controllers\SistemasController.php (144)
+in C:\xampp\htdocs\Avisfor\index.php (13)
+2017/06/19 04:07:13 [error] [php] Use of undefined constant tam - assumed 'tam' (C:\xampp\htdocs\Avisfor\protected\views\sistemas\misSistemas.php:27)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(872): SistemasController->renderFile()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(785): SistemasController->renderPartial()
+#2 C:\xampp\htdocs\Avisfor\protected\controllers\SistemasController.php(144): SistemasController->render()
+#3 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SistemasController->actionMisSistemas()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): SistemasController->runAction()
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#8 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): SistemasController->filterAccessControl()
+#9 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(265): SistemasController->runActionWithFilters()
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SistemasController->run()
+#13 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\Avisfor\index.php(13): CWebApplication->run()
+REQUEST_URI=/avisfor/index.php/sistemas/misSistemas
+in C:\xampp\htdocs\Avisfor\protected\views\sistemas\misSistemas.php (27)
+in C:\xampp\htdocs\Avisfor\protected\controllers\SistemasController.php (144)
+in C:\xampp\htdocs\Avisfor\index.php (13)
+2017/06/19 04:09:31 [error] [php] Use of undefined constant tam - assumed 'tam' (C:\xampp\htdocs\Avisfor\protected\views\sistemas\misSistemas.php:27)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(872): SistemasController->renderFile()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(785): SistemasController->renderPartial()
+#2 C:\xampp\htdocs\Avisfor\protected\controllers\SistemasController.php(144): SistemasController->render()
+#3 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SistemasController->actionMisSistemas()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): SistemasController->runAction()
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#8 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): SistemasController->filterAccessControl()
+#9 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(265): SistemasController->runActionWithFilters()
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SistemasController->run()
+#13 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\Avisfor\index.php(13): CWebApplication->run()
+REQUEST_URI=/avisfor/index.php/sistemas/misSistemas
+in C:\xampp\htdocs\Avisfor\protected\views\sistemas\misSistemas.php (27)
+in C:\xampp\htdocs\Avisfor\protected\controllers\SistemasController.php (144)
+in C:\xampp\htdocs\Avisfor\index.php (13)
+2017/06/19 04:09:37 [error] [php] Use of undefined constant tam - assumed 'tam' (C:\xampp\htdocs\Avisfor\protected\views\sistemas\misSistemas.php:27)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(872): SistemasController->renderFile()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(785): SistemasController->renderPartial()
+#2 C:\xampp\htdocs\Avisfor\protected\controllers\SistemasController.php(144): SistemasController->render()
+#3 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SistemasController->actionMisSistemas()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): SistemasController->runAction()
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#8 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): SistemasController->filterAccessControl()
+#9 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(265): SistemasController->runActionWithFilters()
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SistemasController->run()
+#13 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\Avisfor\index.php(13): CWebApplication->run()
+REQUEST_URI=/Avisfor/index.php/sistemas/misSistemas
+in C:\xampp\htdocs\Avisfor\protected\views\sistemas\misSistemas.php (27)
+in C:\xampp\htdocs\Avisfor\protected\controllers\SistemasController.php (144)
+in C:\xampp\htdocs\Avisfor\index.php (13)
+2017/06/19 04:20:11 [error] [exception.ParseError] ParseError: syntax error, unexpected 'type' (T_STRING) in C:\xampp\htdocs\Avisfor\protected\views\sistemas\misSistemas.php:25
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', NULL, true)
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', NULL, true)
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(785): CController->renderPartial('misSistemas', NULL, true)
+#3 C:\xampp\htdocs\Avisfor\protected\controllers\SistemasController.php(144): CController->render('misSistemas')
+#4 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SistemasController->actionMisSistemas()
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#7 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#9 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('misSistemas')
+#14 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sistemas/misSis...')
+#15 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#16 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/avisfor/index.php/sistemas/misSistemas
+HTTP_REFERER=http://localhost/avisfor/index.php/cruge/ui/login
+---
+2017/06/19 04:20:32 [error] [exception.ParseError] ParseError: syntax error, unexpected 'type' (T_STRING) in C:\xampp\htdocs\Avisfor\protected\views\sistemas\misSistemas.php:25
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', NULL, true)
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', NULL, true)
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(785): CController->renderPartial('misSistemas', NULL, true)
+#3 C:\xampp\htdocs\Avisfor\protected\controllers\SistemasController.php(144): CController->render('misSistemas')
+#4 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SistemasController->actionMisSistemas()
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#7 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#9 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('misSistemas')
+#14 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sistemas/misSis...')
+#15 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#16 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/Avisfor/index.php/sistemas/misSistemas
+HTTP_REFERER=http://localhost/Avisfor/index.php/cruge/ui/login
+---
+2017/06/19 22:15:03 [error] [php] include(YYii.php): failed to open stream: No such file or directory (C:\xampp\htdocs\yii\framework\YiiBase.php:432)
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\protected\views\sistemas\misSistemas.php(27): spl_autoload_call()
+#1 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require()
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): SistemasController->renderInternal()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(872): SistemasController->renderFile()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(785): SistemasController->renderPartial()
+#5 C:\xampp\htdocs\Avisfor\protected\controllers\SistemasController.php(144): SistemasController->render()
+#6 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SistemasController->actionMisSistemas()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): SistemasController->runAction()
+#9 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#11 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): SistemasController->filterAccessControl()
+#12 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#14 C:\xampp\htdocs\yii\framework\web\CController.php(265): SistemasController->runActionWithFilters()
+#15 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SistemasController->run()
+#16 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#17 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#18 C:\xampp\htdocs\Avisfor\index.php(13): CWebApplication->run()
+REQUEST_URI=/Avisfor/index.php/sistemas/misSistemas
+in C:\xampp\htdocs\Avisfor\protected\views\sistemas\misSistemas.php (27)
+in C:\xampp\htdocs\Avisfor\protected\controllers\SistemasController.php (144)
+in C:\xampp\htdocs\Avisfor\index.php (13)
+2017/06/19 22:52:29 [error] [exception.ParseError] ParseError: syntax error, unexpected 'if' (T_IF) in C:\xampp\htdocs\Avisfor\protected\controllers\SistemasController.php:78
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): CWebApplication->createController('misSistemas/')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sistemas/misSis...')
+#2 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#3 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#4 {main}
+REQUEST_URI=/Avisfor/index.php/sistemas/misSistemas
+HTTP_REFERER=http://localhost/Avisfor/index.php/sistemas/create
+---
+2017/06/19 22:52:30 [error] [exception.ParseError] ParseError: syntax error, unexpected 'if' (T_IF) in C:\xampp\htdocs\Avisfor\protected\controllers\SistemasController.php:78
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): CWebApplication->createController('misSistemas/')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sistemas/misSis...')
+#2 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#3 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#4 {main}
+REQUEST_URI=/Avisfor/index.php/sistemas/misSistemas
+HTTP_REFERER=http://localhost/Avisfor/index.php/sistemas/create
+---
+2017/06/19 22:55:09 [error] [exception.ParseError] ParseError: syntax error, unexpected end of file in C:\xampp\htdocs\Avisfor\protected\views\sistemas\_form.php:44
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#2 C:\xampp\htdocs\Avisfor\protected\views\sistemas\create.php(18): CController->renderPartial('_form', Array)
+#3 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(785): CController->renderPartial('create', Array, true)
+#7 C:\xampp\htdocs\Avisfor\protected\controllers\SistemasController.php(89): CController->render('create', Array)
+#8 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SistemasController->actionCreate()
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#11 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#13 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#14 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#15 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#16 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#18 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sistemas/create')
+#19 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#20 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/Avisfor/index.php/sistemas/create
+HTTP_REFERER=http://localhost/Avisfor/index.php/sistemas/misSistemas
+---
+2017/06/19 22:56:16 [error] [exception.ParseError] ParseError: syntax error, unexpected end of file in C:\xampp\htdocs\Avisfor\protected\views\sistemas\_form.php:44
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#2 C:\xampp\htdocs\Avisfor\protected\views\sistemas\create.php(18): CController->renderPartial('_form', Array)
+#3 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(785): CController->renderPartial('create', Array, true)
+#7 C:\xampp\htdocs\Avisfor\protected\controllers\SistemasController.php(89): CController->render('create', Array)
+#8 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SistemasController->actionCreate()
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#11 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#13 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#14 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#15 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#16 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#18 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sistemas/create')
+#19 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#20 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/Avisfor/index.php/sistemas/create
+HTTP_REFERER=http://localhost/Avisfor/index.php/sistemas/misSistemas
+---
+2017/06/19 22:56:17 [error] [exception.ParseError] ParseError: syntax error, unexpected end of file in C:\xampp\htdocs\Avisfor\protected\views\sistemas\_form.php:44
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#2 C:\xampp\htdocs\Avisfor\protected\views\sistemas\create.php(18): CController->renderPartial('_form', Array)
+#3 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(785): CController->renderPartial('create', Array, true)
+#7 C:\xampp\htdocs\Avisfor\protected\controllers\SistemasController.php(89): CController->render('create', Array)
+#8 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SistemasController->actionCreate()
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#11 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#13 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#14 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#15 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#16 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#18 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sistemas/create')
+#19 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#20 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/Avisfor/index.php/sistemas/create
+HTTP_REFERER=http://localhost/Avisfor/index.php/sistemas/misSistemas
+---
+2017/06/19 22:56:18 [error] [exception.ParseError] ParseError: syntax error, unexpected end of file in C:\xampp\htdocs\Avisfor\protected\views\sistemas\_form.php:44
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#2 C:\xampp\htdocs\Avisfor\protected\views\sistemas\create.php(18): CController->renderPartial('_form', Array)
+#3 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(785): CController->renderPartial('create', Array, true)
+#7 C:\xampp\htdocs\Avisfor\protected\controllers\SistemasController.php(89): CController->render('create', Array)
+#8 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SistemasController->actionCreate()
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#11 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#13 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#14 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#15 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#16 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#18 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sistemas/create')
+#19 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#20 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/Avisfor/index.php/sistemas/create
+HTTP_REFERER=http://localhost/Avisfor/index.php/sistemas/misSistemas
+---
+2017/06/19 22:56:18 [error] [exception.ParseError] ParseError: syntax error, unexpected end of file in C:\xampp\htdocs\Avisfor\protected\views\sistemas\_form.php:44
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#2 C:\xampp\htdocs\Avisfor\protected\views\sistemas\create.php(18): CController->renderPartial('_form', Array)
+#3 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(785): CController->renderPartial('create', Array, true)
+#7 C:\xampp\htdocs\Avisfor\protected\controllers\SistemasController.php(89): CController->render('create', Array)
+#8 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SistemasController->actionCreate()
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#11 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#13 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#14 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#15 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#16 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#18 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sistemas/create')
+#19 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#20 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/Avisfor/index.php/sistemas/create
+HTTP_REFERER=http://localhost/Avisfor/index.php/sistemas/misSistemas
+---
+2017/06/19 22:56:19 [error] [exception.ParseError] ParseError: syntax error, unexpected end of file in C:\xampp\htdocs\Avisfor\protected\views\sistemas\_form.php:44
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#2 C:\xampp\htdocs\Avisfor\protected\views\sistemas\create.php(18): CController->renderPartial('_form', Array)
+#3 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(785): CController->renderPartial('create', Array, true)
+#7 C:\xampp\htdocs\Avisfor\protected\controllers\SistemasController.php(89): CController->render('create', Array)
+#8 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SistemasController->actionCreate()
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#11 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#13 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#14 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#15 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#16 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#18 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sistemas/create')
+#19 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#20 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/Avisfor/index.php/sistemas/create
+HTTP_REFERER=http://localhost/Avisfor/index.php/sistemas/misSistemas
+---
+2017/06/19 22:56:41 [error] [exception.CException] CException: La propiedad "CFileValidator"."type" no se encuentra definida. in C:\xampp\htdocs\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\validators\CValidator.php(177): CComponent->__set('type', 'pl')
+#1 C:\xampp\htdocs\yii\framework\base\CModel.php(287): CValidator::createValidator('type', Object(Sistemas), Array, Array)
+#2 C:\xampp\htdocs\yii\framework\base\CModel.php(260): CModel->createValidators()
+#3 C:\xampp\htdocs\yii\framework\base\CModel.php(304): CModel->getValidators('sistema')
+#4 C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php(1520): CModel->isAttributeRequired('sistema')
+#5 C:\xampp\htdocs\yii\framework\web\widgets\CActiveForm.php(600): CHtml::activeLabelEx(Object(Sistemas), 'sistema', Array)
+#6 C:\xampp\htdocs\Avisfor\protected\views\sistemas\_form.php(24): CActiveForm->labelEx(Object(Sistemas), 'sistema')
+#7 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#8 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#10 C:\xampp\htdocs\Avisfor\protected\views\sistemas\create.php(18): CController->renderPartial('_form', Array)
+#11 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#12 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#14 C:\xampp\htdocs\yii\framework\web\CController.php(785): CController->renderPartial('create', Array, true)
+#15 C:\xampp\htdocs\Avisfor\protected\controllers\SistemasController.php(89): CController->render('create', Array)
+#16 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SistemasController->actionCreate()
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#18 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#19 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#20 C:\xampp\htdocs\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#21 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#22 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#23 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#24 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#25 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#26 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sistemas/create')
+#27 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#28 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#29 {main}
+REQUEST_URI=/Avisfor/index.php/sistemas/create
+HTTP_REFERER=http://localhost/Avisfor/index.php/sistemas/misSistemas
+---
+2017/06/19 22:57:14 [error] [exception.CException] CException: La propiedad "CFileValidator"."type" no se encuentra definida. in C:\xampp\htdocs\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\validators\CValidator.php(177): CComponent->__set('type', 'txt')
+#1 C:\xampp\htdocs\yii\framework\base\CModel.php(287): CValidator::createValidator('type', Object(Sistemas), Array, Array)
+#2 C:\xampp\htdocs\yii\framework\base\CModel.php(260): CModel->createValidators()
+#3 C:\xampp\htdocs\yii\framework\base\CModel.php(304): CModel->getValidators('sistema')
+#4 C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php(1520): CModel->isAttributeRequired('sistema')
+#5 C:\xampp\htdocs\yii\framework\web\widgets\CActiveForm.php(600): CHtml::activeLabelEx(Object(Sistemas), 'sistema', Array)
+#6 C:\xampp\htdocs\Avisfor\protected\views\sistemas\_form.php(24): CActiveForm->labelEx(Object(Sistemas), 'sistema')
+#7 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#8 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#10 C:\xampp\htdocs\Avisfor\protected\views\sistemas\create.php(18): CController->renderPartial('_form', Array)
+#11 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#12 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#14 C:\xampp\htdocs\yii\framework\web\CController.php(785): CController->renderPartial('create', Array, true)
+#15 C:\xampp\htdocs\Avisfor\protected\controllers\SistemasController.php(89): CController->render('create', Array)
+#16 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SistemasController->actionCreate()
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#18 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#19 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#20 C:\xampp\htdocs\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#21 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#22 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#23 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#24 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#25 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#26 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sistemas/create')
+#27 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#28 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#29 {main}
+REQUEST_URI=/Avisfor/index.php/sistemas/create
+HTTP_REFERER=http://localhost/Avisfor/index.php/sistemas/misSistemas
+---
+2017/06/19 22:57:15 [error] [exception.CException] CException: La propiedad "CFileValidator"."type" no se encuentra definida. in C:\xampp\htdocs\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\validators\CValidator.php(177): CComponent->__set('type', 'txt')
+#1 C:\xampp\htdocs\yii\framework\base\CModel.php(287): CValidator::createValidator('type', Object(Sistemas), Array, Array)
+#2 C:\xampp\htdocs\yii\framework\base\CModel.php(260): CModel->createValidators()
+#3 C:\xampp\htdocs\yii\framework\base\CModel.php(304): CModel->getValidators('sistema')
+#4 C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php(1520): CModel->isAttributeRequired('sistema')
+#5 C:\xampp\htdocs\yii\framework\web\widgets\CActiveForm.php(600): CHtml::activeLabelEx(Object(Sistemas), 'sistema', Array)
+#6 C:\xampp\htdocs\Avisfor\protected\views\sistemas\_form.php(24): CActiveForm->labelEx(Object(Sistemas), 'sistema')
+#7 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#8 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#10 C:\xampp\htdocs\Avisfor\protected\views\sistemas\create.php(18): CController->renderPartial('_form', Array)
+#11 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#12 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#14 C:\xampp\htdocs\yii\framework\web\CController.php(785): CController->renderPartial('create', Array, true)
+#15 C:\xampp\htdocs\Avisfor\protected\controllers\SistemasController.php(89): CController->render('create', Array)
+#16 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SistemasController->actionCreate()
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#18 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#19 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#20 C:\xampp\htdocs\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#21 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#22 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#23 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#24 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#25 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#26 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sistemas/create')
+#27 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#28 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#29 {main}
+REQUEST_URI=/Avisfor/index.php/sistemas/create
+HTTP_REFERER=http://localhost/Avisfor/index.php/sistemas/misSistemas
+---
+2017/06/19 22:57:15 [error] [exception.CException] CException: La propiedad "CFileValidator"."type" no se encuentra definida. in C:\xampp\htdocs\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\validators\CValidator.php(177): CComponent->__set('type', 'txt')
+#1 C:\xampp\htdocs\yii\framework\base\CModel.php(287): CValidator::createValidator('type', Object(Sistemas), Array, Array)
+#2 C:\xampp\htdocs\yii\framework\base\CModel.php(260): CModel->createValidators()
+#3 C:\xampp\htdocs\yii\framework\base\CModel.php(304): CModel->getValidators('sistema')
+#4 C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php(1520): CModel->isAttributeRequired('sistema')
+#5 C:\xampp\htdocs\yii\framework\web\widgets\CActiveForm.php(600): CHtml::activeLabelEx(Object(Sistemas), 'sistema', Array)
+#6 C:\xampp\htdocs\Avisfor\protected\views\sistemas\_form.php(24): CActiveForm->labelEx(Object(Sistemas), 'sistema')
+#7 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#8 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#10 C:\xampp\htdocs\Avisfor\protected\views\sistemas\create.php(18): CController->renderPartial('_form', Array)
+#11 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#12 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#14 C:\xampp\htdocs\yii\framework\web\CController.php(785): CController->renderPartial('create', Array, true)
+#15 C:\xampp\htdocs\Avisfor\protected\controllers\SistemasController.php(89): CController->render('create', Array)
+#16 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SistemasController->actionCreate()
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#18 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#19 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#20 C:\xampp\htdocs\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#21 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#22 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#23 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#24 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#25 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#26 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sistemas/create')
+#27 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#28 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#29 {main}
+REQUEST_URI=/Avisfor/index.php/sistemas/create
+HTTP_REFERER=http://localhost/Avisfor/index.php/sistemas/misSistemas
+---
+2017/06/19 22:58:34 [error] [exception.CException] CException: La propiedad "CFileValidator"."allowType" no se encuentra definida. in C:\xampp\htdocs\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\validators\CValidator.php(177): CComponent->__set('allowType', 'true')
+#1 C:\xampp\htdocs\yii\framework\base\CModel.php(287): CValidator::createValidator('allowType', Object(Sistemas), Array, Array)
+#2 C:\xampp\htdocs\yii\framework\base\CModel.php(260): CModel->createValidators()
+#3 C:\xampp\htdocs\yii\framework\base\CModel.php(304): CModel->getValidators('sistema')
+#4 C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php(1520): CModel->isAttributeRequired('sistema')
+#5 C:\xampp\htdocs\yii\framework\web\widgets\CActiveForm.php(600): CHtml::activeLabelEx(Object(Sistemas), 'sistema', Array)
+#6 C:\xampp\htdocs\Avisfor\protected\views\sistemas\_form.php(24): CActiveForm->labelEx(Object(Sistemas), 'sistema')
+#7 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#8 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#10 C:\xampp\htdocs\Avisfor\protected\views\sistemas\create.php(18): CController->renderPartial('_form', Array)
+#11 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#12 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#14 C:\xampp\htdocs\yii\framework\web\CController.php(785): CController->renderPartial('create', Array, true)
+#15 C:\xampp\htdocs\Avisfor\protected\controllers\SistemasController.php(89): CController->render('create', Array)
+#16 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SistemasController->actionCreate()
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#18 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#19 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#20 C:\xampp\htdocs\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#21 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#22 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#23 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#24 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#25 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#26 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sistemas/create')
+#27 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#28 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#29 {main}
+REQUEST_URI=/Avisfor/index.php/sistemas/create
+HTTP_REFERER=http://localhost/Avisfor/index.php/sistemas/misSistemas
+---

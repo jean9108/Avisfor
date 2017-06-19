@@ -29,8 +29,14 @@ class Sistemas extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('idsistemas, sistema, estudiantes_idestudiante', 'required'),
-			array('idsistemas, estudiantes_idestudiante', 'numerical', 'integerOnly'=>true),
+			array('sistema, estudiantes_idestudiante', 'required'),
+			array('estudiantes_idestudiante', 'numerical', 'integerOnly'=>true),
+			array('sistema', 'file',
+					'types' => 'pl',
+					'allowEmpty' => 'true', 
+					'on' => 'insert'
+			),
+	
 			array('sistema', 'length', 'max'=>45),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.

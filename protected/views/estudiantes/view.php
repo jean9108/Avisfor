@@ -20,7 +20,7 @@ $this->widget('zii.widgets.CDetailView', array(
         array(
             'name'=>'Foto', 
                     'type' => 'raw',
-                    'value'=>CHtml::image(Yii::app()->basePath.'/uploads/'.$model->foto,'imagen',array('width'=>200)), 
+                    'value'=>CHtml::image(Yii::app()->baseUrl.'/uploads/'.$model->foto,'imagen',array('width'=>200)), 
         ),
         'bachiller',
     ),
