@@ -8,7 +8,12 @@ $this->breadcrumbs=array(
 	'Guardar Sistema',
 );
 ?>
+<div  class="col-sm-12 tituloP">
+    <h1><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar Mi Sistema Formal</h1>
+</div>
 
-<h1>Guardar Mi Sistema Formal</h1>
-
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+<div class="col-sm-3"></div>
+<div class="col-sm-6">
+    <?php $this->renderPartial('_form', array('model'=>$model)); ?>
+</div>
+<div class="col-sm-3"></div>

@@ -30,7 +30,7 @@ class SistemasController extends Controller {
                 'users' => array('*'),
             ),
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
-                'actions' => array('create', 'update', 'view', 'misSistemas','download','prologView'),
+                'actions' => array('create', 'update', 'view', 'misSistemas','download','prologView','delete'),
                 'users' => array('@'),
             ),
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -81,7 +81,7 @@ class SistemasController extends Controller {
                     $file->saveAs(Yii::app()->basePath.'/../sisform/'.$fileName);
                 }
 
-                $this->redirect(array('view', 'id' => $model->idsistemas));
+                $this->redirect(array('misSistemas'));
             }
         }
 
