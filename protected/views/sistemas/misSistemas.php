@@ -20,6 +20,10 @@ $this->breadcrumbs = array(
         <div class = "col-sm-4 actualizar">
             <a href="<?php echo Yii::app()->baseUrl; ?>/programa/sisfor.zip" download="sisfor.zip" class = "btn btn-primary"><i class="fa fa-download" aria-hidden="true"></i> Descargar</a> 
         </div>
+    
+        <div class = "col-sm-4 actualizar">
+            <?php echo CHtml::link('<i class="fa fa-plus" aria-hidden="true"></i> Ir al simulador', array('/sisfor/create'), array('class' => 'btn btn-primary')); ?>
+        </div>
     <?php } ?>
 
 

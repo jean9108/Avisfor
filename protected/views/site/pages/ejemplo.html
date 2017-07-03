@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>Métodos de String</title> 
+<style type="text/css">
+#caja { width: 400px; border: 1px solid black ; float: right; }
+</style>
+<script type="text/javascript">
+function contar() {
+         texto = document.getElementById("ejemplo"); //acceder al texto
+         texto = texto.innerHTML;
+         var texto1 = texto; 
+         var letra = document.buscar.letra.value; //acceso a letra
+         numCar = texto1.length; //longitud del texto
+         veces = 0; //contar las veces que se repite
+         posicion = texto1.indexOf(letra); //primera aparición de letra
+         posfinal = texto1.lastIndexOf(letra);
+         posfinal = numCar-posfinal; //posición de la ultima letra 
+         while (numCar>=posfinal) {
+            posicion = texto1.indexOf(letra); //punto para modificar
+            posicion++;
+            texto1 = texto1.substring(posicion); //modificar texto
+            numCar -= posicion; // nueva longitud del texto
+            veces++; // contador de veces.
+            }
+         //escribir en la página los resultados.
+         respuesta = document.getElementById("respuestas");
+         if (posicion>=0) {
+            texto = "El caracter "+letra+" se repite "+veces+" veces.":
+            }
+         else {
+            texto = "El caracter buscado no se ha encontrado en el texto";
+            }
+         respuesta.innerHTML = texto;
+				 }
+</script>
+</head>
+<body>
+<h1>Buscar caracteres en el texto. </h1>
+<div id="caja">
+<h2>Respuestas:</h2>
+<p id="respuestas"></p>
+</div>
+<h3>Texto de ejemplo:</h3>
+<p id="ejemplo">En un lugar de la Mancha, de cuyo nombre no quiero 
+   acordarme,no ha mucho tiempo que vivía un hidalgo de los de lanza en 
+   astillero, adarga antigua, rocín flaco y galgo corredor. Una olla de 
+   algo más vaca que carnero, salpicón las más noches, duelos y 
+   quebrantos los sábados, lentejas los viernes, algún palomino 
+   de añadidura los domingos, consumían las tres partes de su hacienda. 
+<h3> Buscar letras</h3>
+  <p>Dime una caracter y yo te digo cuantas veces se repite en el texto.</p>
+<form action="#" name="buscar">
+  <p><input type="text" name="letra" maxlength="1" size="2" /> 
+    Escribe un caracter</p>
+  <p><input type="button" value="Veces" onclick="contar()" /></p>
+</form>
+</body>
+</html>
