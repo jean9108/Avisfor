@@ -47,13 +47,11 @@ class SisforController extends Controller {
     /**
      * Contar letras 
      * */
-    public function getContarLetras() {
+    public function actionContarLetras() {
          
-        $axioma = $_POST['Sisfor']['axioma'];
-        return $axioma;
-        //echo 'aqui ta';
-        //$pos = strpos($axioma, $letra);
-       // var_dump($pos);
+             $this->redirect(array('create'));
+          
+       
         
     }
 

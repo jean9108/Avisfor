@@ -17,7 +17,7 @@
     ?>
 
     <?php echo $form->errorSummary($model); ?>
-
+    <a href="index.php?r=controller/action">Link Text</a>
     <div class="row col-sm-8">
         <label>Escriba el Axioma  !! No deje espacios en blanco"  ...Derivación actual</label>
         <?php echo $form->textArea($model, 'axioma', array('size' => 45, 'maxlength' => 45, 'class' => 'form-control')); ?>
@@ -27,8 +27,8 @@
 
     <div class="row col-sm-4">
          <div class = "row col-sm-6">
-            <input type="button" id="boton" value="Nº de Letras" class="btn btn-default">
-            <?php //echo CHtml::link('Nº de Letras', array('sisfor/contarLetras'), array('class' => 'btn btn-default')); ?>
+            <!--<input type="button" id="boton" value="Nº de Letras" class="btn btn-default">-->
+            <?php echo CHtml::link('Nº de Letras', array('sisfor/contarLetras'), array('class' => 'btn btn-default')); ?>
         </div> 
         <div class="row col-sm-3"> 
             <input type="text" id="texto" checked="btn btn-default" class="form-control">

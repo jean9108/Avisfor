@@ -10,7 +10,9 @@ return array(
         'booster' => realpath(__DIR__ . '/../extensions/yiibooster'),
         'ext' => realpath(__DIR__ . '/../extensions'),
     ),
+    
     'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
+    
     'name' => 'Ambiente Visual Sistemas Formales',
     // preloading 'log' component
     'preload' => array('log', 'booster'),
@@ -23,6 +25,8 @@ return array(
 //        importacion de cruge
         'application.modules.cruge.components.*',
         'application.modules.cruge.extensions.crugemailer.*',
+        //Multiple create
+        'ext.dynamictabularform.*',
     ),
     //Lenguaje
     'sourceLanguage' => 'es',
@@ -128,7 +132,6 @@ return array(
             'password' => '',
             'charset' => 'utf8',
         ),
-        
         'errorHandler' => array(
             // use 'site/error' action to display errors
             'errorAction' => 'site/error',

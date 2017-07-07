@@ -3,9 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/Avisfor/protected/models/Sistemas.php</file>
-            <file>file:/C:/xampp/htdocs/Avisfor/protected/controllers/SistemasController.php</file>
-            <file>file:/C:/xampp/htdocs/Avisfor/protected/views/sistemas/misSistemas.php</file>
+            <file>file:/C:/xampp/htdocs/Avisfor/protected/models/Reglas.php</file>
+            <file>file:/C:/xampp/htdocs/Avisfor/protected/views/logica/create.php</file>
+            <file>file:/C:/xampp/htdocs/Avisfor/protected/views/logica/_form.php</file>
+            <file>file:/C:/xampp/htdocs/Avisfor/protected/controllers/LogicaController.php</file>
+            <file>file:/C:/xampp/htdocs/Avisfor/protected/controllers/ReglasController.php</file>
+            <file>file:/C:/xampp/htdocs/Avisfor/protected/views/reglas/_form.php</file>
         </group>
     </open-files>
 </project-private>

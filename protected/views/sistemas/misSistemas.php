@@ -28,7 +28,7 @@ $this->breadcrumbs = array(
 
 
     <?php
-    $file = Yii::app()->basePath . "/../programa/sisfor.EXE";
+  //  $file = Yii::app()->basePath . "/../programa/sisfor.EXE";
     //echo exec($file);
     ?>
 </div>

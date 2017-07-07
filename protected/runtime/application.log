@@ -2961,3 +2961,1129 @@ Stack trace:
 REQUEST_URI=/Avisfor/index.php/sisfor/contarLetras
 HTTP_REFERER=http://localhost:8081/Avisfor/index.php/sisfor/create
 ---
+2017/07/04 18:04:48 [error] [exception.CHttpException.404] CHttpException: El sistema no ha podido encontrar la acción "index.php" solicitada. in C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php:486
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(270): CController->missingAction('index.php')
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('index.php')
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sisfor/index.ph...')
+#3 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/avisfor/index.php/sisfor/index.php?r=controller/action
+HTTP_REFERER=http://localhost/avisfor/index.php/sisfor/create
+---
+2017/07/05 16:32:07 [error] [exception.CHttpException.404] CHttpException: El sistema no ha podido encontrar la acción "index.php" solicitada. in C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php:486
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(270): CController->missingAction('index.php')
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('index.php')
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sisfor/index.ph...')
+#3 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/avisfor/index.php/sisfor/index.php?r=controller/action
+HTTP_REFERER=http://localhost/avisfor/index.php/sisfor/create
+---
+2017/07/05 16:34:30 [error] [exception.ParseError] ParseError: syntax error, unexpected 'public' (T_PUBLIC) in C:\xampp\htdocs\Avisfor\protected\controllers\SisforController.php:60
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(276): CWebApplication->createController('create/')
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('sisfor/create')
+#2 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#3 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#4 {main}
+REQUEST_URI=/avisfor/index.php/sisfor/create
+HTTP_REFERER=http://localhost/avisfor/index.php/sisfor/create
+---
+2017/07/06 23:58:39 [error] [php] Undefined variable: reglas (C:\xampp\htdocs\Avisfor\protected\controllers\LogicaController.php:154)
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(134): LogicaController->runAction()
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): LogicaController->filterAccessControl()
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#5 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): LogicaController->runActionWithFilters()
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): LogicaController->run()
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\Avisfor\index.php(13): CWebApplication->run()
+REQUEST_URI=/avisfor/index.php/logica/create
+in C:\xampp\htdocs\Avisfor\protected\controllers\LogicaController.php (154)
+in C:\xampp\htdocs\Avisfor\index.php (13)
+2017/07/07 00:35:37 [error] [exception.CException] CException: DynamicTabularForm y sus behaviors no tienen un método o closure llamado "_form". in C:\xampp\htdocs\Avisfor\yii\framework\base\CComponent.php:266
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\protected\views\logica\create.php(52): CComponent->__call('_form', Array)
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(785): CController->renderPartial('create', Array, true)
+#5 C:\xampp\htdocs\Avisfor\protected\controllers\LogicaController.php(130): CController->render('create', Array)
+#6 C:\xampp\htdocs\Avisfor\yii\framework\web\actions\CInlineAction.php(49): LogicaController->actionCreate()
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#9 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#10 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#11 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#12 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#13 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#14 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#16 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('logica/create')
+#17 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#18 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/avisfor/index.php/logica/create
+HTTP_REFERER=http://localhost/avisfor/index.php/cruge/ui/login
+---
+2017/07/07 00:36:28 [error] [exception.CException] CException: La propiedad "Reglas"."axioma" no se encuentra definida. in C:\xampp\htdocs\Avisfor\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('axioma')
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\helpers\CHtml.php(2747): CActiveRecord->__get('axioma')
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\helpers\CHtml.php(2470): CHtml::resolveValue(Object(Reglas), 'axioma')
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\helpers\CHtml.php(1540): CHtml::activeInputField('text', Object(Reglas), 'axioma', Array)
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\widgets\CActiveForm.php(792): CHtml::activeTextField(Object(Reglas), 'axioma', Array)
+#5 C:\xampp\htdocs\Avisfor\protected\views\logica\_form.php(24): CActiveForm->textField(Object(Reglas), 'axioma', Array)
+#6 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#9 C:\xampp\htdocs\Avisfor\protected\extensions\dynamictabularform\DynamicTabularForm.php(66): CController->renderPartial('_form', Array)
+#10 C:\xampp\htdocs\Avisfor\protected\views\logica\create.php(52): DynamicTabularForm->rowForm(Array)
+#11 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#12 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#13 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#14 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(785): CController->renderPartial('create', Array, true)
+#15 C:\xampp\htdocs\Avisfor\protected\controllers\LogicaController.php(130): CController->render('create', Array)
+#16 C:\xampp\htdocs\Avisfor\yii\framework\web\actions\CInlineAction.php(49): LogicaController->actionCreate()
+#17 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#18 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#19 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#20 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#21 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#22 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#23 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#24 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#25 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#26 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('logica/create')
+#27 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#28 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#29 {main}
+REQUEST_URI=/avisfor/index.php/logica/create
+HTTP_REFERER=http://localhost/avisfor/index.php/cruge/ui/login
+---
+2017/07/07 00:37:27 [error] [exception.CException] CException: LogicaController no ha podido encontrar la vista "rowForm" solicitada. in C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php:881
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\protected\extensions\dynamictabularform\DynamicTabularForm.php(66): CController->renderPartial('rowForm', Array)
+#1 C:\xampp\htdocs\Avisfor\protected\views\logica\create.php(52): DynamicTabularForm->rowForm(Array)
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#5 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(785): CController->renderPartial('create', Array, true)
+#6 C:\xampp\htdocs\Avisfor\protected\controllers\LogicaController.php(130): CController->render('create', Array)
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\actions\CInlineAction.php(49): LogicaController->actionCreate()
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#10 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#12 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#14 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#15 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#17 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('logica/create')
+#18 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#19 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#20 {main}
+REQUEST_URI=/avisfor/index.php/logica/create
+HTTP_REFERER=http://localhost/avisfor/index.php/cruge/ui/login
+---
+2017/07/07 00:37:46 [error] [exception.CException] CException: La propiedad "Reglas"."axioma" no se encuentra definida. in C:\xampp\htdocs\Avisfor\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('axioma')
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\helpers\CHtml.php(2747): CActiveRecord->__get('axioma')
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\helpers\CHtml.php(2470): CHtml::resolveValue(Object(Reglas), 'axioma')
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\helpers\CHtml.php(1540): CHtml::activeInputField('text', Object(Reglas), 'axioma', Array)
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\widgets\CActiveForm.php(792): CHtml::activeTextField(Object(Reglas), 'axioma', Array)
+#5 C:\xampp\htdocs\Avisfor\protected\views\logica\_form.php(24): CActiveForm->textField(Object(Reglas), 'axioma', Array)
+#6 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#9 C:\xampp\htdocs\Avisfor\protected\extensions\dynamictabularform\DynamicTabularForm.php(66): CController->renderPartial('_form', Array)
+#10 C:\xampp\htdocs\Avisfor\protected\views\logica\create.php(52): DynamicTabularForm->rowForm(Array)
+#11 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#12 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#13 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#14 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(785): CController->renderPartial('create', Array, true)
+#15 C:\xampp\htdocs\Avisfor\protected\controllers\LogicaController.php(130): CController->render('create', Array)
+#16 C:\xampp\htdocs\Avisfor\yii\framework\web\actions\CInlineAction.php(49): LogicaController->actionCreate()
+#17 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#18 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#19 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#20 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#21 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#22 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#23 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#24 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#25 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#26 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('logica/create')
+#27 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#28 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#29 {main}
+REQUEST_URI=/avisfor/index.php/logica/create
+HTTP_REFERER=http://localhost/avisfor/index.php/cruge/ui/login
+---
+2017/07/07 00:37:47 [error] [exception.CException] CException: La propiedad "Reglas"."axioma" no se encuentra definida. in C:\xampp\htdocs\Avisfor\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('axioma')
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\helpers\CHtml.php(2747): CActiveRecord->__get('axioma')
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\helpers\CHtml.php(2470): CHtml::resolveValue(Object(Reglas), 'axioma')
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\helpers\CHtml.php(1540): CHtml::activeInputField('text', Object(Reglas), 'axioma', Array)
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\widgets\CActiveForm.php(792): CHtml::activeTextField(Object(Reglas), 'axioma', Array)
+#5 C:\xampp\htdocs\Avisfor\protected\views\logica\_form.php(24): CActiveForm->textField(Object(Reglas), 'axioma', Array)
+#6 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#9 C:\xampp\htdocs\Avisfor\protected\extensions\dynamictabularform\DynamicTabularForm.php(66): CController->renderPartial('_form', Array)
+#10 C:\xampp\htdocs\Avisfor\protected\views\logica\create.php(52): DynamicTabularForm->rowForm(Array)
+#11 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#12 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#13 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#14 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(785): CController->renderPartial('create', Array, true)
+#15 C:\xampp\htdocs\Avisfor\protected\controllers\LogicaController.php(130): CController->render('create', Array)
+#16 C:\xampp\htdocs\Avisfor\yii\framework\web\actions\CInlineAction.php(49): LogicaController->actionCreate()
+#17 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#18 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#19 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#20 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#21 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#22 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#23 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#24 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#25 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#26 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('logica/create')
+#27 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#28 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#29 {main}
+REQUEST_URI=/avisfor/index.php/logica/create
+HTTP_REFERER=http://localhost/avisfor/index.php/cruge/ui/login
+---
+2017/07/07 00:38:55 [error] [exception.CException] CException: La propiedad "Reglas"."axioma" no se encuentra definida. in C:\xampp\htdocs\Avisfor\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('axioma')
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\helpers\CHtml.php(2747): CActiveRecord->__get('axioma')
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\helpers\CHtml.php(2470): CHtml::resolveValue(Object(Reglas), 'axioma')
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\helpers\CHtml.php(1540): CHtml::activeInputField('text', Object(Reglas), 'axioma', Array)
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\widgets\CActiveForm.php(792): CHtml::activeTextField(Object(Reglas), 'axioma', Array)
+#5 C:\xampp\htdocs\Avisfor\protected\views\logica\_form.php(24): CActiveForm->textField(Object(Reglas), 'axioma', Array)
+#6 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#9 C:\xampp\htdocs\Avisfor\protected\extensions\dynamictabularform\DynamicTabularForm.php(66): CController->renderPartial('_form', Array)
+#10 C:\xampp\htdocs\Avisfor\protected\views\logica\create.php(52): DynamicTabularForm->rowForm(Array)
+#11 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#12 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#13 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#14 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(785): CController->renderPartial('create', Array, true)
+#15 C:\xampp\htdocs\Avisfor\protected\controllers\LogicaController.php(130): CController->render('create', Array)
+#16 C:\xampp\htdocs\Avisfor\yii\framework\web\actions\CInlineAction.php(49): LogicaController->actionCreate()
+#17 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#18 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#19 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#20 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#21 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#22 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#23 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#24 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#25 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#26 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('logica/create')
+#27 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#28 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#29 {main}
+REQUEST_URI=/avisfor/index.php/logica/create
+HTTP_REFERER=http://localhost/avisfor/index.php/cruge/ui/login
+---
+2017/07/07 00:46:27 [error] [exception.CException] CException: La propiedad "Reglas"."idLogica" no se encuentra definida. in C:\xampp\htdocs\Avisfor\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('idLogica')
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\helpers\CHtml.php(2747): CActiveRecord->__get('idLogica')
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\helpers\CHtml.php(2470): CHtml::resolveValue(Object(Reglas), 'idLogica')
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\helpers\CHtml.php(1795): CHtml::activeInputField('hidden', Object(Reglas), 'idLogica', Array)
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\widgets\CActiveForm.php(823): CHtml::activeHiddenField(Object(Reglas), 'idLogica', Array)
+#5 C:\xampp\htdocs\Avisfor\protected\views\logica\_form.php(21): CActiveForm->hiddenField(Object(Reglas), '[0]idLogica')
+#6 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#9 C:\xampp\htdocs\Avisfor\protected\extensions\dynamictabularform\DynamicTabularForm.php(66): CController->renderPartial('_form', Array)
+#10 C:\xampp\htdocs\Avisfor\protected\views\logica\create.php(52): DynamicTabularForm->rowForm(Array)
+#11 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#12 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#13 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#14 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(785): CController->renderPartial('create', Array, true)
+#15 C:\xampp\htdocs\Avisfor\protected\controllers\LogicaController.php(130): CController->render('create', Array)
+#16 C:\xampp\htdocs\Avisfor\yii\framework\web\actions\CInlineAction.php(49): LogicaController->actionCreate()
+#17 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#18 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#19 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#20 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#21 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#22 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#23 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#24 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#25 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#26 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('logica/create')
+#27 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#28 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#29 {main}
+REQUEST_URI=/avisfor/index.php/logica/create
+HTTP_REFERER=http://localhost/avisfor/index.php/cruge/ui/login
+---
+2017/07/07 00:46:46 [error] [exception.CException] CException: La propiedad "Reglas"."id" no se encuentra definida. in C:\xampp\htdocs\Avisfor\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('id')
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\helpers\CHtml.php(2747): CActiveRecord->__get('id')
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\helpers\CHtml.php(2470): CHtml::resolveValue(Object(Reglas), 'id')
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\helpers\CHtml.php(1795): CHtml::activeInputField('hidden', Object(Reglas), 'id', Array)
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\widgets\CActiveForm.php(823): CHtml::activeHiddenField(Object(Reglas), 'id', Array)
+#5 C:\xampp\htdocs\Avisfor\protected\views\logica\_form.php(21): CActiveForm->hiddenField(Object(Reglas), '[0]id')
+#6 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#9 C:\xampp\htdocs\Avisfor\protected\extensions\dynamictabularform\DynamicTabularForm.php(66): CController->renderPartial('_form', Array)
+#10 C:\xampp\htdocs\Avisfor\protected\views\logica\create.php(52): DynamicTabularForm->rowForm(Array)
+#11 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#12 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#13 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#14 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(785): CController->renderPartial('create', Array, true)
+#15 C:\xampp\htdocs\Avisfor\protected\controllers\LogicaController.php(130): CController->render('create', Array)
+#16 C:\xampp\htdocs\Avisfor\yii\framework\web\actions\CInlineAction.php(49): LogicaController->actionCreate()
+#17 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#18 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#19 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#20 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#21 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#22 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#23 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#24 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#25 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#26 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('logica/create')
+#27 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#28 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#29 {main}
+REQUEST_URI=/avisfor/index.php/logica/create
+HTTP_REFERER=http://localhost/avisfor/index.php/cruge/ui/login
+---
+2017/07/07 00:47:18 [error] [exception.CException] CException: La propiedad "Reglas"."idLogica" no se encuentra definida. in C:\xampp\htdocs\Avisfor\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('idLogica')
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\helpers\CHtml.php(2747): CActiveRecord->__get('idLogica')
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\helpers\CHtml.php(2470): CHtml::resolveValue(Object(Reglas), 'idLogica')
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\helpers\CHtml.php(1795): CHtml::activeInputField('hidden', Object(Reglas), 'idLogica', Array)
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\widgets\CActiveForm.php(823): CHtml::activeHiddenField(Object(Reglas), 'idLogica', Array)
+#5 C:\xampp\htdocs\Avisfor\protected\views\logica\_form.php(21): CActiveForm->hiddenField(Object(Reglas), '[0]idLogica')
+#6 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#9 C:\xampp\htdocs\Avisfor\protected\extensions\dynamictabularform\DynamicTabularForm.php(66): CController->renderPartial('_form', Array)
+#10 C:\xampp\htdocs\Avisfor\protected\views\logica\create.php(52): DynamicTabularForm->rowForm(Array)
+#11 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#12 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#13 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#14 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(785): CController->renderPartial('create', Array, true)
+#15 C:\xampp\htdocs\Avisfor\protected\controllers\LogicaController.php(130): CController->render('create', Array)
+#16 C:\xampp\htdocs\Avisfor\yii\framework\web\actions\CInlineAction.php(49): LogicaController->actionCreate()
+#17 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#18 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#19 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#20 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#21 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#22 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#23 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#24 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#25 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#26 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('logica/create')
+#27 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#28 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#29 {main}
+REQUEST_URI=/avisfor/index.php/logica/create
+HTTP_REFERER=http://localhost/avisfor/index.php/cruge/ui/login
+---
+2017/07/07 00:49:00 [error] [exception.CException] CException: La propiedad "Reglas"."idLogica" no se encuentra definida. in C:\xampp\htdocs\Avisfor\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('idLogica')
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\helpers\CHtml.php(2747): CActiveRecord->__get('idLogica')
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\helpers\CHtml.php(2470): CHtml::resolveValue(Object(Reglas), 'idLogica')
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\helpers\CHtml.php(1795): CHtml::activeInputField('hidden', Object(Reglas), 'idLogica', Array)
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\widgets\CActiveForm.php(823): CHtml::activeHiddenField(Object(Reglas), 'idLogica', Array)
+#5 C:\xampp\htdocs\Avisfor\protected\views\logica\_form.php(21): CActiveForm->hiddenField(Object(Reglas), '[0]idLogica')
+#6 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#9 C:\xampp\htdocs\Avisfor\protected\extensions\dynamictabularform\DynamicTabularForm.php(66): CController->renderPartial('_form', Array)
+#10 C:\xampp\htdocs\Avisfor\protected\views\logica\create.php(52): DynamicTabularForm->rowForm(Array)
+#11 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#12 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#13 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#14 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(785): CController->renderPartial('create', Array, true)
+#15 C:\xampp\htdocs\Avisfor\protected\controllers\LogicaController.php(130): CController->render('create', Array)
+#16 C:\xampp\htdocs\Avisfor\yii\framework\web\actions\CInlineAction.php(49): LogicaController->actionCreate()
+#17 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#18 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#19 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#20 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#21 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#22 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#23 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#24 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#25 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#26 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('logica/create')
+#27 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#28 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#29 {main}
+REQUEST_URI=/avisfor/index.php/logica/create
+HTTP_REFERER=http://localhost/avisfor/index.php/cruge/ui/login
+---
+2017/07/07 00:49:38 [error] [exception.CException] CException: La propiedad "Reglas"."updateType" no se encuentra definida. in C:\xampp\htdocs\Avisfor\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\yii\framework\db\ar\CActiveRecord.php(162): CComponent->__set('updateType', 'create')
+#1 C:\xampp\htdocs\Avisfor\protected\extensions\dynamictabularform\DynamicTabularForm.php(43): CActiveRecord->__set('updateType', 'create')
+#2 C:\xampp\htdocs\Avisfor\protected\views\logica\_form.php(22): DynamicTabularForm->updateTypeField(Object(Reglas), 0, 'updateType', Array)
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#5 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#6 C:\xampp\htdocs\Avisfor\protected\extensions\dynamictabularform\DynamicTabularForm.php(66): CController->renderPartial('_form', Array)
+#7 C:\xampp\htdocs\Avisfor\protected\views\logica\create.php(52): DynamicTabularForm->rowForm(Array)
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#9 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#10 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#11 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(785): CController->renderPartial('create', Array, true)
+#12 C:\xampp\htdocs\Avisfor\protected\controllers\LogicaController.php(130): CController->render('create', Array)
+#13 C:\xampp\htdocs\Avisfor\yii\framework\web\actions\CInlineAction.php(49): LogicaController->actionCreate()
+#14 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#15 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#16 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#17 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#18 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#19 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#20 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#21 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#23 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('logica/create')
+#24 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#25 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/avisfor/index.php/logica/create
+HTTP_REFERER=http://localhost/avisfor/index.php/cruge/ui/login
+---
+2017/07/07 00:50:21 [error] [exception.CHttpException.403] CHttpException: Usted no se encuentra autorizado a realizar esta acción. in C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php:183
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CrugeWebUser), 'Usted no se enc...')
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(GetRowForm), Array)
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('getRowForm')
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('logica/getRowFo...')
+#9 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/avisfor/index.php/logica/getRowForm?key=2
+HTTP_REFERER=http://localhost/avisfor/index.php/logica/create
+---
+2017/07/07 00:50:25 [error] [exception.CHttpException.403] CHttpException: Usted no se encuentra autorizado a realizar esta acción. in C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php:183
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CrugeWebUser), 'Usted no se enc...')
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(GetRowForm), Array)
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('getRowForm')
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('logica/getRowFo...')
+#9 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/avisfor/index.php/logica/getRowForm?key=3
+HTTP_REFERER=http://localhost/avisfor/index.php/logica/create
+---
+2017/07/07 00:50:51 [error] [exception.CHttpException.403] CHttpException: Usted no se encuentra autorizado a realizar esta acción. in C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php:183
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CrugeWebUser), 'Usted no se enc...')
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(GetRowForm), Array)
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('getRowForm')
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('logica/getRowFo...')
+#9 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/avisfor/index.php/logica/getRowForm?key=4
+HTTP_REFERER=http://localhost/avisfor/index.php/logica/create
+---
+2017/07/07 00:50:52 [error] [exception.CHttpException.403] CHttpException: Usted no se encuentra autorizado a realizar esta acción. in C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php:183
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CrugeWebUser), 'Usted no se enc...')
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(GetRowForm), Array)
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('getRowForm')
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('logica/getRowFo...')
+#9 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/avisfor/index.php/logica/getRowForm?key=5
+HTTP_REFERER=http://localhost/avisfor/index.php/logica/create
+---
+2017/07/07 00:50:52 [error] [exception.CHttpException.403] CHttpException: Usted no se encuentra autorizado a realizar esta acción. in C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php:183
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CrugeWebUser), 'Usted no se enc...')
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(GetRowForm), Array)
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('getRowForm')
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('logica/getRowFo...')
+#9 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/avisfor/index.php/logica/getRowForm?key=6
+HTTP_REFERER=http://localhost/avisfor/index.php/logica/create
+---
+2017/07/07 00:50:52 [error] [exception.CHttpException.403] CHttpException: Usted no se encuentra autorizado a realizar esta acción. in C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php:183
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CrugeWebUser), 'Usted no se enc...')
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(GetRowForm), Array)
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('getRowForm')
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('logica/getRowFo...')
+#9 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/avisfor/index.php/logica/getRowForm?key=7
+HTTP_REFERER=http://localhost/avisfor/index.php/logica/create
+---
+2017/07/07 00:51:25 [error] [exception.CHttpException.403] CHttpException: Usted no se encuentra autorizado a realizar esta acción. in C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php:183
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CrugeWebUser), 'Usted no se enc...')
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(GetRowForm), Array)
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('getRowForm')
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('logica/getRowFo...')
+#9 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/avisfor/index.php/logica/getRowForm?key=2
+---
+2017/07/07 00:51:50 [error] [php] Undefined variable: key (C:\xampp\htdocs\Avisfor\protected\views\logica\_form.php:6)
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(872): LogicaController->renderFile()
+#1 C:\xampp\htdocs\Avisfor\protected\views\logica\update.php(21): LogicaController->renderPartial()
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(126): require()
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(95): LogicaController->renderInternal()
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(872): LogicaController->renderFile()
+#5 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(785): LogicaController->renderPartial()
+#6 C:\xampp\htdocs\Avisfor\protected\controllers\LogicaController.php(194): LogicaController->render()
+#7 unknown(0): LogicaController->actionUpdate()
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs()
+#9 C:\xampp\htdocs\Avisfor\yii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#10 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#11 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(134): LogicaController->runAction()
+#12 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#13 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#14 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): LogicaController->filterAccessControl()
+#15 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#16 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#17 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): LogicaController->runActionWithFilters()
+#18 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): LogicaController->run()
+#19 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#20 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\Avisfor\index.php(13): CWebApplication->run()
+REQUEST_URI=/avisfor/index.php/logica/update/1
+in C:\xampp\htdocs\Avisfor\protected\views\logica\_form.php (6)
+in C:\xampp\htdocs\Avisfor\protected\views\logica\update.php (21)
+in C:\xampp\htdocs\Avisfor\protected\controllers\LogicaController.php (194)
+2017/07/07 00:53:03 [error] [exception.CHttpException.403] CHttpException: Usted no se encuentra autorizado a realizar esta acción. in C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php:183
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CrugeWebUser), 'Usted no se enc...')
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(GetRowForm), Array)
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('getRowForm')
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('logica/getRowFo...')
+#9 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/avisfor/index.php/logica/getRowForm?key=2
+HTTP_REFERER=http://localhost/avisfor/index.php/logica/create
+---
+2017/07/07 00:53:04 [error] [exception.CHttpException.403] CHttpException: Usted no se encuentra autorizado a realizar esta acción. in C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php:183
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CrugeWebUser), 'Usted no se enc...')
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(GetRowForm), Array)
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('getRowForm')
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('logica/getRowFo...')
+#9 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/avisfor/index.php/logica/getRowForm?key=3
+HTTP_REFERER=http://localhost/avisfor/index.php/logica/create
+---
+2017/07/07 00:53:04 [error] [exception.CHttpException.403] CHttpException: Usted no se encuentra autorizado a realizar esta acción. in C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php:183
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CrugeWebUser), 'Usted no se enc...')
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(GetRowForm), Array)
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('getRowForm')
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('logica/getRowFo...')
+#9 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/avisfor/index.php/logica/getRowForm?key=4
+HTTP_REFERER=http://localhost/avisfor/index.php/logica/create
+---
+2017/07/07 00:53:22 [error] [exception.CHttpException.403] CHttpException: Usted no se encuentra autorizado a realizar esta acción. in C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php:183
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CrugeWebUser), 'Usted no se enc...')
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(GetRowForm), Array)
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('getRowForm')
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('logica/getRowFo...')
+#9 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/avisfor/index.php/logica/getRowForm?key=5
+HTTP_REFERER=http://localhost/avisfor/index.php/logica/create
+---
+2017/07/07 00:54:36 [error] [exception.CException] CException: DynamicTabularForm y sus behaviors no tienen un método o closure llamado "form". in C:\xampp\htdocs\Avisfor\yii\framework\base\CComponent.php:266
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\protected\views\logica\create.php(52): CComponent->__call('form', Array)
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(785): CController->renderPartial('create', Array, true)
+#5 C:\xampp\htdocs\Avisfor\protected\controllers\LogicaController.php(130): CController->render('create', Array)
+#6 C:\xampp\htdocs\Avisfor\yii\framework\web\actions\CInlineAction.php(49): LogicaController->actionCreate()
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#9 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#10 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#11 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#12 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#13 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#14 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#16 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('logica/create')
+#17 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#18 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/avisfor/index.php/logica/create
+---
+2017/07/07 00:54:37 [error] [exception.CException] CException: DynamicTabularForm y sus behaviors no tienen un método o closure llamado "form". in C:\xampp\htdocs\Avisfor\yii\framework\base\CComponent.php:266
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\protected\views\logica\create.php(52): CComponent->__call('form', Array)
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(785): CController->renderPartial('create', Array, true)
+#5 C:\xampp\htdocs\Avisfor\protected\controllers\LogicaController.php(130): CController->render('create', Array)
+#6 C:\xampp\htdocs\Avisfor\yii\framework\web\actions\CInlineAction.php(49): LogicaController->actionCreate()
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#9 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#10 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#11 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#12 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#13 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#14 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#16 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('logica/create')
+#17 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#18 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/avisfor/index.php/logica/create
+---
+2017/07/07 00:55:22 [error] [exception.CException] CException: DynamicTabularForm y sus behaviors no tienen un método o closure llamado "form". in C:\xampp\htdocs\Avisfor\yii\framework\base\CComponent.php:266
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\protected\views\logica\create.php(52): CComponent->__call('form', Array)
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(785): CController->renderPartial('create', Array, true)
+#5 C:\xampp\htdocs\Avisfor\protected\controllers\LogicaController.php(130): CController->render('create', Array)
+#6 C:\xampp\htdocs\Avisfor\yii\framework\web\actions\CInlineAction.php(49): LogicaController->actionCreate()
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#9 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#10 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#11 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#12 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#13 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#14 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#16 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('logica/create')
+#17 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#18 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/avisfor/index.php/logica/create
+---
+2017/07/07 00:55:22 [error] [exception.CException] CException: DynamicTabularForm y sus behaviors no tienen un método o closure llamado "form". in C:\xampp\htdocs\Avisfor\yii\framework\base\CComponent.php:266
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\protected\views\logica\create.php(52): CComponent->__call('form', Array)
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(785): CController->renderPartial('create', Array, true)
+#5 C:\xampp\htdocs\Avisfor\protected\controllers\LogicaController.php(130): CController->render('create', Array)
+#6 C:\xampp\htdocs\Avisfor\yii\framework\web\actions\CInlineAction.php(49): LogicaController->actionCreate()
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#9 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#10 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#11 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#12 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#13 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#14 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#16 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('logica/create')
+#17 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#18 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/avisfor/index.php/logica/create
+---
+2017/07/07 00:55:22 [error] [exception.CException] CException: DynamicTabularForm y sus behaviors no tienen un método o closure llamado "form". in C:\xampp\htdocs\Avisfor\yii\framework\base\CComponent.php:266
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\protected\views\logica\create.php(52): CComponent->__call('form', Array)
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(785): CController->renderPartial('create', Array, true)
+#5 C:\xampp\htdocs\Avisfor\protected\controllers\LogicaController.php(130): CController->render('create', Array)
+#6 C:\xampp\htdocs\Avisfor\yii\framework\web\actions\CInlineAction.php(49): LogicaController->actionCreate()
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#9 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#10 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#11 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#12 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#13 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#14 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#16 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('logica/create')
+#17 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#18 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/avisfor/index.php/logica/create
+---
+2017/07/07 00:55:48 [error] [exception.CException] CException: DynamicTabularForm y sus behaviors no tienen un método o closure llamado "Form". in C:\xampp\htdocs\Avisfor\yii\framework\base\CComponent.php:266
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\protected\views\logica\create.php(52): CComponent->__call('Form', Array)
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(785): CController->renderPartial('create', Array, true)
+#5 C:\xampp\htdocs\Avisfor\protected\controllers\LogicaController.php(130): CController->render('create', Array)
+#6 C:\xampp\htdocs\Avisfor\yii\framework\web\actions\CInlineAction.php(49): LogicaController->actionCreate()
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#9 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#10 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#11 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#12 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#13 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#14 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#16 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('logica/create')
+#17 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#18 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/avisfor/index.php/logica/create
+---
+2017/07/07 00:57:57 [error] [exception.CHttpException.403] CHttpException: Usted no se encuentra autorizado a realizar esta acción. in C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php:183
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CrugeWebUser), 'Usted no se enc...')
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(GetRowForm), Array)
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('getRowForm')
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('logica/getRowFo...')
+#9 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/avisfor/index.php/logica/getRowForm?key=2
+HTTP_REFERER=http://localhost/avisfor/index.php/logica/create
+---
+2017/07/07 00:58:58 [error] [exception.CHttpException.403] CHttpException: Usted no se encuentra autorizado a realizar esta acción. in C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php:183
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CrugeWebUser), 'Usted no se enc...')
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(GetRowForm), Array)
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('getRowForm')
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('logica/getRowFo...')
+#9 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/avisfor/index.php/logica/getRowForm?key=3
+HTTP_REFERER=http://localhost/avisfor/index.php/logica/create
+---
+2017/07/07 00:59:09 [error] [exception.CHttpException.403] CHttpException: Usted no se encuentra autorizado a realizar esta acción. in C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php:183
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CrugeWebUser), 'Usted no se enc...')
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(GetRowForm), Array)
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('getRowForm')
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('logica/getRowFo...')
+#9 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/avisfor/index.php/logica/getRowForm?key=4
+HTTP_REFERER=http://localhost/avisfor/index.php/logica/create
+---
+2017/07/07 00:59:10 [error] [exception.CHttpException.403] CHttpException: Usted no se encuentra autorizado a realizar esta acción. in C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php:183
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CrugeWebUser), 'Usted no se enc...')
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(GetRowForm), Array)
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('getRowForm')
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('logica/getRowFo...')
+#9 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/avisfor/index.php/logica/getRowForm?key=5
+HTTP_REFERER=http://localhost/avisfor/index.php/logica/create
+---
+2017/07/07 00:59:10 [error] [exception.CHttpException.403] CHttpException: Usted no se encuentra autorizado a realizar esta acción. in C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php:183
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CrugeWebUser), 'Usted no se enc...')
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(GetRowForm), Array)
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('getRowForm')
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('logica/getRowFo...')
+#9 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/avisfor/index.php/logica/getRowForm?key=6
+HTTP_REFERER=http://localhost/avisfor/index.php/logica/create
+---
+2017/07/07 00:59:11 [error] [exception.CHttpException.403] CHttpException: Usted no se encuentra autorizado a realizar esta acción. in C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php:183
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CrugeWebUser), 'Usted no se enc...')
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(GetRowForm), Array)
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('getRowForm')
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('logica/getRowFo...')
+#9 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/avisfor/index.php/logica/getRowForm?key=7
+HTTP_REFERER=http://localhost/avisfor/index.php/logica/create
+---
+2017/07/07 00:59:11 [error] [exception.CHttpException.403] CHttpException: Usted no se encuentra autorizado a realizar esta acción. in C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php:183
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CrugeWebUser), 'Usted no se enc...')
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(GetRowForm), Array)
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('getRowForm')
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('logica/getRowFo...')
+#9 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/avisfor/index.php/logica/getRowForm?key=8
+HTTP_REFERER=http://localhost/avisfor/index.php/logica/create
+---
+2017/07/07 00:59:12 [error] [exception.CHttpException.403] CHttpException: Usted no se encuentra autorizado a realizar esta acción. in C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php:183
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CrugeWebUser), 'Usted no se enc...')
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(GetRowForm), Array)
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('getRowForm')
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('logica/getRowFo...')
+#9 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/avisfor/index.php/logica/getRowForm?key=9
+HTTP_REFERER=http://localhost/avisfor/index.php/logica/create
+---
+2017/07/07 00:59:12 [error] [exception.CHttpException.403] CHttpException: Usted no se encuentra autorizado a realizar esta acción. in C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php:183
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CrugeWebUser), 'Usted no se enc...')
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(GetRowForm), Array)
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('getRowForm')
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('logica/getRowFo...')
+#9 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/avisfor/index.php/logica/getRowForm?key=10
+HTTP_REFERER=http://localhost/avisfor/index.php/logica/create
+---
+2017/07/07 00:59:12 [error] [exception.CHttpException.403] CHttpException: Usted no se encuentra autorizado a realizar esta acción. in C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php:183
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CrugeWebUser), 'Usted no se enc...')
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(GetRowForm), Array)
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('getRowForm')
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('logica/getRowFo...')
+#9 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/avisfor/index.php/logica/getRowForm?key=11
+HTTP_REFERER=http://localhost/avisfor/index.php/logica/create
+---
+2017/07/07 00:59:13 [error] [exception.CHttpException.403] CHttpException: Usted no se encuentra autorizado a realizar esta acción. in C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php:183
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CrugeWebUser), 'Usted no se enc...')
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(GetRowForm), Array)
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('getRowForm')
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('logica/getRowFo...')
+#9 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/avisfor/index.php/logica/getRowForm?key=12
+HTTP_REFERER=http://localhost/avisfor/index.php/logica/create
+---
+2017/07/07 00:59:13 [error] [exception.CHttpException.403] CHttpException: Usted no se encuentra autorizado a realizar esta acción. in C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php:183
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CrugeWebUser), 'Usted no se enc...')
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(GetRowForm), Array)
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('getRowForm')
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('logica/getRowFo...')
+#9 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/avisfor/index.php/logica/getRowForm?key=13
+HTTP_REFERER=http://localhost/avisfor/index.php/logica/create
+---
+2017/07/07 00:59:13 [error] [exception.CHttpException.403] CHttpException: Usted no se encuentra autorizado a realizar esta acción. in C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php:183
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CrugeWebUser), 'Usted no se enc...')
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(GetRowForm), Array)
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('getRowForm')
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('logica/getRowFo...')
+#9 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/avisfor/index.php/logica/getRowForm?key=14
+HTTP_REFERER=http://localhost/avisfor/index.php/logica/create
+---
+2017/07/07 00:59:13 [error] [exception.CHttpException.403] CHttpException: Usted no se encuentra autorizado a realizar esta acción. in C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php:183
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CrugeWebUser), 'Usted no se enc...')
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(GetRowForm), Array)
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('getRowForm')
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('logica/getRowFo...')
+#9 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/avisfor/index.php/logica/getRowForm?key=15
+HTTP_REFERER=http://localhost/avisfor/index.php/logica/create
+---
+2017/07/07 00:59:13 [error] [exception.CHttpException.403] CHttpException: Usted no se encuentra autorizado a realizar esta acción. in C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php:183
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CrugeWebUser), 'Usted no se enc...')
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(GetRowForm), Array)
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('getRowForm')
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('logica/getRowFo...')
+#9 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/avisfor/index.php/logica/getRowForm?key=16
+HTTP_REFERER=http://localhost/avisfor/index.php/logica/create
+---
+2017/07/07 00:59:13 [error] [exception.CHttpException.403] CHttpException: Usted no se encuentra autorizado a realizar esta acción. in C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php:183
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CrugeWebUser), 'Usted no se enc...')
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(GetRowForm), Array)
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('getRowForm')
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('logica/getRowFo...')
+#9 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/avisfor/index.php/logica/getRowForm?key=17
+HTTP_REFERER=http://localhost/avisfor/index.php/logica/create
+---
+2017/07/07 16:02:09 [error] [exception.CHttpException.403] CHttpException: Usted no se encuentra autorizado a realizar esta acción. in C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php:183
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CrugeWebUser), 'Usted no se enc...')
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(GetRowForm), Array)
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('getRowForm')
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('logica/getRowFo...')
+#9 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/avisfor/index.php/logica/getRowForm?key=2
+HTTP_REFERER=http://localhost/avisfor/index.php/logica/create
+---
+2017/07/07 16:07:17 [error] [exception.CHttpException.403] CHttpException: Usted no se encuentra autorizado a realizar esta acción. in C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php:183
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CrugeWebUser), 'Usted no se enc...')
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(GetRowForm), Array)
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('getRowForm')
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('logica/getRowFo...')
+#9 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/avisfor/index.php/logica/getRowForm?key=2
+HTTP_REFERER=http://localhost/avisfor/index.php/logica/create
+---
+2017/07/07 16:17:09 [error] [exception.CHttpException.403] CHttpException: Usted no se encuentra autorizado a realizar esta acción. in C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php:183
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CrugeWebUser), 'Usted no se enc...')
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(GetRowForm), Array)
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('getRowForm')
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('logica/getRowFo...')
+#9 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/avisfor/index.php/logica/getRowForm?key=2
+HTTP_REFERER=http://localhost/avisfor/index.php/logica/create
+---
+2017/07/07 16:17:53 [error] [exception.CHttpException.403] CHttpException: Usted no se encuentra autorizado a realizar esta acción. in C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php:183
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CrugeWebUser), 'Usted no se enc...')
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(GetRowForm), Array)
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('getRowForm')
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('logica/getRowFo...')
+#9 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/avisfor/index.php/logica/getRowForm?key=2
+HTTP_REFERER=http://localhost/avisfor/index.php/logica/create
+---
+2017/07/07 16:17:54 [error] [exception.CHttpException.403] CHttpException: Usted no se encuentra autorizado a realizar esta acción. in C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php:183
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CrugeWebUser), 'Usted no se enc...')
+#1 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(GetRowForm), Array)
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('getRowForm')
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('logica/getRowFo...')
+#9 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/avisfor/index.php/logica/getRowForm?key=3
+HTTP_REFERER=http://localhost/avisfor/index.php/logica/create
+---
