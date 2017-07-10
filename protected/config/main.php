@@ -132,6 +132,14 @@ return array(
             'password' => '',
             'charset' => 'utf8',
         ),
+        
+//        'db' => array(
+//            'connectionString' => 'mysql:host=localhost;dbname=id2043725_avisfor',
+//            'emulatePrepare' => true,
+//            'username' => 'id2043725_escuela',
+//            'password' => 'Pgr20171',
+//            'charset' => 'utf8',
+//        ),
         'errorHandler' => array(
             // use 'site/error' action to display errors
             'errorAction' => 'site/error',

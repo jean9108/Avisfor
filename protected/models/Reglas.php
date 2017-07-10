@@ -14,6 +14,7 @@
  */
 class Reglas extends CActiveRecord
 {
+    public $boton;
 	/**
 	 * @return string the associated database table name
 	 */
@@ -30,7 +31,7 @@ class Reglas extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('inicio, fin, Logica_idLogica', 'required'),
+//			array('inicio, fin', 'required'),
 			array('Logica_idLogica', 'numerical', 'integerOnly'=>true),
 			array('inicio', 'length', 'max'=>255),
 			array('fin', 'length', 'max'=>25),
@@ -59,9 +60,10 @@ class Reglas extends CActiveRecord
 	{
 		return array(
 			'idreglas' => 'Idreglas',
-			'inicio' => 'Inicio',
-			'fin' => 'Fin',
+			'inicio' => '',
+			'fin' => '',
 			'Logica_idLogica' => 'Logica Id Logica',
+                        'botnon' => '-->'
 		);
 	}
 

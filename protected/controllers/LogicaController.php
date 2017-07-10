@@ -42,7 +42,26 @@ class LogicaController extends Controller {
             ),
         );
     }
+    
+    protected function gridMemberColumn($data,$row)
+    {
+       $sql = 'SELECT idRegla, inicio, fin FROM reglas WHERE  = Logica_idLogica' . $data->idLogica;
+       $rows = Yii::app()->db->createCommand($sql)->queryAll();
 
+       $result = '';
+       $idx = 1;
+       if(!empty($rows))
+           foreach ($rows as $row)
+           {
+               $url = Yii::app()->createUrl('reglas/view',array('id'=>$row['idRegla']));
+               $style = $idx % 2 == 0 ? 'background:#F8F8F8; padding:0.5em;' : 'background:#E5F1F4; padding:0.5em;';
+               $text = CHtml::tag('div',array('style'=>$style),$row['inicio'].' '.$row['fin']);
+               $result .= CHtml::link($text,$url) .'<br/>';
+               $idx++;
+           }
+       return $result;
+    }
+    
     /**
      * Displays a particular model.
      * @param integer $id the ID of the model to be displayed
@@ -52,148 +71,75 @@ class LogicaController extends Controller {
             'model' => $this->loadModel($id),
         ));
     }
-
-    /**
-     * Create in diferent controller 
-     * */
-    public function actions() {
-        return array(
-            'getRowForm' => array(
-                'class' => 'ext.dynamictabularform.actions.GetRowForm',
-                'view' => '_form',
-                'modelClass' => 'reglas'
-            ),
-        );
-    }
-
-
-
-    public function actionCreate() {
-        $model = new Logica();
-        $reglas = array(new Reglas);
-        $estudiante = Estudiantes::model()->find("cruge_user_iduser =:cruge_user_iduser", array(":cruge_user_iduser"=> Yii::app()->user->id));
-        $model->estudiantes_idestudiantes = $estudiante->idestudiante;
-       
-        // Uncomment the following line if AJAX validation is needed
-        // $this->performAjaxValidation($model);
-
-        if (isset($_POST['Logica'])) {
-            $model->attributes = $_POST['Logica'];
-            
-            /**
-             * creating an array of reglas objects
-            */
-            if(isset($_POST['Reglas'])){
-                $reglas = array();
-                foreach ($_POST['Reglas'] as $key=>$value){
-                    /*
-                     * sladetail needs a scenario wherein the fk sla_id
-                     * is not required because the ID can only be
-                     * linked after the sla has been saved
-                     */
-                    $regla = new Reglas('batchSave');
-                    $regla->attributes = $value;
-                    $reglas[] = $regla;
-                }
-            }
-            
-            /**
-            * validating the sla and array of sladetail
-            **/
-            
-            $valid = $model->validate();
-            foreach ($reglas as $regla){
-                $valid = $regla->validate() & $valid;
-            }
-            
-          
-            if($valid){
-                $transaction = $model->getDbConnection()->beginTransaction();
-                try{
-                    $model->save();
-                    $model->refresh();
-                    
-                    foreach ($reglas as $regla){
-                        $regla->Logica_idLogica=$model->idLogica;
-                        $regla->save();
-                    }
-                    $transaction->commit();                    
-                } catch (Exception $e){
-                    $transaction->rollback();
-                }
-                $this->redirect(array('view', 'id' => $model->idLogica));
-            }
-            if ($model->save())
-                $this->redirect(array('view', 'id' => $model->idLogica));
-        }
-
-        $this->render('create', array(
-            'model' => $model,
-            'reglas' => $reglas,
-        ));
-    }
     
     /**
-     * Updates a particular model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id the ID of the model to be updated
+     * Creates a new model.
+     * If creation is successful, the browser will be redirected to the 'view' page.
      */
-    public function actionUpdate($id) {
-        $model = $this->loadModel($id);
-        $reglas = $model->idLogica;
+    public function actionCreate() {
+               
+        Yii::import('ext.multimodelform.MultiModelForm');
+        $model = new Logica;
+        $regla = new Reglas;
+        $validateRules = array();
+        $estudiante = Estudiantes::model()->find("cruge_user_iduser =:cruge_user_iduser",array(":cruge_user_iduser"=> Yii::app()->user->id));
+        $model->estudiantes_idestudiantes = $estudiante->idestudiante;
         
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
 
         if (isset($_POST['Logica'])) {
             $model->attributes = $_POST['Logica'];
-            if(isset($_POST['Reglas'])){
-                $reglas = array();
-                foreach($_POST['Reglas'] as $key => $value){
-                    /**
-                     * here we will take advantage of the updateType attribute so
-                     * that we will be able to determine what we want to do 
-                     * to a specific row
-                     */
-                    if($value['updateType'] == DynamicTabularForm::UPDATE_TYPE_CREATE)
-                        $reglas[$key] = new Reglas();
-                    else if($value['updateType'] == DynamicTabularForm::UPDATE_TYPE_UPDATE)
-                        $reglas[$key] = Reglas::model()->findAllByPk ($value['idRegla']);
-                    else if($value['updateType'] == DynamicTabularForm::UPDATE_TYPE_DELETE){
-                        $delete = Reglas::model()->findByPk($value['idRegla']);
-                        if($delete->delete()){
-                            unset($reglas[$key]);
-                            continue;
-                        }
-                    }
-                    $reglas[$key]->attributes = $value;  
-                }
-            }
-                $valid = $model->validate();
-                foreach ($reglas as $regla){
-                    $valid = $regla->validate() & valid;
-                }
-                if($valid){
-                    $transaction = $model->getDbConnection()->beginTransaction();
-                    try{
-                        $model->save();
-                        $model->refresh();
-                        foreach ($reglas as $regla){
-                             $regla->Logica_idLogica=$model->idLogica;
-                        $regla->save();
-                        }
-                        $transaction->commit();
-                    } catch (Exception $e){
-                        $transaction->rollback();
-                    }
-                    $this->redirect(array('view', 'id' => $model->idLogica));
-                }
+            
+            $detailOk = MultiModelForm::validate($regla, $validateRules, $deleteItems);
+            
+            if($detailOk && empty($validateRules)){
+                Yii::app()->user->setFlash('error','No se ha podido subir el Sistema Formal');
+                $detailOk = false;
             }
             
+            if ($detailOk && $model->save()){
+                $reglaValues = array('Logica_idLogica' => $model->idLogica);
+                
+                if(MultiModelForm::save($regla,$validateRules,$deleteItems,$reglaValues)){
+                    $this->redirect(array('admin', 'id' => $model->idLogica));
+                }  
+            }
+        }
+
+        $this->render('create', array(
+            'model' => $model,
+            'regla' =>$regla,
+            'validateRules' => $validateRules,
+        ));
+    }
+    
+
+    /**
+     * Updates a particular model.
+     * If update is successful, the browser will be redirected to the 'view' page.
+     * @param integer $id the ID of the model to be updated
+     */
+    public function actionUpdate($id) {
+        Yii::import('ext.multimodelform.MultiModelForm');
+        $model = $this->loadModel($id);
+        $regla = new Reglas;
+        $validateRules = array();
+        // Uncomment the following line if AJAX validation is needed
+        // $this->performAjaxValidation($model);
+
+        if (isset($_POST['Logica'])) {
+            $model->attributes = $_POST['Logica'];
+            $rulesValues = array('Logica_idLogica'=> $model->Logica);
+            
+            if (MultiModelForm::save($regla, $validateRules, $deleteReglas,$rulesValues) && $model->save())
+                $this->redirect(array('admin', 'id' => $model->idLogica));
+        }
 
         $this->render('update', array(
             'model' => $model,
-            'reglas' => $reglas,
+            'regla' =>$regla,
+            'validateRules' => $validateRules,
         ));
     }
 
