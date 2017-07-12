@@ -123,6 +123,8 @@ class LogicaController extends Controller {
     public function actionUpdate($id) {
         Yii::import('ext.multimodelform.MultiModelForm');
         $model = $this->loadModel($id);
+        $model->derivacion = $model->axioma;
+        
         $regla = new Reglas;
         $validateRules = array();
 //        $model->resultado = '20';
@@ -131,8 +133,7 @@ class LogicaController extends Controller {
         if(isset($_POST['button1'])){
             $model->attributes = $_POST['button1'];
             
-            $algo =  '20';
-           $model->letras = $algo;
+            
             //$_POST['button1']['conjetura'] = '20';
            //$model->save();
 //            var_dump($var); 
@@ -140,8 +141,10 @@ class LogicaController extends Controller {
         }
         if (isset($_POST['Logica'])) {
             $model->attributes = $_POST['Logica'];
-            $rulesValues = array('Logica_idLogica'=> $model->idLogica);
             
+            $model->resultado = $model->contar();
+            $rulesValues = array('Logica_idLogica'=> $model->idLogica);
+            echo $model->derivacion;
              MultiModelForm::save($regla, $validateRules, $deleteReglas,$rulesValues) && $model->save();
                 //$this->redirect(array('admin', 'id' => $model->idLogica));
         }

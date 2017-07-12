@@ -17,6 +17,8 @@ class Logica extends CActiveRecord
 {
         public $letras = 'a';
         public $resultado;
+        public $derivacion;
+        public $prueba = array();
         
 	/**
 	 * @return string the associated database table name
@@ -35,8 +37,8 @@ class Logica extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('axioma, conjetura', 'required'),
-			array('estudiantes_idestudiantes', 'numerical', 'integerOnly'=>true),
-			array('axioma, conjetura,letras,resultado', 'length', 'max'=>255),
+			array('estudiantes_idestudiantes,resultado', 'numerical', 'integerOnly'=>true),
+			array('axioma, conjetura,letras,derivacion', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('idLogica, axioma, conjetura, estudiantes_idestudiantes', 'safe', 'on'=>'search'),
@@ -68,13 +70,39 @@ class Logica extends CActiveRecord
 			'estudiantes_idestudiantes' => 'Estudiantes Idestudiantes',
                         'letras' => 'Letras',
                         'resultado' => 'Resultado',
+                        'derivacion' => 'derivacion',
 		);
 	}
         
+        public function algo(){
+            $regla = Reglas::model()->find("Logica_idLogica =:Logica_idLogica", array(":Logica_idLogica"=>$this->idLogica));
+            $var = substr($regla->inicio, 1, -1);
+            $var2 = substr($regla->fin, 1, -1);
+            $contar =substr_count($this->axioma, $var);
+            $arr1 = str_split($this->axioma);
+            $algo2 = array();
+            var_dump($arr1);
+            for($i =0; $i < count($arr1); $i++){
+                
+                if($arr1[$i] == $var){
+                   
+                   // $pos = strpos($regla->inicio, $var);
+                   $cambio=str_replace($var,$var2 ,$arr1[$i]);
+                   array_push($algo2,$cambio);
+                  //  echo $arr1[$i];
+                }
+                
+                //echo $trimmed;
+                echo '<br />';
+               
+            }
+            var_dump($algo2);
+            
+            return $contar;
+        }
         public function contar(){
-            //$algo =substr_count($this->axioma, $this->letras);
-            $model->resultado = '20';
-            return $this->resultado;
+            $contar =substr_count($this->axioma, $this->letras);           
+            return $contar;
         }
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.

@@ -28,23 +28,35 @@
         <?php echo $form->textArea($model, 'axioma', array('size' => 60, 'maxlength' => 255, 'class' => 'form-control')); ?>
         <?php echo $form->error($model, 'axioma'); ?>
     </div>
-    
+
     <div class="row col-sm-4">
         <div class = "row col-sm-6">
-            <?php echo CHtml::submitButton('Nº de Letras', array('name' => 'button1', 'class'=>'btn btn-default')); ?>
+            <?php echo CHtml::submitButton('Nº de Letras', array('name' => 'button1', 'class' => 'btn btn-default')); ?>
         </div>
         <div class="row col-sm-3">
-            <?php echo $form->textField($model, 'letras', array('class'=>'form-control'))?>
+            <?php echo $form->textField($model, 'letras', array('class' => 'form-control')) ?>
         </div>
         <div class="row col-sm-3">
-            <?php echo $form->textField($model, 'resultado', array('class'=>'form-control'))?>
+            <?php echo $form->textField($model, 'resultado', array('class' => 'form-control', ''=>true)) ?>
         </div>
     </div>
 
     <div class="row col-sm-5">
         <?php echo $form->labelEx($model, 'conjetura'); ?>
-        <?php echo $form->textField($model, 'conjetura', array('size' => 60, 'maxlength' => 255, 'class' => 'form-control')); ?>
+        <?php echo $form->textArea($model, 'conjetura', array('size' => 60, 'maxlength' => 255, 'class' => 'form-control')); ?>
         <?php echo $form->error($model, 'conjetura'); ?>
+    </div>
+
+    <div class="row col-sm-7">
+        <div class="row col-sm-12">
+            <label>Escriba el Axioma. Aqui se registra la Derivación</label>
+            <?php echo $form->textField($model, 'derivacion', array('class' => 'form-control'))?>
+            <?php echo $form->error($model, 'derivacion'); ?>
+        </div>
+    </div>
+    
+    <div class="algo">
+        <?php echo $model->algo();?>
     </div>
     <div class="col-sm-7 table-responsive">
         <table class="linear" cellspacing ="0">
