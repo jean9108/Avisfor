@@ -125,15 +125,25 @@ class LogicaController extends Controller {
         $model = $this->loadModel($id);
         $regla = new Reglas;
         $validateRules = array();
+//        $model->resultado = '20';
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
-
+        if(isset($_POST['button1'])){
+            $model->attributes = $_POST['button1'];
+            
+            $algo =  '20';
+           $model->letras = $algo;
+            //$_POST['button1']['conjetura'] = '20';
+           //$model->save();
+//            var_dump($var); 
+            
+        }
         if (isset($_POST['Logica'])) {
             $model->attributes = $_POST['Logica'];
-            $rulesValues = array('Logica_idLogica'=> $model->Logica);
+            $rulesValues = array('Logica_idLogica'=> $model->idLogica);
             
-            if (MultiModelForm::save($regla, $validateRules, $deleteReglas,$rulesValues) && $model->save())
-                $this->redirect(array('admin', 'id' => $model->idLogica));
+             MultiModelForm::save($regla, $validateRules, $deleteReglas,$rulesValues) && $model->save();
+                //$this->redirect(array('admin', 'id' => $model->idLogica));
         }
 
         $this->render('update', array(

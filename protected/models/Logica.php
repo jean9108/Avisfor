@@ -15,6 +15,9 @@
  */
 class Logica extends CActiveRecord
 {
+        public $letras = 'a';
+        public $resultado;
+        
 	/**
 	 * @return string the associated database table name
 	 */
@@ -33,7 +36,7 @@ class Logica extends CActiveRecord
 		return array(
 			array('axioma, conjetura', 'required'),
 			array('estudiantes_idestudiantes', 'numerical', 'integerOnly'=>true),
-			array('axioma, conjetura', 'length', 'max'=>255),
+			array('axioma, conjetura,letras,resultado', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('idLogica, axioma, conjetura, estudiantes_idestudiantes', 'safe', 'on'=>'search'),
@@ -63,9 +66,16 @@ class Logica extends CActiveRecord
 			'axioma' => 'Axioma',
 			'conjetura' => 'Conjetura',
 			'estudiantes_idestudiantes' => 'Estudiantes Idestudiantes',
+                        'letras' => 'Letras',
+                        'resultado' => 'Resultado',
 		);
 	}
-
+        
+        public function contar(){
+            //$algo =substr_count($this->axioma, $this->letras);
+            $model->resultado = '20';
+            return $this->resultado;
+        }
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 *
