@@ -101,6 +101,7 @@ class LogicaController extends Controller {
             if ($detailOk && $model->save()){
                 $reglaValues = array('Logica_idLogica' => $model->idLogica);
                 
+                
                 if(MultiModelForm::save($regla,$validateRules,$deleteItems,$reglaValues)){
                     $this->redirect(array('admin', 'id' => $model->idLogica));
                 }  
@@ -139,12 +140,12 @@ class LogicaController extends Controller {
 //            var_dump($var); 
             
         }
+        
         if (isset($_POST['Logica'])) {
             $model->attributes = $_POST['Logica'];
             
             $model->resultado = $model->contar();
             $rulesValues = array('Logica_idLogica'=> $model->idLogica);
-            echo $model->derivacion;
              MultiModelForm::save($regla, $validateRules, $deleteReglas,$rulesValues) && $model->save();
                 //$this->redirect(array('admin', 'id' => $model->idLogica));
         }

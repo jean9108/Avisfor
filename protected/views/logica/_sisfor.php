@@ -37,7 +37,7 @@
             <?php echo $form->textField($model, 'letras', array('class' => 'form-control')) ?>
         </div>
         <div class="row col-sm-3">
-            <?php echo $form->textField($model, 'resultado', array('class' => 'form-control', ''=>true)) ?>
+            <?php echo $form->textField($model, 'resultado', array('class' => 'form-control', 'readonly' => true)) ?>
         </div>
     </div>
 
@@ -50,13 +50,39 @@
     <div class="row col-sm-7">
         <div class="row col-sm-12">
             <label>Escriba el Axioma. Aqui se registra la Derivación</label>
-            <?php echo $form->textField($model, 'derivacion', array('class' => 'form-control'))?>
+            <?php echo $form->textField($model, 'derivacion', array('class' => 'form-control')) ?>
             <?php echo $form->error($model, 'derivacion'); ?>
         </div>
     </div>
-    
+
+    <div class="row col-sm-5">
+        <select id='pre-selected-options' multiple='multiple'>
+            <option value='elem_1' selected>elem 1</option>
+            <option value='elem_2'>elem 2</option>
+            <option value='elem_3'>elem 3</option>
+            <option value='elem_4' selected>elem 4</option>
+            <option value='elem_100'>elem 100</option>
+        </select>
+    </div>
+
+    <div class="row col-sm-7">
+        <?php $model2 = Reglas::model()->findAll("Logica_idLogica=:Logica_idLogica", array(':Logica_idLogica' => $model->idLogica)) ?>
+        <table class="linear" cellspacing = "0">
+            <?php foreach ($model2 as $row): ?>
+                <tr>
+                    <td><?php echo $row['inicio'] ?></td>
+                    <td><button type="button" class = "btn btn-default">  -->  </button></td>
+                    <td><?php echo $row['fin'] ?></td>
+                    <td>  <?php echo CHtml::submitButton('Regla', array('onclick' => $model->algo($row['idreglas']), 'class' => 'btn btn-default')); ?></td>
+                </tr>
+            <?php endforeach; ?>
+
+        </table>
+    </div>
+
+
     <div class="algo">
-        <?php echo $model->algo();?>
+        <?php //echo $model->algo(); ?>
     </div>
     <div class="col-sm-7 table-responsive">
         <table class="linear" cellspacing ="0">
@@ -69,7 +95,7 @@
                         'class' => 'form-control',
                     ),
                     '<td class="mmf_cell">
-                       <button type="button" class = "btn btn-default">  -->  </button
+                       <button type="button" class = "btn btn-default">  -->  </button>
 
                     </td>',
                     'fin' => array(
@@ -112,5 +138,7 @@
     </div>
 
     <?php $this->endWidget(); ?>
-
+    <script>
+        $('#pre-selected-options').multiSelect();
+    </script>
 </div><!-- form -->

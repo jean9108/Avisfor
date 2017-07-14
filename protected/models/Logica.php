@@ -71,8 +71,8 @@ class Logica extends CActiveRecord {
         );
     }
 
-    public function algo() {
-        $regla = Reglas::model()->find("Logica_idLogica =:Logica_idLogica", array(":Logica_idLogica" => $this->idLogica));
+    public function algo($id) {
+        $regla = Reglas::model()->find("idreglas =:idreglas", array(":idreglas" => $id));
         $var = substr($regla->inicio, 1, -1);
         $var2 = substr($regla->fin, 1, -1);
         $contar = substr_count($this->axioma, $var);
@@ -102,7 +102,7 @@ class Logica extends CActiveRecord {
             $arreglo = implode(" ",$aux2);
             $formato = str_replace(' ', '', $arreglo);
             array_push($arreglo2, $formato);
-            var_dump($arreglo2);
+            //var_dump($arreglo2);
         }
         
         return $contar;

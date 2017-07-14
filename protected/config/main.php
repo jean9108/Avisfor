@@ -20,6 +20,7 @@ return array(
     'import' => array(
         'application.models.*',
         'application.components.*',
+        'application.controllers.*',
 //        importación de la extensión para bootstrap
         'application.extensions.yiibooster.widgets.*',
 //        importacion de cruge
