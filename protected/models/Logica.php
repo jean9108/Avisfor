@@ -13,133 +13,141 @@
  * @property Estudiantes $estudiantesIdestudiantes
  * @property Reglas[] $reglases
  */
-class Logica extends CActiveRecord
-{
-        public $letras = 'a';
-        public $resultado;
-        public $derivacion;
-        public $prueba = array();
-        
-	/**
-	 * @return string the associated database table name
-	 */
-	public function tableName()
-	{
-		return 'logica';
-	}
+class Logica extends CActiveRecord {
 
-	/**
-	 * @return array validation rules for model attributes.
-	 */
-	public function rules()
-	{
-		// NOTE: you should only define rules for those attributes that
-		// will receive user inputs.
-		return array(
-			array('axioma, conjetura', 'required'),
-			array('estudiantes_idestudiantes,resultado', 'numerical', 'integerOnly'=>true),
-			array('axioma, conjetura,letras,derivacion', 'length', 'max'=>255),
-			// The following rule is used by search().
-			// @todo Please remove those attributes that should not be searched.
-			array('idLogica, axioma, conjetura, estudiantes_idestudiantes', 'safe', 'on'=>'search'),
-		);
-	}
+    public $letras = 'a';
+    public $resultado;
+    public $derivacion;
+    public $prueba = array();
 
-	/**
-	 * @return array relational rules.
-	 */
-	public function relations()
-	{
-		// NOTE: you may need to adjust the relation name and the related
-		// class name for the relations automatically generated below.
-		return array(
-			'estudiantesIdestudiantes' => array(self::BELONGS_TO, 'Estudiantes', 'estudiantes_idestudiantes'),
-			'reglases' => array(self::HAS_MANY, 'Reglas', 'Logica_idLogica'),
-		);
-	}
+    /**
+     * @return string the associated database table name
+     */
+    public function tableName() {
+        return 'logica';
+    }
 
-	/**
-	 * @return array customized attribute labels (name=>label)
-	 */
-	public function attributeLabels()
-	{
-		return array(
-			'idLogica' => 'Id Logica',
-			'axioma' => 'Axioma',
-			'conjetura' => 'Conjetura',
-			'estudiantes_idestudiantes' => 'Estudiantes Idestudiantes',
-                        'letras' => 'Letras',
-                        'resultado' => 'Resultado',
-                        'derivacion' => 'derivacion',
-		);
-	}
-        
-        public function algo(){
-            $regla = Reglas::model()->find("Logica_idLogica =:Logica_idLogica", array(":Logica_idLogica"=>$this->idLogica));
-            $var = substr($regla->inicio, 1, -1);
-            $var2 = substr($regla->fin, 1, -1);
-            $contar =substr_count($this->axioma, $var);
-            $arr1 = str_split($this->axioma);
-            $algo2 = array();
-            var_dump($arr1);
-            for($i =0; $i < count($arr1); $i++){
-                
-                if($arr1[$i] == $var){
-                   
-                   // $pos = strpos($regla->inicio, $var);
-                   $cambio=str_replace($var,$var2 ,$arr1[$i]);
-                   array_push($algo2,$cambio);
-                  //  echo $arr1[$i];
+    /**
+     * @return array validation rules for model attributes.
+     */
+    public function rules() {
+        // NOTE: you should only define rules for those attributes that
+        // will receive user inputs.
+        return array(
+            array('axioma, conjetura', 'required'),
+            array('estudiantes_idestudiantes,resultado', 'numerical', 'integerOnly' => true),
+            array('axioma, conjetura,letras,derivacion,prueba', 'length', 'max' => 255),
+            // The following rule is used by search().
+            // @todo Please remove those attributes that should not be searched.
+            array('idLogica, axioma, conjetura, estudiantes_idestudiantes', 'safe', 'on' => 'search'),
+        );
+    }
+
+    /**
+     * @return array relational rules.
+     */
+    public function relations() {
+        // NOTE: you may need to adjust the relation name and the related
+        // class name for the relations automatically generated below.
+        return array(
+            'estudiantesIdestudiantes' => array(self::BELONGS_TO, 'Estudiantes', 'estudiantes_idestudiantes'),
+            'reglases' => array(self::HAS_MANY, 'Reglas', 'Logica_idLogica'),
+        );
+    }
+
+    /**
+     * @return array customized attribute labels (name=>label)
+     */
+    public function attributeLabels() {
+        return array(
+            'idLogica' => 'Id Logica',
+            'axioma' => 'Axioma',
+            'conjetura' => 'Conjetura',
+            'estudiantes_idestudiantes' => 'Estudiantes Idestudiantes',
+            'letras' => 'Letras',
+            'resultado' => 'Resultado',
+            'derivacion' => 'derivacion',
+            'prueba' => 'prueba',
+        );
+    }
+
+    public function algo() {
+        $regla = Reglas::model()->find("Logica_idLogica =:Logica_idLogica", array(":Logica_idLogica" => $this->idLogica));
+        $var = substr($regla->inicio, 1, -1);
+        $var2 = substr($regla->fin, 1, -1);
+        $contar = substr_count($this->axioma, $var);
+        $arr1 = str_split($this->axioma);
+        $contar1 = strlen($var2);    
+        $arreglo = '';
+        $arreglo2 = array();
+        $pos = 0;
+        for($i = 0;$i< $contar; $i++){
+            $aux = 0;
+            $aux2 = array();
+            for($j = $pos; $j< count($arr1);$j++ ){
+                if($arr1[$j] == $var && $aux ==0){
+                    $pos+=$j+1;
+                    $aux = 1;
+                    for($k = 0; $k < $i; $k++)
+                        array_push($aux2,$arr1[$k]);
+                    
+                    
+                        for($l = 0; $l < $contar1; $l++){
+                            array_push($aux2, $var2[$l]);
+                        }                   
+                }else{
+                    array_push($aux2, $arr1[$j]);
                 }
-                
-                //echo $trimmed;
-                echo '<br />';
-               
             }
-            var_dump($algo2);
-            
-            return $contar;
+            $arreglo = implode(" ",$aux2);
+            $formato = str_replace(' ', '', $arreglo);
+            array_push($arreglo2, $formato);
+            var_dump($arreglo2);
         }
-        public function contar(){
-            $contar =substr_count($this->axioma, $this->letras);           
-            return $contar;
-        }
-	/**
-	 * Retrieves a list of models based on the current search/filter conditions.
-	 *
-	 * Typical usecase:
-	 * - Initialize the model fields with values from filter form.
-	 * - Execute this method to get CActiveDataProvider instance which will filter
-	 * models according to data in model fields.
-	 * - Pass data provider to CGridView, CListView or any similar widget.
-	 *
-	 * @return CActiveDataProvider the data provider that can return the models
-	 * based on the search/filter conditions.
-	 */
-	public function search()
-	{
-		// @todo Please modify the following code to remove attributes that should not be searched.
+        
+        return $contar;
+    }
 
-		$criteria=new CDbCriteria;
+    public function contar() {
+        $contar = substr_count($this->axioma, $this->letras);
+        return $contar;
+    }
 
-		$criteria->compare('idLogica',$this->idLogica);
-		$criteria->compare('axioma',$this->axioma,true);
-		$criteria->compare('conjetura',$this->conjetura,true);
-		$criteria->compare('estudiantes_idestudiantes',$this->estudiantes_idestudiantes);
+    /**
+     * Retrieves a list of models based on the current search/filter conditions.
+     *
+     * Typical usecase:
+     * - Initialize the model fields with values from filter form.
+     * - Execute this method to get CActiveDataProvider instance which will filter
+     * models according to data in model fields.
+     * - Pass data provider to CGridView, CListView or any similar widget.
+     *
+     * @return CActiveDataProvider the data provider that can return the models
+     * based on the search/filter conditions.
+     */
+    public function search() {
+        // @todo Please modify the following code to remove attributes that should not be searched.
 
-		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
-		));
-	}
+        $criteria = new CDbCriteria;
 
-	/**
-	 * Returns the static model of the specified AR class.
-	 * Please note that you should have this exact method in all your CActiveRecord descendants!
-	 * @param string $className active record class name.
-	 * @return Logica the static model class
-	 */
-	public static function model($className=__CLASS__)
-	{
-		return parent::model($className);
-	}
+        $criteria->compare('idLogica', $this->idLogica);
+        $criteria->compare('axioma', $this->axioma, true);
+        $criteria->compare('conjetura', $this->conjetura, true);
+        $criteria->compare('estudiantes_idestudiantes', $this->estudiantes_idestudiantes);
+
+        return new CActiveDataProvider($this, array(
+            'criteria' => $criteria,
+        ));
+    }
+
+    /**
+     * Returns the static model of the specified AR class.
+     * Please note that you should have this exact method in all your CActiveRecord descendants!
+     * @param string $className active record class name.
+     * @return Logica the static model class
+     */
+    public static function model($className = __CLASS__) {
+        return parent::model($className);
+    }
+
 }
