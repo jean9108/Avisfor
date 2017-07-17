@@ -42,26 +42,24 @@ class LogicaController extends Controller {
             ),
         );
     }
-    
-    protected function gridMemberColumn($data,$row)
-    {
-       $sql = 'SELECT idRegla, inicio, fin FROM reglas WHERE  = Logica_idLogica' . $data->idLogica;
-       $rows = Yii::app()->db->createCommand($sql)->queryAll();
 
-       $result = '';
-       $idx = 1;
-       if(!empty($rows))
-           foreach ($rows as $row)
-           {
-               $url = Yii::app()->createUrl('reglas/view',array('id'=>$row['idRegla']));
-               $style = $idx % 2 == 0 ? 'background:#F8F8F8; padding:0.5em;' : 'background:#E5F1F4; padding:0.5em;';
-               $text = CHtml::tag('div',array('style'=>$style),$row['inicio'].' '.$row['fin']);
-               $result .= CHtml::link($text,$url) .'<br/>';
-               $idx++;
-           }
-       return $result;
+    protected function gridMemberColumn($data, $row) {
+        $sql = 'SELECT idRegla, inicio, fin FROM reglas WHERE  = Logica_idLogica' . $data->idLogica;
+        $rows = Yii::app()->db->createCommand($sql)->queryAll();
+
+        $result = '';
+        $idx = 1;
+        if (!empty($rows))
+            foreach ($rows as $row) {
+                $url = Yii::app()->createUrl('reglas/view', array('id' => $row['idRegla']));
+                $style = $idx % 2 == 0 ? 'background:#F8F8F8; padding:0.5em;' : 'background:#E5F1F4; padding:0.5em;';
+                $text = CHtml::tag('div', array('style' => $style), $row['inicio'] . ' ' . $row['fin']);
+                $result .= CHtml::link($text, $url) . '<br/>';
+                $idx++;
+            }
+        return $result;
     }
-    
+
     /**
      * Displays a particular model.
      * @param integer $id the ID of the model to be displayed
@@ -71,49 +69,50 @@ class LogicaController extends Controller {
             'model' => $this->loadModel($id),
         ));
     }
-    
+
     /**
      * Creates a new model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      */
     public function actionCreate() {
-               
+
         Yii::import('ext.multimodelform.MultiModelForm');
         $model = new Logica;
         $regla = new Reglas;
         $validateRules = array();
-        $estudiante = Estudiantes::model()->find("cruge_user_iduser =:cruge_user_iduser",array(":cruge_user_iduser"=> Yii::app()->user->id));
+        $estudiante = Estudiantes::model()->find("cruge_user_iduser =:cruge_user_iduser", array(":cruge_user_iduser" => Yii::app()->user->id));
         $model->estudiantes_idestudiantes = $estudiante->idestudiante;
-        
+
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
 
         if (isset($_POST['Logica'])) {
             $model->attributes = $_POST['Logica'];
-            
+
             $detailOk = MultiModelForm::validate($regla, $validateRules, $deleteItems);
-            
-            if($detailOk && empty($validateRules)){
-                Yii::app()->user->setFlash('error','No se ha podido subir el Sistema Formal');
+
+            if ($detailOk && empty($validateRules)) {
+                Yii::app()->user->setFlash('error', 'No se ha podido subir el Sistema Formal');
                 $detailOk = false;
             }
-            
-            if ($detailOk && $model->save()){
+
+            if ($detailOk && $model->save()) {
                 $reglaValues = array('Logica_idLogica' => $model->idLogica);
-                
-                
-                if(MultiModelForm::save($regla,$validateRules,$deleteItems,$reglaValues)){
+
+
+                if (MultiModelForm::save($regla, $validateRules, $deleteItems, $reglaValues)) {
                     $this->redirect(array('admin', 'id' => $model->idLogica));
-                }  
+                }
             }
         }
 
         $this->render('create', array(
             'model' => $model,
-            'regla' =>$regla,
+            'regla' => $regla,
             'validateRules' => $validateRules,
         ));
     }
+
     
 
     /**
@@ -125,34 +124,62 @@ class LogicaController extends Controller {
         Yii::import('ext.multimodelform.MultiModelForm');
         $model = $this->loadModel($id);
         $model->derivacion = $model->axioma;
+        $var = 0;
+        $clic = '';
+        $cl = 0;
         
         $regla = new Reglas;
         $validateRules = array();
+        
+        if(count($model->prueba) == 0){
+            array_push($model->prueba, $model->axioma);
+        }
 //        $model->resultado = '20';
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
-        if(isset($_POST['button1'])){
+        if (isset($_POST['button1'])) {
             $model->attributes = $_POST['button1'];
             
-            
-            //$_POST['button1']['conjetura'] = '20';
-           //$model->save();
-//            var_dump($var); 
-            
+        }
+        if(isset($_POST['button2'])){
+            $rule = $_POST['button2'];
+            $areg = explode(" ", $rule);
+            $var = intval($areg[1]);
         }
         
+        if(isset($_POST['button3'])){
+            $clic = $_POST['button3'];
+            if($clic != '') 
+                $cl = 1;
+        }
+        
+        if(isset($_POST['button4'])){
+            $algo = $_POST['button4'];
+            var_dump($algo);
+        }
         if (isset($_POST['Logica'])) {
             $model->attributes = $_POST['Logica'];
-            
             $model->resultado = $model->contar();
-            $rulesValues = array('Logica_idLogica'=> $model->idLogica);
-             MultiModelForm::save($regla, $validateRules, $deleteReglas,$rulesValues) && $model->save();
-                //$this->redirect(array('admin', 'id' => $model->idLogica));
+            if($var != 0){
+                 $model->solucion = array();
+                 $model->solucion = $model->aplicarReglas($var);
+            }
+           
+            if($cl == 1){
+                array_push($model->prueba, $clic);
+                $contar = count($model->prueba);
+                $model->axioma = $model->prueba[$contar-1];
+            }
+            //die($model->ident);
+            $rulesValues = array('Logica_idLogica' => $model->idLogica);
+            
+            MultiModelForm::save($regla, $validateRules, $deleteReglas, $rulesValues) && $model->save();
+            //$this->redirect(array('admin', 'id' => $model->idLogica));
         }
 
         $this->render('update', array(
             'model' => $model,
-            'regla' =>$regla,
+            'regla' => $regla,
             'validateRules' => $validateRules,
         ));
     }

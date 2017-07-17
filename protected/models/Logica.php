@@ -18,8 +18,10 @@ class Logica extends CActiveRecord {
     public $letras = 'a';
     public $resultado;
     public $derivacion;
+    public $ident = 0;
     public $prueba = array();
-
+    public $solucion = array();
+    
     /**
      * @return string the associated database table name
      */
@@ -35,8 +37,8 @@ class Logica extends CActiveRecord {
         // will receive user inputs.
         return array(
             array('axioma, conjetura', 'required'),
-            array('estudiantes_idestudiantes,resultado', 'numerical', 'integerOnly' => true),
-            array('axioma, conjetura,letras,derivacion,prueba', 'length', 'max' => 255),
+            array('estudiantes_idestudiantes,resultado,ident', 'numerical', 'integerOnly' => true),
+            array('axioma, conjetura,letras,derivacion', 'length', 'max' => 255),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
             array('idLogica, axioma, conjetura, estudiantes_idestudiantes', 'safe', 'on' => 'search'),
@@ -68,44 +70,60 @@ class Logica extends CActiveRecord {
             'resultado' => 'Resultado',
             'derivacion' => 'derivacion',
             'prueba' => 'prueba',
+            'solucion' => 'solucion',
+            'ident' => 'identificador',
         );
     }
 
-    public function algo($id) {
-        $regla = Reglas::model()->find("idreglas =:idreglas", array(":idreglas" => $id));
-        $var = substr($regla->inicio, 1, -1);
-        $var2 = substr($regla->fin, 1, -1);
-        $contar = substr_count($this->axioma, $var);
-        $arr1 = str_split($this->axioma);
-        $contar1 = strlen($var2);    
-        $arreglo = '';
-        $arreglo2 = array();
-        $pos = 0;
-        for($i = 0;$i< $contar; $i++){
-            $aux = 0;
-            $aux2 = array();
-            for($j = $pos; $j< count($arr1);$j++ ){
-                if($arr1[$j] == $var && $aux ==0){
-                    $pos+=$j+1;
-                    $aux = 1;
-                    for($k = 0; $k < $i; $k++)
-                        array_push($aux2,$arr1[$k]);
-                    
-                    
-                        for($l = 0; $l < $contar1; $l++){
-                            array_push($aux2, $var2[$l]);
-                        }                   
-                }else{
-                    array_push($aux2, $arr1[$j]);
+    public function seleccion($id) {
+        echo $id;
+        return $id;
+    }
+
+    public function aplicarReglas($id) {
+        //echo $id;
+        $regla = Reglas::model()->findAll("Logica_idLogica =:Logica_idLogica", array(":Logica_idLogica" => $this->idLogica));
+        $valor = 1;
+        foreach ($regla as $row) {
+
+            if ($valor == $id) {
+
+                $var = substr($row->inicio, 1, -1);
+                $var2 = substr($row->fin, 1, -1);
+                $contar = substr_count($this->axioma, $var);
+                $arr1 = str_split($this->axioma);
+                $contar1 = strlen($var2);
+                $arreglo = '';
+                $arreglo2 = array();
+                $pos = 0;
+                for ($i = 0; $i < $contar; $i++) {
+                    $aux = 0;
+                    $aux2 = array();
+                    for ($j = $pos; $j < count($arr1); $j++) {
+                        if ($arr1[$j] == $var && $aux == 0) {
+                            $pos += $j + 1;
+                            $aux = 1;
+                            for ($k = 0; $k < $i; $k++)
+                                array_push($aux2, $arr1[$k]);
+
+
+                            for ($l = 0; $l < $contar1; $l++) {
+                                array_push($aux2, $var2[$l]);
+                            }
+                        } else {
+                            array_push($aux2, $arr1[$j]);
+                        }
+                    }
+                    $arreglo = implode(" ", $aux2);
+                    $formato = str_replace(' ', '', $arreglo);
+                    array_push($this->solucion, $formato);
                 }
+         
+            } else {
+                $valor += 1;
             }
-            $arreglo = implode(" ",$aux2);
-            $formato = str_replace(' ', '', $arreglo);
-            array_push($arreglo2, $formato);
-            //var_dump($arreglo2);
         }
-        
-        return $contar;
+        return $this->solucion;
     }
 
     public function contar() {

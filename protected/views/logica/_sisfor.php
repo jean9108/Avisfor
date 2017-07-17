@@ -43,7 +43,7 @@
 
     <div class="row col-sm-5">
         <?php echo $form->labelEx($model, 'conjetura'); ?>
-        <?php echo $form->textArea($model, 'conjetura', array('size' => 60, 'maxlength' => 255, 'class' => 'form-control')); ?>
+        <?php echo $form->textField($model, 'conjetura', array('size' => 60, 'maxlength' => 255, 'class' => 'form-control')); ?>
         <?php echo $form->error($model, 'conjetura'); ?>
     </div>
 
@@ -53,36 +53,55 @@
             <?php echo $form->textField($model, 'derivacion', array('class' => 'form-control')) ?>
             <?php echo $form->error($model, 'derivacion'); ?>
         </div>
+
+
     </div>
 
     <div class="row col-sm-5">
-        <select id='pre-selected-options' multiple='multiple'>
-            <option value='elem_1' selected>elem 1</option>
-            <option value='elem_2'>elem 2</option>
-            <option value='elem_3'>elem 3</option>
-            <option value='elem_4' selected>elem 4</option>
-            <option value='elem_100'>elem 100</option>
-        </select>
+
+        <?php foreach ($model->solucion as $row): ?>
+
+            <?php echo CHtml::submitButton($row, array('name' => 'button3', 'class' => 'btn btn-default')); ?>
+            <br/>
+        <?php endforeach; ?>
+
     </div>
 
     <div class="row col-sm-7">
         <?php $model2 = Reglas::model()->findAll("Logica_idLogica=:Logica_idLogica", array(':Logica_idLogica' => $model->idLogica)) ?>
         <table class="linear" cellspacing = "0">
+            <?php $aux = 1; ?>
             <?php foreach ($model2 as $row): ?>
                 <tr>
                     <td><?php echo $row['inicio'] ?></td>
                     <td><button type="button" class = "btn btn-default">  -->  </button></td>
                     <td><?php echo $row['fin'] ?></td>
-                    <td>  <?php echo CHtml::submitButton('Regla', array('onclick' => $model->algo($row['idreglas']), 'class' => 'btn btn-default')); ?></td>
+
+
+                    <td><?php echo CHtml::submitButton('Regla ' . $aux, array('name' => 'button2', 'class' => 'btn btn-default')); ?></td>
+
                 </tr>
+                <?php $aux += 1; ?>
             <?php endforeach; ?>
 
         </table>
     </div>
 
+    <div class="row col-sm-12">
+        
+
+      <select>
+            <option value="">Selecione uno...</option>
+            <?php foreach ($model->prueba as $row): ?>
+               
+                <?php echo "<option value = " . $row . ">" . CHtml::submitButton($row, array('name' => 'button4', 'class' => 'btn btn-link')) . "</option>" ?>
+            <?php endforeach; ?>
+      </select>
+
+    </div>
 
     <div class="algo">
-        <?php //echo $model->algo(); ?>
+        <?php var_dump($model->prueba); ?>
     </div>
     <div class="col-sm-7 table-responsive">
         <table class="linear" cellspacing ="0">
