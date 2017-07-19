@@ -5,6 +5,9 @@
         <group>
             <file>file:/C:/xampp/htdocs/Avisfor/protected/views/logica/_sisfor.php</file>
             <file>file:/C:/xampp/htdocs/Avisfor/protected/models/Logica.php</file>
+            <file>file:/C:/xampp/htdocs/Avisfor/protected/controllers/LogicaController.php</file>
+            <file>file:/C:/xampp/htdocs/Avisfor/protected/views/layouts/main.php</file>
+            <file>file:/C:/xampp/htdocs/Avisfor/protected/config/main.php</file>
         </group>
     </open-files>
 </project-private>

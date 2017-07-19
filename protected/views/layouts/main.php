@@ -36,7 +36,7 @@
                             <span class="icon-bar"></span> 
                         </button>
                         <a class="navbar-brand header-t" href="#">
-                            Avisfor
+                            Visualisfor
                         </a>
                     </div>
                     <div class="collapse navbar-collapse" id="myNavbar">
@@ -85,7 +85,7 @@
                                 <span class="icon-bar"></span> 
                             </button>
                             <a class="navbar-brand header-t" href="#">
-                                Avisfor
+                                Visualisfor
                             </a>
                         </div>
                         <div class="collapse navbar-collapse" id="myNavbar">
@@ -126,7 +126,7 @@
                                 <span class="icon-bar"></span> 
                             </button>
                             <a class="navbar-brand header-t" href="/site/index">
-                                Avisfor
+                                Visualisfor
                             </a>
                         </div>
                         <div class="collapse navbar-collapse" id="myNavbar">
@@ -143,11 +143,9 @@
                                             <?php echo Chtml::link('Perfil',array('/estudiantes/view/'.$estudiante->idestudiante))?>
                                         <?php }?>
                                 </li>
+                               
                                 <li>
-                                        <?php echo Chtml::link('Prolog', array('/sistemas/prologView'))?>
-                                </li>
-                                <li>
-                                       <?php echo Chtml::link('Mis Sistemas Formales',array('/sistemas/misSistemas/'))?>
+                                       <?php echo Chtml::link('Mis Sistemas Formales',array('/logica/misSistemas/'))?>
                                 </li>
                                 <li>
                                     <?php echo Chtml::link('<i class="fa fa-sign-out" aria-hidden="true"></i> Cerrar Sesión', array('/cruge/ui/logout')) ?>

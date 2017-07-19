@@ -7768,3 +7768,11 @@ REQUEST_URI=/Avisfor/index.php/logica/update/1
 in C:\xampp\htdocs\Avisfor\protected\views\logica\_sisfor.php (61)
 in C:\xampp\htdocs\Avisfor\protected\views\logica\update.php (16)
 in C:\xampp\htdocs\Avisfor\protected\controllers\LogicaController.php (178)
+2017/07/19 03:19:49 [error] [exception.CHttpException.404] CHttpException: No es posible resolver la solicitud "update/view" in C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('update/view')
+#1 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/Avisfor/index.php/update/1
+---

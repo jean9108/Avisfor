@@ -40,28 +40,38 @@
             <?php echo $form->textField($model, 'resultado', array('class' => 'form-control', 'readonly' => true)) ?>
         </div>
     </div>
-
-    <div class="row col-sm-5">
-        <?php echo $form->labelEx($model, 'conjetura'); ?>
-        <?php echo $form->textField($model, 'conjetura', array('size' => 60, 'maxlength' => 255, 'class' => 'form-control')); ?>
-        <?php echo $form->error($model, 'conjetura'); ?>
-    </div>
-
-    <div class="row col-sm-7">
-        <div class="row col-sm-12">
-            <label>Escriba el Axioma. Aqui se registra la Derivación</label>
-            <?php echo $form->textField($model, 'derivacion', array('class' => 'form-control')) ?>
-            <?php echo $form->error($model, 'derivacion'); ?>
+    <div class="row col-sm-12">
+        <div class="row col-sm-5">
+            <?php echo $form->labelEx($model, 'conjetura'); ?>
+            <?php echo $form->textArea($model, 'conjetura', array('size' => 60, 'maxlength' => 255, 'class' => 'form-control')); ?>
+            <?php echo $form->error($model, 'conjetura'); ?>
         </div>
 
+        <div class="row col-sm-7">
+            <div class="row col-sm-12">
+                <label>Escriba el Axioma. Aqui se registra la Derivación</label>
+                <?php echo $form->textField($model, 'derivacion', array('class' => 'form-control')) ?>
+                <?php echo $form->error($model, 'derivacion'); ?>
+            </div>
+            <div class="row col-sm-12">
+                <select class="form-control">
+                    <option value="">Selecione uno...</option>
+                    <?php foreach ($model->prueba as $row): ?>
 
+                        <?php echo "<option value = " . $row . " >" . $row . "</option>" ?>
+                    <?php endforeach; ?>
+                </select>
+
+            </div>
+
+        </div>
     </div>
 
-    <div class="row col-sm-5">
+    <div class="row col-sm-5 solucion" id ="solucion">
 
         <?php foreach ($model->solucion as $row): ?>
 
-            <?php echo CHtml::submitButton($row, array('name' => 'button3', 'class' => 'btn btn-default')); ?>
+            <?php echo CHtml::submitButton($row, array('name' => 'button3', 'class' => 'btn btn-link form-control')); ?>
             <br/>
         <?php endforeach; ?>
 
@@ -73,12 +83,12 @@
             <?php $aux = 1; ?>
             <?php foreach ($model2 as $row): ?>
                 <tr>
-                    <td><?php echo $row['inicio'] ?></td>
-                    <td><button type="button" class = "btn btn-default">  -->  </button></td>
-                    <td><?php echo $row['fin'] ?></td>
+                    <td id = "regla_apl" class="form-control"><?php echo $row['inicio'] ?></td>
+                    <td><button type="button" class = "btn btn-default form-control">  -->  </button></td>
+                    <td   id = "regla_apl" class="form-control"><?php echo $row['fin'] ?></td>
 
 
-                    <td><?php echo CHtml::submitButton('Regla ' . $aux, array('name' => 'button2', 'class' => 'btn btn-default')); ?></td>
+                    <td><?php echo CHtml::submitButton('Regla ' . $aux, array('name' => 'button2', 'class' => 'btn btn-success')); ?></td>
 
                 </tr>
                 <?php $aux += 1; ?>
@@ -86,24 +96,12 @@
 
         </table>
     </div>
-
-    <div class="row col-sm-12">
-        
-
-      <select>
-            <option value="">Selecione uno...</option>
-            <?php foreach ($model->prueba as $row): ?>
-               
-                <?php echo "<option value = " . $row . ">" . CHtml::submitButton($row, array('name' => 'button4', 'class' => 'btn btn-link')) . "</option>" ?>
-            <?php endforeach; ?>
-      </select>
-
+    
+    <div class="col-sm-12 tituloP">
+        <h1> Actualizar Reglas </h1>
     </div>
 
-    <div class="algo">
-        <?php var_dump($model->prueba); ?>
-    </div>
-    <div class="col-sm-7 table-responsive">
+    <div class="col-sm-12 table-responsive">
         <table class="linear" cellspacing ="0">
             <?php
             $reglaFormConfig = array(

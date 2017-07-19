@@ -356,6 +356,24 @@ table.detail-view tr.even{
     text-decoration: none !important;
 }
 
+/**Pagina lógica**/
+#solucion{
+    border-radius: 7px;
+    border: 1px solid #ccc;
+}
+
+#solucion .btn-link{
+    color: #333 !important;
+}
+
+#solucion .btn-link:hover{
+    background: #333 !important;
+    color: #FFF !important;
+}
+
+#regla_apl{
+    margin-top: 5px;
+}
 
 /*titulo*/
 @-webkit-keyframes neon2 {
@@ -364,5 +382,12 @@ table.detail-view tr.even{
     }
     to {
         text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #228DFF, 0 0 35px #228DFF, 0 0 40px #228DFF, 0 0 50px #228DFF, 0 0 75px #228DFF;
+    }
+}
+
+@media only screen and (max-width:800px) {
+    .navbar-nav {
+        margin: 7.5px -15px;
+        background:#052837;
     }
 }

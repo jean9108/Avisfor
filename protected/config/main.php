@@ -126,6 +126,14 @@ return array(
             ),
         ),
         // database settings are configured in database.php
+//         'db' => array(
+//            'connectionString' => 'mysql:host=localhost;dbname=id2043725_avisfor',
+//            'emulatePrepare' => true,
+//            'username' => 'id2043725_escuela',
+//            'password' => 'Pgr20171',
+//            'charset' => 'utf8',
+//        ),
+        
         'db' => array(
             'connectionString' => 'mysql:host=localhost;dbname=avisfor',
             'emulatePrepare' => true,

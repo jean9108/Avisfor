@@ -25,12 +25,12 @@ class LogicaController extends Controller {
      */
     public function accessRules() {
         return array(
-            array('allow', // allow all users to perform 'index' and 'view' actions
-                'actions' => array('index', 'view'),
-                'users' => array('*'),
-            ),
+//            array('allow', // allow all users to perform 'index' and 'view' actions
+//                'actions' => array('index', 'view'),
+//                'users' => array('*'),
+//            ),
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
-                'actions' => array('create', 'update'),
+                'actions' => array('create', 'update', 'misSistemas'),
                 'users' => array('@'),
             ),
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -69,6 +69,20 @@ class LogicaController extends Controller {
             'model' => $this->loadModel($id),
         ));
     }
+    
+    
+    /**
+     *  Manejo de los Sistemas que la persona crea 
+     **/
+    public function actionMisSistemas() {
+        $estudiante = Estudiantes::model()->find("cruge_user_iduser=:cruge_user_iduser", array(":cruge_user_iduser" => Yii::app()->user->id));
+
+        if ($estudiante) {
+
+            $this->render('misSistemas');
+        } else
+            $this->redirect(array('/estudiantes/create'));
+    }
 
     /**
      * Creates a new model.
@@ -101,7 +115,7 @@ class LogicaController extends Controller {
 
 
                 if (MultiModelForm::save($regla, $validateRules, $deleteItems, $reglaValues)) {
-                    $this->redirect(array('admin', 'id' => $model->idLogica));
+                    $this->redirect(array('update', 'id' => $model->idLogica));
                 }
             }
         }
