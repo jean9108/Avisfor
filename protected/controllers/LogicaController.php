@@ -157,8 +157,12 @@ class LogicaController extends Controller {
         }
         if(isset($_POST['button2'])){
             $rule = $_POST['button2'];
+            $reglas = $_POST['Reglas'];
             $areg = explode(" ", $rule);
-            $var = intval($areg[1]);
+            $sum = intval($areg[1])-1;
+            $var =  $reglas['pk__'][$sum]['idreglas'];
+//            CVarDumper::dump($var,10,true);
+            
         }
         
         if(isset($_POST['button3'])){

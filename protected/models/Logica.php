@@ -81,52 +81,80 @@ class Logica extends CActiveRecord {
     }
 
     public function aplicarReglas($id) {
-        //echo $id;
-        $regla = Reglas::model()->findAll("Logica_idLogica =:Logica_idLogica", array(":Logica_idLogica" => $this->idLogica));
-        $valor = 1;
-        foreach ($regla as $row) {
 
-            if ($valor == $id) {
-
-                $var = substr($row->inicio, 1, -1);
-                $var2 = substr($row->fin, 1, -1);
-                $contar = substr_count($this->axioma, $var);
-                $arr1 = str_split($this->axioma);
-                $contar1 = strlen($var2);
-                $arreglo = '';
-                $arreglo2 = array();
-                $pos = 0;
-                for ($i = 0; $i < $contar; $i++) {
-                    $aux = 0;
-                    $aux2 = array();
-                    for ($j = $pos; $j < count($arr1); $j++) {
-                        if ($arr1[$j] == $var && $aux == 0) {
-                            $pos += $j + 1;
-                            $aux = 1;
-                            for ($k = 0; $k < $i; $k++)
-                                array_push($aux2, $arr1[$k]);
-
-
-                            for ($l = 0; $l < $contar1; $l++) {
-                                array_push($aux2, $var2[$l]);
-                            }
-                        } else {
-                            array_push($aux2, $arr1[$j]);
-                        }
-                    }
-                    $arreglo = implode(" ", $aux2);
-                    $formato = str_replace(' ', '', $arreglo);
-                    array_push($this->solucion, $formato);
-                }
-         
-            } else {
-                $valor += 1;
-            }
-        }
+        $regla = Reglas::model()->find("idreglas =:id_reglas", array(":id_reglas" => $id));
+        $inicio = $regla->inicio;
+        $fin = $regla->fin;
+        $cadena = str_split($this->axioma);
+        $prueba = $this->revisionInicio($cadena, $inicio);
+        CVarDumper::dump($prueba,10,true);        
+//        foreach ($regla as $row) {
+//                
+//            if ($valor == $id) {
+//                $var = substr($row->inicio, 1, -1);
+//                
+//                $var2 = substr($row->fin, 1, -1);
+//                $contar = substr_count($this->axioma, $var);
+//                $arr1 = str_split($this->axioma);
+//                $contar1 = strlen($var2);
+//                $arreglo = '';
+//                $arreglo2 = array();
+//                $pos = 0;
+//                for ($i = 0; $i < $contar; $i++) {
+//                    $aux = 0;
+//                    $aux2 = array();
+//                    for ($j = $pos; $j < count($arr1); $j++) {
+//                        if ($arr1[$j] == $var && $aux == 0) {
+//                            $pos += $j + 1;
+//                            $aux = 1;
+//                            for ($k = 0; $k < $i; $k++)
+//                                array_push($aux2, $arr1[$k]);
+//
+//
+//                            for ($l = 0; $l < $contar1; $l++) {
+//                                array_push($aux2, $var2[$l]);
+//                            }
+//                        } else {
+//                            array_push($aux2, $arr1[$j]);
+//                        }
+//                    }
+//                    $arreglo = implode(" ", $aux2);
+//                    $formato = str_replace(' ', '', $arreglo);
+//                    array_push($this->solucion, $formato);
+//                }
+//         
+//            } else {
+//                $valor += 1;
+//            }
+//        }
         return $this->solucion;
     }
+    
+    public function revisionInicio($cadena,$inicio){
+        $accion = array();
+        $prueba = array();
+        $inicio = str_split($inicio);
+   
+        for($i = 0; $i < count($cadena); $i++){
+            $cont = 0; 
+            foreach ($inicio as $resp){
+               
+                if(strpos($cadena[$i], $resp) !== false){
+                    array_push($accion, $cadena[$i]." ".$i);
+                }
+            }
+        }
+        
+       //$accion = $this->revisionInicio2($accion, $inicio);
+        
+        return $accion;
+    }
 
-    public function contar() {
+    public function revisionInicio2($cadena,$inicio){
+        return null;
+    }
+
+        public function contar() {
         $contar = substr_count($this->axioma, $this->letras);
         return $contar;
     }
