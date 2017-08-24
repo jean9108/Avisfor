@@ -21,7 +21,7 @@ class Logica extends CActiveRecord {
     public $ident = 0;
     public $prueba = array();
     public $solucion = array();
-    
+
     /**
      * @return string the associated database table name
      */
@@ -87,7 +87,7 @@ class Logica extends CActiveRecord {
         $fin = $regla->fin;
         $cadena = str_split($this->axioma);
         $prueba = $this->revisionInicio($cadena, $inicio);
-        CVarDumper::dump($prueba,10,true);        
+//        CVarDumper::dump($prueba, 10, true);
 //        foreach ($regla as $row) {
 //                
 //            if ($valor == $id) {
@@ -129,32 +129,53 @@ class Logica extends CActiveRecord {
 //        }
         return $this->solucion;
     }
-    
-    public function revisionInicio($cadena,$inicio){
+
+    public function revisionInicio($cadena, $inicio) {
         $accion = array();
-        $prueba = array();
         $inicio = str_split($inicio);
-   
-        for($i = 0; $i < count($cadena); $i++){
-            $cont = 0; 
-            foreach ($inicio as $resp){
-               
-                if(strpos($cadena[$i], $resp) !== false){
-                    array_push($accion, $cadena[$i]." ".$i);
+
+        for ($i = 0; $i < count($cadena); $i++) {
+            $cont = 0;
+            foreach ($inicio as $resp) {
+
+                if (strpos($cadena[$i], $resp) !== false) {
+                    array_push($accion, $cadena[$i] . " " . $i);
                 }
             }
         }
-        
-       //$accion = $this->revisionInicio2($accion, $inicio);
-        
+
+        $reaccion = $this->revisionInicio2($accion, $inicio);
+//        if(count($reaccion) >= 0)
+//        echo count($reaccion);
+        $accion = implode($accion);
+        //$reaccion = implode(" ",$reaccion);
+        echo strlen($accion);
+       
+            $sub2= substr($accion, 0,15);
+            if(!is_numeric($sub2[2]));
+                    echo $sub2[2];
+//         $sub2 = substr($accion,1,2);
+//          echo  "<script type='text/javascript'>alert('No se puede aplicar esta regla');</script>"; 
+         CVarDumper::dump($sub2, 10, true);
+         //CVarDumper::dump($reaccion, 10, true);
         return $accion;
     }
 
-    public function revisionInicio2($cadena,$inicio){
-        return null;
+    public function revisionInicio2($cadena, $inicio) {
+        $accion = array();
+        for ($i = 0; $i < count($inicio); $i++) {
+            foreach ($cadena as $value):
+                $value = explode(" ", $value);
+                if ($inicio[$i] == $value[0]){
+                    array_push($accion, $inicio[$i] . " " . $i);
+                    break;
+                }
+            endforeach;
+        }
+        return $accion;
     }
 
-        public function contar() {
+    public function contar() {
         $contar = substr_count($this->axioma, $this->letras);
         return $contar;
     }
