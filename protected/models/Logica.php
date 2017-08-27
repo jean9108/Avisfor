@@ -81,7 +81,6 @@ class Logica extends CActiveRecord {
     }
 
     public function aplicarReglas($id) {
-
         $regla = Reglas::model()->find("idreglas =:id_reglas", array(":id_reglas" => $id));
         $inicio = $regla->inicio;
         $fin = $regla->fin;
@@ -92,73 +91,66 @@ class Logica extends CActiveRecord {
             echo "<strong>Heads up!</strong> I'm a valuable information!.";
         } else {
             $cambio = $this->comparaInicioFin($inicio, $fin, $traeTotalCambios[0]);
-            CVarDumper::dump($cambio, 10, true);
-            $prueba = $this->revisionFin($traeTotalCambios, $cadena,$cambio);
+            $this->solucion = $this->revisionFin($traeTotalCambios, $cadena, $cambio);
         }
-
-//        CVarDumper::dump($prueba, 10, true);
-//        foreach ($regla as $row) {
-//                
-//            if ($valor == $id) {
-//                $var = substr($row->inicio, 1, -1);
-//                
-//                $var2 = substr($row->fin, 1, -1);
-//                $contar = substr_count($this->axioma, $var);
-//                $arr1 = str_split($this->axioma);
-//                $contar1 = strlen($var2);
-//                $arreglo = '';
-//                $arreglo2 = array();
-//                $pos = 0;
-//                for ($i = 0; $i < $contar; $i++) {
-//                    $aux = 0;
-//                    $aux2 = array();
-//                    for ($j = $pos; $j < count($arr1); $j++) {
-//                        if ($arr1[$j] == $var && $aux == 0) {
-//                            $pos += $j + 1;
-//                            $aux = 1;
-//                            for ($k = 0; $k < $i; $k++)
-//                                array_push($aux2, $arr1[$k]);
-//
-//
-//                            for ($l = 0; $l < $contar1; $l++) {
-//                                array_push($aux2, $var2[$l]);
-//                            }
-//                        } else {
-//                            array_push($aux2, $arr1[$j]);
-//                        }
-//                    }
-//                    $arreglo = implode(" ", $aux2);
-//                    $formato = str_replace(' ', '', $arreglo);
-//                    array_push($this->solucion, $formato);
-//                }
-//         
-//            } else {
-//                $valor += 1;
-//            }
-//        }
         return $this->solucion;
     }
 
-    public function revisionFin($numero,$cadena,$fin) {
+    public function revisionFin($numero, $cadena, $fin) {
         $solucion = array();
         $cambio = '';
+        $x = '';
+        $y = '';
         foreach ($numero as $value):
-             $value = explode(" ", $value);
-             $cont = 0;
-            for($i = 0; $i < count($cadena); $i++):
-//                if($i == $value[$cont] && count($value)> $cont):
-////                    $cont+=1; 
-//                endif;
-                    
+            $pal = explode(" ", $value);
+            $cont = 0;
+            for ($i = 0; $i < count($cadena); $i++):
+                for ($j = 0; $j < count($pal); $j++):
+                    if (intval($pal[$j]) == $i):
+                        $cont += 1;
+                    endif;
+                endfor;
             endfor;
-            
-//            if($cont == count($value)){
-//                CVarDumper::dump($value, 10, true);
-//            }
-         
+
+            if ($cont == count($pal)) {
+                $x = $this->obtenerXaxioma($cadena, $pal[0]);
+                $axioma = $this->hacerCambio($fin);
+                $y = $this->obtenerYaxioma($cadena, $pal[count($pal)-1]);
+                array_push($solucion, array('x' => $x, 'axioma' => $axioma, 'y' =>$y));
+            }
         endforeach;
-       
         return $solucion;
+    }
+    
+    public function hacerCambio($cambio){
+     $accion = '';
+        for($i =0; $i<count($cambio);$i++):
+            $accion.=$cambio[$i]; 
+        endfor;
+     return $accion;
+    }
+
+    public function obtenerXaxioma($cadena, $cambio) {
+        $accion = '';
+        for($i=0;$i<count($cadena);$i++):
+            if($i < intval($cambio)):
+                $pal = explode(" ", $cadena[$i]);
+                $accion.= $pal[0];
+            endif;
+        endfor;       
+        return $accion;
+    }
+    
+    public function obtenerYaxioma($cadena,$cambio){
+        $accion = '';
+        
+        for($i =0; $i<count($cadena);$i++):
+            if($i > intval($cambio)):
+                $pal = explode(" ", $cadena[$i]);
+                $accion.= $pal[0];
+            endif;
+        endfor;
+        return $accion;
     }
 
     public function comparaInicioFin($inicio, $fin, $numero) {
@@ -236,6 +228,7 @@ class Logica extends CActiveRecord {
                 }
             endforeach;
         }
+        
         return $accion;
     }
 
@@ -244,23 +237,50 @@ class Logica extends CActiveRecord {
         $numCadena = array();
         $inicio2 = '';
         $numero = array();
-        for ($i = 0; $i < count($cadena); $i++) {
-            if ($i + 1 < count($cadena)):
-                $value = explode(" ", $cadena[$i]);
-                $expresion = explode(" ", $cadena[$i + 1]);
-                array_push($cadena2, $value[0] . $expresion[0]);
-                array_push($numCadena, $value[1] . " " . $expresion[1]);
-            endif;
+        $cont = 0;
+        $prueba = $this->prueba($cadena);
+        echo 'Prueba =';
+        $aux1 = '';
+        $aux2 = '';
+        for ($i = 0; $i < count($prueba); $i++) {
+                $value = explode(" ", $prueba[$i]);
+                $aux1.= $value[0];
+                $aux2.=$value[1]." ";
+                if(strlen($aux1) == count($inicio)):
+                    array_push($cadena2, $aux1);
+                    array_push($numCadena, $aux2);
+                    $aux1 = '';
+                    $aux2= '';
+                    $i-=count($inicio)-1;
+                endif;
         }
 
         for ($i = 0; $i < count($inicio); $i++):
             $value = explode(" ", $inicio[$i]);
             $inicio2 .= $value[0];
         endfor;
+        CVarDumper::dump($cadena2, 10, true);
+         CVarDumper::dump($numCadena, 10, true);
+        die();
 
         $numero = $this->traeParametros($cadena2, $inicio2, $numCadena);
         return $numero;
     }
+    
+    public function prueba($cadena){
+        $prueba = array();
+        $algo = explode(" ", $cadena[0]);
+        array_push($prueba, $cadena[0]);
+        for($i = 1; $i < count($cadena); $i++):
+            $pal = explode(" ", $cadena[$i]);
+            if($pal[1] != $algo[1]):
+                $algo = explode(" ", $cadena[$i]);
+                array_push($prueba, $cadena[$i]);
+            endif;
+        endfor;
+        return $prueba;
+    }
+   
 
     public function traeParametros($cadena, $inicio, $numCadena) {
         $numero = array();

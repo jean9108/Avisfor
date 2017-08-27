@@ -68,10 +68,29 @@
     </div>
 
     <div class="row col-sm-5 solucion" id ="solucion">
-
-        <?php foreach ($model->solucion as $row): ?>
-
-            <?php echo CHtml::submitButton($row, array('name' => 'button3', 'class' => 'btn btn-link form-control')); ?>
+        <?php $cadena = array();?>
+        <?php $cadena2 = array();?>
+        <?php foreach ($model->solucion as $value):?>
+             <?php $cont = 0;?>
+             <?php $p = '';?>
+             <?php $a = '';?>
+            <?php foreach ($value as $row):?>
+                <?php if($cont ==0 ){?>
+                    <?php $p.='<p><span style="color:green">'.$row.'</span>'?>
+                <?php } else  if($cont == 1){ ?>
+                <?php  $p.='<span style="color:red">'.$row.'</span>';
+                }else if($cont == 2)
+                        $p.='<span style="color:green">'.$row.'</span></p>';?>
+                <?php $a.=$row;?>        
+                    <?php $cont+=1;?>    
+            <?php endforeach;?>
+            <?php array_push($cadena, $p) ?>
+                <?php array_push($cadena2, $a)?>
+        <?php endforeach;?>
+                 
+        <?php foreach ($cadena2 as $row): ?>
+            <?php $str = htmlentities($row);?>
+                 <?php echo CHtml::submitButton($row, array('name' => 'button3', 'class' => 'btn btn-link form-control')); ?>
             <br/>
         <?php endforeach; ?>
 
