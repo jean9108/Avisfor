@@ -180,7 +180,7 @@ class LogicaController extends Controller {
             $model->resultado = $model->contar();
             if($var != 0){
                  $model->solucion = array();
-                 $model->solucion = $model->aplicarReglas($var);
+                 $model->solucion = $model->aplicarReglas($var,$sum);
             }
            
             if($cl == 1){

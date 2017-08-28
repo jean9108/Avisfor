@@ -68,39 +68,47 @@
     </div>
 
     <div class="row col-sm-5 solucion" id ="solucion">
-        <?php $cadena = array();?>
-        <?php $cadena2 = array();?>
-        <?php foreach ($model->solucion as $value):?>
-             <?php $cont = 0;?>
-             <?php $p = '';?>
-             <?php $a = '';?>
-            <?php foreach ($value as $row):?>
-                <?php if($cont ==0 ){?>
-                    <?php $p.='<p><span style="color:green">'.$row.'</span>'?>
-                <?php } else  if($cont == 1){ ?>
-                <?php  $p.='<span style="color:red">'.$row.'</span>';
-                }else if($cont == 2)
-                        $p.='<span style="color:green">'.$row.'</span></p>';?>
-                <?php $a.=$row;?>        
-                    <?php $cont+=1;?>    
-            <?php endforeach;?>
+        <?php $cadena = array(); ?>
+        <?php $cadena2 = array(); ?>
+        <?php foreach ($model->solucion as $value): ?>
+            <?php $cont = 0; ?>
+            <?php $p = ''; ?>
+            <?php $a = ''; ?>
+            <?php foreach ($value as $row): ?>
+                <?php if ($cont == 0) {?>
+                    <?php $pru =(string)$row?>
+                     <?php $p .= '<span style="color: #0055cc"> =[Regla'.$pru.'</span>' ?>
+                <?php } else if ($cont == 1) { ?>
+                    <?php $p .= '<span style="color:green"> X=' . $row . '</span>' ?>
+                <?php //  } else if ($cont == 2) { ?>
+                    <?php
+//                    $p .= '<span style="color:red"> Cambio =' . $row . '</span>';
+                } else if ($cont == 3) {
+                    $p .= '<span style="color:red"> Y=' . $row . ']</span>';
+                }
+                ?>
+               
+                <?php if ($cont > 0) $a.= $row; ?>
+                <?php ?>        
+                <?php $cont += 1; ?>    
+            <?php endforeach; ?>
             <?php array_push($cadena, $p) ?>
-                <?php array_push($cadena2, $a)?>
-        <?php endforeach;?>
-                 
-        <?php foreach ($cadena2 as $row): ?>
-            <?php $str = htmlentities($row);?>
-                 <?php echo CHtml::submitButton($row, array('name' => 'button3', 'class' => 'btn btn-link form-control')); ?>
-            <br/>
+            <?php array_push($cadena2, $a) ?>
         <?php endforeach; ?>
+
+        <?php for ($i = 0; $i < count($cadena2); $i++): ?>
+            <p style = "text-align: center"><?php echo $cadena[$i]?></p>
+            <?php echo CHtml::submitButton($cadena2[$i], array('name' => 'button3', 'class' => 'btn btn-link form-control')); ?>
+            <br/>
+<?php endfor; ?>
 
     </div>
 
     <div class="row col-sm-7">
-        <?php $model2 = Reglas::model()->findAll("Logica_idLogica=:Logica_idLogica", array(':Logica_idLogica' => $model->idLogica)) ?>
+            <?php $model2 = Reglas::model()->findAll("Logica_idLogica=:Logica_idLogica", array(':Logica_idLogica' => $model->idLogica)) ?>
         <table class="linear" cellspacing = "0">
-            <?php $aux = 1; ?>
-            <?php foreach ($model2 as $row): ?>
+<?php $aux = 1; ?>
+<?php foreach ($model2 as $row): ?>
                 <tr>
                     <td id = "regla_apl" class="form-control"><?php echo $row['inicio'] ?></td>
                     <td><button type="button" class = "btn btn-default form-control">  -->  </button></td>
@@ -110,12 +118,12 @@
                     <td><?php echo CHtml::submitButton('Regla ' . $aux, array('name' => 'button2', 'class' => 'btn btn-success')); ?></td>
 
                 </tr>
-                <?php $aux += 1; ?>
-            <?php endforeach; ?>
+    <?php $aux += 1; ?>
+<?php endforeach; ?>
 
         </table>
     </div>
-    
+
     <div class="col-sm-12 tituloP">
         <h1> Actualizar Reglas </h1>
     </div>
@@ -170,10 +178,10 @@
     </div>
 
     <div class="row buttons col-sm-12">
-        <?php echo CHtml::submitButton('Guardar', array('class' => 'btn btn-primary')); ?>
+    <?php echo CHtml::submitButton('Guardar', array('class' => 'btn btn-primary')); ?>
     </div>
 
-    <?php $this->endWidget(); ?>
+<?php $this->endWidget(); ?>
     <script>
         $('#pre-selected-options').multiSelect();
     </script>
