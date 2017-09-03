@@ -85,7 +85,10 @@ class Logica extends CActiveRecord {
         $inicio = $regla->inicio;
         $fin = $regla->fin;
         $cadena = str_split($this->axioma);
-        $traeTotalCambios = $this->revisionInicio($cadena, $inicio, $fin);
+        $alfabeto = $this->traerAlfabeto($cadena, $inicio);
+//        CVarDumper::dump($alfabeto, 10, true);
+
+        $traeTotalCambios = $this->revisionInicio($cadena, $inicio, $fin, $alfabeto);
 
         if (count($traeTotalCambios) == 0) {
 
@@ -95,6 +98,24 @@ class Logica extends CActiveRecord {
             $this->solucion = $this->revisionFin($traeTotalCambios, $cadena, $cambio, $sum);
         }
         return $this->solucion;
+    }
+
+    public function traerAlfabeto($cadena, $inicio) {
+        $prueba = array();
+        $inicio = str_split($inicio);
+        $simbolo = '@#~$%&/¬()=?¿+*^[]{},.-';
+        foreach ($inicio as $value):
+            $cont = 0;
+            foreach ($cadena as $row):
+                if ($row !== $value)
+                    $cont += 1;
+            endforeach;
+            if (count($cadena) == $cont && in_array($value, $prueba) === false && strpos($simbolo, $value) === false):
+                array_push($prueba, $value);
+            endif;
+        endforeach;
+
+        return $prueba;
     }
 
     public function revisionFin($numero, $cadena, $fin, $sum) {
@@ -222,7 +243,7 @@ class Logica extends CActiveRecord {
         return $y;
     }
 
-    public function revisionInicio($cadena, $inicio, $fin) {
+    public function revisionInicio($cadena, $inicio, $fin, $alfabeto) {
         $accion = array();
         $inicio2 = $inicio;
         $inicio = str_split($inicio);
@@ -238,25 +259,144 @@ class Logica extends CActiveRecord {
             }
         }
         $aritmetica = $this->verificaAritmetica($accion, $inicio, $fin, $inicio2);
-        if(count($aritmetica) == 2){
-            $prueba = $this->revisarAritmetica($accion, $inicio, $fin);
-            
-            CVarDumper::dump($prueba, 10, true);
-        die;
-        }
-        else{
+        if (count($aritmetica) == 2) {
+            //$reaccion = $this->revisionInicio2($accion, $inicio);
+            $prueba = $this->revisarAritmetica($accion, $inicio, $fin, $alfabeto);
+
+//            CVarDumper::dump($reaccion, 10, true);
+            die;
+        } else {
             $reaccion = $this->revisionInicio2($accion, $inicio);
             $numero = $this->traerInfo($accion, $reaccion);
         }
         return $numero;
     }
-    
-    public function revisarAritmetica($accion,$inicio,$fin){
-        CVarDumper::dump($accion, 10, true);
-        CVarDumper::dump($inicio, 10, true);
-        CVarDumper::dump($fin, 10, true);
+
+    public function revisarAritmetica($accion, $inicio, $fin, $aritmetica) {
+
+//        CVarDumper::dump($inicio, 10, true);
+//        CVarDumper::dump($aritmetica, 10, true);
         $prueba = array();
+        $letras = array();
+        $numero = array();
+        $reaccion = '0123456';
+        $accion = $inicio = str_split($reaccion);
+        $interseccion = $this->unirAritmetica($inicio, $fin);
+        $alfabeto = $this->tieneAlfabeto($aritmetica, $interseccion);
+        $numCadena = count($interseccion) - count($alfabeto);
+
+        //CVarDumper::dump($cantidad, 10, true);
+        //CVarDumper::dump($interseccion, 10, true);
+
+        $cantidad = intval(count($accion) / $numCadena);
+        $value = explode(" ", $accion[0]);
+        $pal = '';
+        $num = '';
+        $cont = 0;
+        $aux = '';
+        $cadena = $accion;
+
+//        CVarDumper::dump(count($accion), 10, true);
+//        CVarDumper::dump($accion, 10, true);
+        for ($i = 0; $i < count($accion); $i++):
+//            CVarDumper::dump(count($accion), 10, true);
+            if ($cont < 4):
+//                CVarDumper::dump('estoy aqui', 10, true);
+                $aux .= $accion[$i];
+                $algo = $this->prueba2($accion, $aux, 4, $i, $a = $i + 1);
+                die();
+                $cont++;
+            endif;
+
+        endfor;
+
+        CVarDumper::dump($letras, 10, true);
+        CVarDumper::dump($numero, 10, true);
+
+        CVarDumper::dump($prueba, 10, true);
+        die;
         return $prueba;
+    }
+
+    public function prueba2($accion, $algo, $cadena, $i, $a) {
+        $prueba = array();
+        if (strlen($algo) < $a + 1 && $cadena > $a + 1) {
+            $algo .= $accion[$i + 1];
+        }
+
+        for ($j = $a; $j < count($accion); $j++):
+            if (strlen($algo) < $cadena - 1) {
+                //$algo.= $accion[$i+1];
+                $algo = $this->prueba3($accion, $algo, $cadena, $i, $a = $j + 1);
+                CVarDumper::dump($algo, 10, true);
+            } else {
+                if ($j + 1 == count($accion)-$a){
+                    array_push($prueba, $algo);
+                    $algo = $accion[$i];
+                    if (strlen($algo) < $a + 1 && $cadena > $a + 1) {
+                        $algo .= $accion[$i + 1];
+                    }
+                }
+                else{
+                    if(strlen($algo) < $cadena):
+                        $algo.=$cadena[$j]; 
+                    endif;
+                }
+            }
+//                CVarDumper::dump($prueba, 10, true);
+
+        endfor;
+//        CVarDumper::dump($accion, 10, true);
+//        CVarDumper::dump($algo, 10, true);
+//        CVarDumper::dump($cadena, 10, true);
+////        die();
+        return $prueba;
+    }
+
+    public function prueba3($accion, $algo, $cadena, $i, $a) {
+//        CVarDumper::dump($a, 10, true);
+        if ($cadena > strlen($algo)) {
+            $algo .= $accion[$i + 1];
+        }
+//        CVarDumper::dump($algo, 10, true);
+        return $algo;
+    }
+
+    public function tieneAlfabeto($alfabeto, $predecesor) {
+        $prueba = array();
+        foreach ($alfabeto as $value):
+            foreach ($predecesor as $row):
+                $pal = explode(" ", $row);
+                if ($pal[0] == $value):
+                    array_push($prueba, $row);
+                endif;
+            endforeach;
+        endforeach;
+
+        return $prueba;
+    }
+
+    public function unirAritmetica($inicio, $fin) {
+        $interseccion = array();
+        $final = str_split($fin);
+        $x = '';
+        $y = '';
+        for ($i = 0; $i < count($inicio); $i++):
+            if ($inicio [$i] == $final[0] && $i == 0):
+                $x = $inicio[$i];
+            endif;
+            if ($inicio[$i] == $final[count($final) - 1] && $i == count($inicio) - 1):
+                $y = $inicio[$i];
+            endif;
+        endfor;
+
+        for ($i = 0; $i < count($inicio); $i++):
+            if ($inicio[$i] != $x && $inicio[$i] != $y):
+                array_push($interseccion, $inicio[$i] . ' ' . $i);
+            endif;
+        endfor;
+//        CVarDumper::dump($numCadena, 10, true);
+        return $interseccion;
     }
 
     public function verificaAritmetica($cadena, $inicio, $fin, $inicio2) {
@@ -284,7 +424,7 @@ class Logica extends CActiveRecord {
                     $y = $inicio[$i];
                 endif;
             endfor;
-            
+
             for ($i = 0; $i < count($inicio); $i++):
                 if ($inicio[$i] != $x && $inicio[$i] != $y):
                     array_push($interseccion, $inicio[$i] . ' ' . $i);
@@ -293,27 +433,27 @@ class Logica extends CActiveRecord {
             foreach ($result as $value):
                 $prueba = $this->verificarAritmetica($interseccion, $result);
             endforeach;
-            if(strpos($inicio2,'(' ) !== false && strpos($inicio2,')' ) !== false):
-                $par1 = strpos($inicio2,'(' );
+            if (strpos($inicio2, '(') !== false && strpos($inicio2, ')') !== false):
+                $par1 = strpos($inicio2, '(');
                 array_push($accion, $par1);
-                $par2 = strpos($inicio2,')' );
+                $par2 = strpos($inicio2, ')');
                 array_push($accion, $par2);
             endif;
-            
-            if(strpos($inicio2,'{' ) !== false && strpos($inicio2,'}' ) !== false):
-                $par1 = strpos($inicio2,'{' );
+
+            if (strpos($inicio2, '{') !== false && strpos($inicio2, '}') !== false):
+                $par1 = strpos($inicio2, '{');
                 array_push($accion, $par1);
-                $par2 = strpos($inicio2,'}' );
+                $par2 = strpos($inicio2, '}');
                 array_push($accion, $par2);
             endif;
-            
-            if(strpos($inicio2,'[' ) !== false && strpos($inicio2,']' ) !== false):
-                $par1 = strpos($inicio2,'[' );
+
+            if (strpos($inicio2, '[') !== false && strpos($inicio2, ']') !== false):
+                $par1 = strpos($inicio2, '[');
                 array_push($accion, $par1);
-                $par2 = strpos($inicio2,']' );
+                $par2 = strpos($inicio2, ']');
                 array_push($accion, $par2);
-            endif;      
-        }  
+            endif;
+        }
         return $accion;
     }
 
@@ -321,21 +461,21 @@ class Logica extends CActiveRecord {
         $simbolo = '@#~$%&/¬()=?¿+*^[]{},.';
         $prueba = array();
         $aux = $result[0];
-        $x ='';
-        $cont =0 ;
-        foreach ($cadena as $value){
+        $x = '';
+        $cont = 0;
+        foreach ($cadena as $value) {
             $valor = explode(' ', $value);
-            if(intval($valor[1]) === $aux)
-                    $x.=$cont;
+            if (intval($valor[1]) === $aux)
+                $x .= $cont;
             $cont++;
         }
-        if (strpos($cadena[intval($x)-1], $simbolo) === false)
-            array_push ($prueba, $cadena[intval($x)-1]);
-        if(strpos($cadena[intval($x)+1], $simbolo) === false)
-                array_push ($prueba, $cadena[intval($x)+1]);
+        if (strpos($cadena[intval($x) - 1], $simbolo) === false)
+            array_push($prueba, $cadena[intval($x) - 1]);
+        if (strpos($cadena[intval($x) + 1], $simbolo) === false)
+            array_push($prueba, $cadena[intval($x) + 1]);
         $cont = 0;
-      
-        
+
+
         return $prueba;
     }
 
