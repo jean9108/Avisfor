@@ -89,6 +89,7 @@ class Logica extends CActiveRecord {
 //        CVarDumper::dump($alfabeto, 10, true);
 
         $traeTotalCambios = $this->revisionInicio($cadena, $inicio, $fin, $alfabeto);
+        
 
         if (count($traeTotalCambios) == 0) {
 
@@ -261,33 +262,26 @@ class Logica extends CActiveRecord {
         $aritmetica = $this->verificaAritmetica($accion, $inicio, $fin, $inicio2);
         if (count($aritmetica) == 2) {
             //$reaccion = $this->revisionInicio2($accion, $inicio);
-            $prueba = $this->revisarAritmetica($accion, $inicio, $fin, $alfabeto);
+            $numero = $this->revisarAritmetica($accion, $inicio, $fin, $alfabeto);
 
-//            CVarDumper::dump($reaccion, 10, true);
-            die;
         } else {
             $reaccion = $this->revisionInicio2($accion, $inicio);
             $numero = $this->traerInfo($accion, $reaccion);
+           
         }
         return $numero;
     }
 
     public function revisarAritmetica($accion, $inicio, $fin, $aritmetica) {
-
-//        CVarDumper::dump($inicio, 10, true);
-//        CVarDumper::dump($aritmetica, 10, true);
         $prueba = array();
         $letras = array();
         $numero = array();
-        $reaccion = '0123456';
-        $accion = $inicio = str_split($reaccion);
+        //$reaccion = '0123456';
+//        $accion = $inicio = str_split($reaccion);
         $interseccion = $this->unirAritmetica($inicio, $fin);
         $alfabeto = $this->tieneAlfabeto($aritmetica, $interseccion);
         $numCadena = count($interseccion) - count($alfabeto);
-
-        //CVarDumper::dump($cantidad, 10, true);
-        //CVarDumper::dump($interseccion, 10, true);
-
+        
         $cantidad = intval(count($accion) / $numCadena);
         $value = explode(" ", $accion[0]);
         $pal = '';
@@ -295,71 +289,103 @@ class Logica extends CActiveRecord {
         $cont = 0;
         $aux = '';
         $cadena = $accion;
+        $parecido = array();
 
-//        CVarDumper::dump(count($accion), 10, true);
-//        CVarDumper::dump($accion, 10, true);
         for ($i = 0; $i < count($accion); $i++):
-//            CVarDumper::dump(count($accion), 10, true);
-            if ($cont < 4):
-//                CVarDumper::dump('estoy aqui', 10, true);
-                $aux .= $accion[$i];
-                $algo = $this->prueba2($accion, $aux, 4, $i, $a = $i + 1);
-                die();
-                $cont++;
-            endif;
+            $aux .= $accion[$i];
 
+            $algo = $this->prueba2($accion, $aux, $numCadena, $i, $a = $i + 1);
+            array_push($prueba, $algo);
+            $aux = '';
+            $cont += 1;
         endfor;
-
-        CVarDumper::dump($letras, 10, true);
-        CVarDumper::dump($numero, 10, true);
-
-        CVarDumper::dump($prueba, 10, true);
-        die;
+        
+        $parecido = $this->traeParametros2($prueba,$interseccion,$alfabeto);
+                CVarDumper::dump($parecido, 10, true);die;
+     
+        return $prueba;
+    }
+    
+    public function traeParametros2($cadena,$inicio,$alfabeto){
+        $prueba = array();
+        $cont =0;
+//        CVarDumper::dump($cadena, 10, true);
+//        CVarDumper::dump($inicio, 10, true);
+        CVarDumper::dump($alfabeto, 10, true);
+        for($i = 0; $i < count($cadena); $i++):
+            $cont+=1;
+            for($j = 0; $j < count($inicio); $j++):
+               
+//                if(strcmp($alfabeto, $inicio[$j]) !== 0){
+//                     CVarDumper::dump($inicio[$j], 10, true);
+//                }
+            endfor;
+        endfor;
         return $prueba;
     }
 
     public function prueba2($accion, $algo, $cadena, $i, $a) {
         $prueba = array();
-        if (strlen($algo) < $a + 1 && $cadena > $a + 1) {
-            $algo .= $accion[$i + 1];
-        }
+        $alf = array();
+        $aux = $algo;
+        $aux2 = array();
+        $cont = 1;
+        $aux3 = '';
 
-        for ($j = $a; $j < count($accion); $j++):
-            if (strlen($algo) < $cadena - 1) {
-                //$algo.= $accion[$i+1];
-                $algo = $this->prueba3($accion, $algo, $cadena, $i, $a = $j + 1);
-                CVarDumper::dump($algo, 10, true);
-            } else {
-                if ($j + 1 == count($accion)-$a){
-                    array_push($prueba, $algo);
-                    $algo = $accion[$i];
-                    if (strlen($algo) < $a + 1 && $cadena > $a + 1) {
-                        $algo .= $accion[$i + 1];
-                    }
-                }
-                else{
-                    if(strlen($algo) < $cadena):
-                        $algo.=$cadena[$j]; 
-                    endif;
-                }
+        for ($k = $i + 1; $k < count($accion); $k++):
+
+            if (strlen($aux) < 4) {
+                $aux .= " " . $accion[$k];
+                $aux3 = $aux;
             }
-//                CVarDumper::dump($prueba, 10, true);
+//            CVarDumper::dump($accion[$k], 10, true);
+//            CVarDumper::dump($aux3, 10, true);
+            $cantidad = intval(strlen($aux) / $cadena);
 
+            if ($cantidad - 1 < $cadena && $k + 1 < count($accion)) {
+                $aux2 = $this->prueba3($accion, $aux3, $cadena, $k + 1, $a = $k + 1);
+                if ($aux2 != NULL)
+                    array_push($alf, $aux2);
+
+                $cont + 1;
+            }
+            $aux = $algo;
         endfor;
-//        CVarDumper::dump($accion, 10, true);
-//        CVarDumper::dump($algo, 10, true);
-//        CVarDumper::dump($cadena, 10, true);
-////        die();
+
+        foreach ($alf as $value):
+            foreach ($value as $row):
+                $aux4 = explode(" ", $row);
+                $cont = count($aux4) - 1;
+
+                for ($j = intval($aux4[$cont]); $j < count($accion); $j++):
+                    array_push($prueba, $row . " " . $accion[$j]);
+
+                endfor;
+            endforeach;
+        endforeach;
         return $prueba;
     }
 
     public function prueba3($accion, $algo, $cadena, $i, $a) {
-//        CVarDumper::dump($a, 10, true);
-        if ($cadena > strlen($algo)) {
-            $algo .= $accion[$i + 1];
-        }
-//        CVarDumper::dump($algo, 10, true);
-        return $algo;
+        $aux = $algo;
+        $prueba = array();
+        $cont = 3;
+        for ($j = $i; $j < count($accion); $j++):
+
+            $cantidad = intval(strlen($aux) / $cadena);
+
+            if ($cadena > $cont) {
+                $aux .= " " . $accion[$j];
+
+                array_push($prueba, $aux);
+                $cont++;
+            } else {
+                $aux = $algo;
+                $cont = 3;
+                $j -= 1;
+            }
+        endfor;
+        return $prueba;
     }
 
     public function tieneAlfabeto($alfabeto, $predecesor) {
