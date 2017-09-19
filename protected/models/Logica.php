@@ -359,9 +359,8 @@ class Logica extends CActiveRecord {
             $aux = '';
             $cont += 1;
         endfor;
-        CVarDumper::dump($prueba, 10, true);
         $parecido = $this->traeParametros2($prueba, $interseccion, $alfabeto);
-
+//        CVarDumper::dump($prueba, 10, true);
         return $parecido;
     }
 
@@ -371,6 +370,8 @@ class Logica extends CActiveRecord {
         $cont = 0;
         $aux = '';
         $letras = '';
+//        CVarDumper::dump($cadena, 10, true);
+        CVarDumper::dump($alfabeto, 10, true);
         $cons = $this->traerResultados($cadena);
         $inicio2 = $this->traerConsecutivo($inicio, $alfabeto);
         $letrasI = $this->traerLetraInicio($inicio2);

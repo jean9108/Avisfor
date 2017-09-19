@@ -14976,3 +14976,12 @@ REQUEST_URI=/Avisfor/index.php/logica/update/13
 in C:\xampp\htdocs\Avisfor\protected\models\Logica.php (501)
 in C:\xampp\htdocs\Avisfor\protected\models\Logica.php (357)
 in C:\xampp\htdocs\Avisfor\protected\models\Logica.php (327)
+2017/09/19 20:44:19 [error] [application] UiController
+CrugeUser->validate es false
+<div class="errorSummary"><p>Por favor corrija los siguientes errores de ingreso:</p>
+<ul>
+<li>Contraseña: no puede ser nulo.</li>
+<li>clave invalida</li>
+</ul></div>
+in C:\xampp\htdocs\Avisfor\protected\modules\cruge\controllers\UiController.php (157)
+in C:\xampp\htdocs\Avisfor\index.php (13)
