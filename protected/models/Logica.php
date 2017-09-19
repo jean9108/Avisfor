@@ -128,7 +128,7 @@ class Logica extends CActiveRecord {
         $valorTotal = array();
         $interseccion = $this->unirAritmetica($algo, $final);
         $prueba = $this->tieneAlfabeto($alfabeto, $interseccion);
-        $k =0;
+        $k = 0;
         if ($prueba != NULL) {
 
 
@@ -140,7 +140,7 @@ class Logica extends CActiveRecord {
                             $e = intval($f[$j] + 1);
 
                             if (intval($f[$j + 1]) != $e):
-                                array_push($valor, intval($f[$j])." ".intval($f[$j+1]));
+                                array_push($valor, intval($f[$j]) . " " . intval($f[$j + 1]));
 
                                 break;
                             endif;
@@ -148,11 +148,11 @@ class Logica extends CActiveRecord {
                     endfor;
                 endif;
             endfor;
-           
-            for ($value = 0; $value < count($numero);$value++):
-                 $pal = explode(" ", $numero[$value]);
+
+            for ($value = 0; $value < count($numero); $value++):
+                $pal = explode(" ", $numero[$value]);
                 $cont = 0;
-               
+
                 for ($i = 0; $i < count($cadena); $i++):
                     for ($j = 0; $j < count($pal); $j++):
                         if (intval($pal[$j]) == $i):
@@ -163,14 +163,13 @@ class Logica extends CActiveRecord {
                 endfor;
                 if ($cont == count($pal)) {
                     $x = $this->obtenerXaxioma($cadena, $pal[0]);
-                    $axioma = $this->obtenerCambioAlfabeto($cadena, $valor, $fin, $numero[$value]);       
+                    $axioma = $this->obtenerCambioAlfabeto($cadena, $valor, $fin, $numero[$value]);
                     $y = $this->obtenerYaxioma($cadena, $aux);
                     array_push($solucion, array('regla' => $sum + 1, 'x' => $x, 'axioma' => $axioma, 'y' => $y));
                 }
-                
+
             endfor;
-         
-        }else {
+        } else {
             foreach ($numero as $value):
                 $pal = explode(" ", $value);
                 $cont = 0;
@@ -193,22 +192,23 @@ class Logica extends CActiveRecord {
         }
         return $solucion;
     }
-    
-    public function obtenerCambioAlfabeto($cadena,$valor,$fin, $numero){
+
+    public function obtenerCambioAlfabeto($cadena, $valor, $fin, $numero) {
         $prueba = '';
-        for($j = 0; $j < count($valor); $j++):
-                $domain = strstr($numero,$valor[$j]);
-                if($domain !== false):
-                    $aux = explode(" ", $valor[$j]);
-                    $inicio = $aux[0];
-                    $final = $aux[1];
-                    for($i = $inicio+1; $i < $final; $i++):
-                        $prueba.=$cadena[$i];  
-                    endfor;
-                endif;
-            endfor;
+        for ($j = 0; $j < count($valor); $j++):
+            $domain = strstr($numero, $valor[$j]);
+            if ($domain !== false):
+                $aux = explode(" ", $valor[$j]);
+                $inicio = $aux[0];
+                $final = $aux[1];
+                for ($i = $inicio + 1; $i < $final; $i++):
+                    $prueba .= $cadena[$i];
+                endfor;
+            endif;
+        endfor;
         return $prueba;
     }
+
     public function hacerCambio($cambio) {
         $accion = '';
         for ($i = 0; $i < count($cambio); $i++):
@@ -354,13 +354,12 @@ class Logica extends CActiveRecord {
 
         for ($i = 0; $i < count($accion); $i++):
             $aux .= $accion[$i];
-
             $algo = $this->prueba2($accion, $aux, $numCadena, $i, $a = $i + 1);
             array_push($prueba, $algo);
             $aux = '';
             $cont += 1;
         endfor;
-
+        CVarDumper::dump($prueba, 10, true);
         $parecido = $this->traeParametros2($prueba, $interseccion, $alfabeto);
 
         return $parecido;
@@ -493,14 +492,16 @@ class Logica extends CActiveRecord {
             $aux = $algo;
         endfor;
 
+//        CVarDumper::dump($accion, 10, true);
         foreach ($alf as $value):
             foreach ($value as $row):
                 $aux4 = explode(" ", $row);
                 $cont = count($aux4) - 1;
-
-                for ($j = intval($aux4[$cont]); $j < count($accion); $j++):
-                    array_push($prueba, $row . " " . $accion[$j]);
-
+                for ($j = 0; $j < count($accion); $j++):
+                    $ban = explode(" ", $accion[$j]);
+                    if ($ban[1] > intval($aux4[$cont])) {
+                        array_push($prueba, $row . " " . $accion[$j]);
+                    }
                 endfor;
             endforeach;
         endforeach;
@@ -516,6 +517,7 @@ class Logica extends CActiveRecord {
             $cantidad = intval(strlen($aux) / $cadena);
 
             if ($cadena > $cont) {
+
                 $aux .= " " . $accion[$j];
 
                 array_push($prueba, $aux);
