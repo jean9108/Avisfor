@@ -13,7 +13,7 @@ $this->breadcrumbs = array(
 
 <!--Botones de selección para cada acción--> 
 <div class = "col-sm-12">
-    <?php if (Yii::app()->user->checkAccess('tpro') && !Yii::app()->user->isSuperAdmin) { ?>
+    <?php if (Yii::app()->user->checkAccess('tpro') && !Yii::app()->user->isSuperAdmin || Yii::app()->user->checkAccess('estudiante') && !Yii::app()->user->isSuperAdmin) { ?>
         <div class = "col-sm-6 actualizar">
             <?php echo CHtml::link('<i class="fa fa-plus" aria-hidden="true"></i> Crear Sistema Formal', array('/logica/create'), array('class' => 'btn btn-primary')); ?>
         </div>
@@ -22,20 +22,14 @@ $this->breadcrumbs = array(
         </div>
    
     <?php } ?>
-
-
-    <?php
-  //  $file = Yii::app()->basePath . "/../programa/sisfor.EXE";
-    //echo exec($file);
-    ?>
 </div>
 
 <div class="table table-responsive">
     <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'datos-grid',
-	'dataProvider'=>new CActiveDataProvider('Sistemas', array(
+	'dataProvider'=>new CActiveDataProvider('Logica', array(
             'criteria'=>array(
-                    'condition'=>"estudiantes_idestudiante = $estudiante->idestudiante ",
+                    'condition'=>"estudiantes_idestudiantes = $estudiante->idestudiante ",
                     'params'=>array(':tipo'=>$estudiante->idestudiante),
         ),
 
@@ -43,7 +37,8 @@ $this->breadcrumbs = array(
     
 	'columns'=>array(
 		
-                'sistema',
+                'axioma',
+                'conjetura',
 		array(
 			'class'=>'CButtonColumn',
                         'template'=>'{update}{delete}', //Only shows Delete button
@@ -56,13 +51,13 @@ $this->breadcrumbs = array(
                             'label'=>'Editar',
                             'label' => '<span class = "btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i> Modificar</span>',
                             'imageUrl' => false,
-                            'url'=>'array("sistemas/update/?id=$data->idsistemas")'
+                            'url'=>'array("logica/update/?id=$data->idLogica")'
                         ),
                             'delete' => array(
                             'label'=>'Eliminar',
                             'label' => '<span class = "btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Eliminar</span>',    
                             'imageUrl' => false,
-                            'url'=>'array("sistemas/delete/?id=$data->idsistemas")'
+                            'url'=>'array("logica/delete/?id=$data->idLogica")'
                         ),
                     ),     
 		),

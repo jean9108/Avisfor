@@ -70,6 +70,7 @@
     <div class="row col-sm-5 solucion" id ="solucion">
         <?php $cadena = array(); ?>
         <?php $cadena2 = array(); ?>
+
         <?php foreach ($model->solucion as $value): ?>
             <?php $cont = 0; ?>
             <?php $p = ''; ?>
@@ -79,12 +80,13 @@
                     <?php $pru =(string)$row?>
                      <?php $p .= '<span style="color: #0055cc"> =[Regla'.$pru.'</span>' ?>
                 <?php } else if ($cont == 1) { ?>
-                    <?php $p .= '<span style="color:green"> X=' . $row . '</span>' ?>
-                <?php //  } else if ($cont == 2) { ?>
+                    <?php $p .= '<span style="color:green">  ' .array_search($row, $value).' = '.$row . '</span>' ?>
+                    
+                <?php   } else if ($cont == 2) { ?>
                     <?php
-//                    $p .= '<span style="color:red"> Cambio =' . $row . '</span>';
+                    $p .= '<span style="color:blue"> Cambio =' . $row . '</span>';
                 } else if ($cont == 3) {
-                    $p .= '<span style="color:red"> Y=' . $row . ']</span>';
+                    $p .= '<span style="color:red">   ' .array_search($row, $value).' = '. $row . ']</span>';
                 }
                 ?>
                

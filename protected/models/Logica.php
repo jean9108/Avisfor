@@ -95,7 +95,9 @@ class Logica extends CActiveRecord {
         } else {
             $cambio = $this->comparaInicioFin($inicio, $fin, $traeTotalCambios[0]);
             $this->solucion = $this->revisionFin($traeTotalCambios, $cadena, $cambio, $sum, $inicio, $alfabeto, $fin);
+            
         }
+        
         return $this->solucion;
     }
 
@@ -129,6 +131,8 @@ class Logica extends CActiveRecord {
         $interseccion = $this->unirAritmetica($algo, $final);
         $prueba = $this->tieneAlfabeto($alfabeto, $interseccion);
         $k = 0;
+        $variable = str_split($final);
+        
         if ($prueba != NULL) {
 
 
@@ -165,7 +169,7 @@ class Logica extends CActiveRecord {
                     $x = $this->obtenerXaxioma($cadena, $pal[0]);
                     $axioma = $this->obtenerCambioAlfabeto($cadena, $valor, $fin, $numero[$value]);
                     $y = $this->obtenerYaxioma($cadena, $aux);
-                    array_push($solucion, array('regla' => $sum + 1, 'x' => $x, 'axioma' => $axioma, 'y' => $y));
+                    array_push($solucion, array('regla' => $sum + 1, $variable[0] => $x, 'axioma' => $axioma, $variable[count($variable)-1] => $y));
                 }
 
             endfor;
@@ -371,7 +375,7 @@ class Logica extends CActiveRecord {
         $aux = '';
         $letras = '';
 //        CVarDumper::dump($cadena, 10, true);
-        CVarDumper::dump($alfabeto, 10, true);
+//        CVarDumper::dump($alfabeto, 10, true);
         $cons = $this->traerResultados($cadena);
         $inicio2 = $this->traerConsecutivo($inicio, $alfabeto);
         $letrasI = $this->traerLetraInicio($inicio2);
