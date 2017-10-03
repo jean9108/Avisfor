@@ -34,6 +34,25 @@
         <?php echo $form->textField($model, 'conjetura', array('size' => 60, 'maxlength' => 255, 'class' => 'form-control')); ?>
         <?php echo $form->error($model, 'conjetura'); ?>
     </div>
+    <?php
+            $this->beginWidget('zii.widgets.jui.CJuiDialog', array(
+                'id' => 'mydialog',
+                // additional javascript options for the dialog plugin
+                'options' => array(
+                    'title' => 'Agregar Reglas',
+                    'autoOpen' => true,
+                    'buttons' => array(
+                        array('text' => 'Close', 'click' => 'js:function(){$(this).dialog("close");}'),
+                    ),
+                ),
+            ));
+
+            echo 'Recuerda que las variables a utilizar son X,Y,Z,W';
+
+            $this->endWidget('zii.widgets.jui.CJuiDialog');
+            ?>
+  
+    
     <div class="table-responsive">
         <table class="linear" cellspacing ="0">
             <?php
