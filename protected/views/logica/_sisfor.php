@@ -105,7 +105,8 @@
             <?php endforeach; ?>
         
             <?php for ($i = 0; $i < count($cadena2); $i++): ?>
-                <p style = "text-align: center"><?php echo '='.chr(60);?><?php echo $cadena[$i] ?><?php echo chr(62);?></p>
+             
+                <p style = "text-align: center"><?php echo $i+1 .'='.chr(60);?><?php echo $cadena[$i] ?><?php echo chr(62);?></p>
                 Cambios:
                 <p style = "text-align: center"><?php echo $cadena3[$i] ?></p>
                 Respuesta:
