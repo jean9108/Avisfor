@@ -15852,3 +15852,27 @@ Stack trace:
 #18 {main}
 REQUEST_URI=/avisfor/index.php/logica/update/?id=24
 ---
+2017/10/16 01:11:06 [error] [php] Array to string conversion (C:\xampp\htdocs\Avisfor\protected\models\Logica.php:469)
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\protected\models\Logica.php(371): Logica->revisarAritmetica()
+#1 C:\xampp\htdocs\Avisfor\protected\models\Logica.php(94): Logica->revisionInicio()
+#2 C:\xampp\htdocs\Avisfor\protected\controllers\LogicaController.php(183): Logica->aplicarReglas()
+#3 unknown(0): LogicaController->actionUpdate()
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs()
+#5 C:\xampp\htdocs\Avisfor\yii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#6 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(134): LogicaController->runAction()
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#10 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): LogicaController->filterAccessControl()
+#11 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#12 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): LogicaController->runActionWithFilters()
+#14 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): LogicaController->run()
+#15 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#16 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\Avisfor\index.php(13): CWebApplication->run()
+REQUEST_URI=/avisfor/index.php/logica/update/?id=24
+in C:\xampp\htdocs\Avisfor\protected\models\Logica.php (469)
+in C:\xampp\htdocs\Avisfor\protected\models\Logica.php (424)
+in C:\xampp\htdocs\Avisfor\protected\models\Logica.php (407)

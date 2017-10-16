@@ -161,23 +161,23 @@ class Logica extends CActiveRecord {
         $prueba = $this->tieneAlfabeto($alfabeto, $interseccion);
         $k = 0;
         $variable = str_split($final);
-     
+
         if ($prueba != NULL) {
             for ($i = 0; $i < count($numero); $i++):
-                    $f = explode(" ", $numero[$i]);
-             
-                    for ($j = 0; $j < count($f)-1; $j++):
-                        if ($j + 1 < count($numero)):
-                            $e = intval($f[$j] + 1);
-                            if (intval($f[$j + 1]) != $e):
-                                array_push($valor, intval($f[$j]) . " " . intval($f[$j + 1]));
+                $f = explode(" ", $numero[$i]);
 
-                                break;
-                            endif;
+                for ($j = 0; $j < count($f) - 1; $j++):
+                    if ($j + 1 < count($numero)):
+                        $e = intval($f[$j] + 1);
+                        if (intval($f[$j + 1]) != $e):
+                            array_push($valor, intval($f[$j]) . " " . intval($f[$j + 1]));
+
+                            break;
                         endif;
-                    endfor;
+                    endif;
+                endfor;
             endfor;
-            
+
             for ($value = 0; $value < count($numero); $value++):
                 $pal = explode(" ", $numero[$value]);
                 $cont = 0;
@@ -219,32 +219,32 @@ class Logica extends CActiveRecord {
                 }
             endforeach;
         }
-        
-        
+
+
         return $solucion;
     }
 
     public function obtenerCambioAlfabeto($cadena, $valor, $fin, $numero) {
         $prueba = '';
-        if(in_array($fin[0],$this->variables)){
-      
-      
-        for ($j = 0; $j < count($valor); $j++):
-            $domain = strstr($numero, $valor[$j]);
-            if ($domain !== false):
-                $aux = explode(" ", $valor[$j]);
-                $inicio = $aux[0];
-                $final = $aux[1];
-                for ($i = $inicio + 1; $i < $final; $i++):
-                    $prueba .= $cadena[$i];
-                endfor;
-            endif;
-        endfor;
+        if (in_array($fin[0], $this->variables)) {
+
+
+            for ($j = 0; $j < count($valor); $j++):
+                $domain = strstr($numero, $valor[$j]);
+                if ($domain !== false):
+                    $aux = explode(" ", $valor[$j]);
+                    $inicio = $aux[0];
+                    $final = $aux[1];
+                    for ($i = $inicio + 1; $i < $final; $i++):
+                        $prueba .= $cadena[$i];
+                    endfor;
+                endif;
+            endfor;
         }else {
-             
-            $prueba.=$fin[0];
-            }
-        
+
+            $prueba .= $fin[0];
+        }
+
         return $prueba;
     }
 
@@ -281,16 +281,16 @@ class Logica extends CActiveRecord {
 
     public function comparaInicioFin($inicio, $fin, $numero) {
         //AplicarReglas
-       
+
         $accion = array();
         $cadena = str_split($this->axioma);
         $value = explode(" ", $numero);
         $cadena2 = array();
-          
-        for ($i = 0; $i < count($value)-1; $i++):
+
+        for ($i = 0; $i < count($value) - 1; $i++):
             array_push($cadena2, $cadena[intval($value[$i])]);
         endfor;
-        
+
         $resultado = strpos($inicio, $cadena2[0]);
         $aux = count($cadena2) - 1;
         if ($aux > 0) {
@@ -349,12 +349,11 @@ class Logica extends CActiveRecord {
     }
 
     public function revisionInicio($cadena, $inicio, $fin, $alfabeto) {
-        //            AplicarReglas
-
         $accion = array();
         $inicio2 = $inicio;
         $inicio = str_split($inicio);
         $numero = array();
+        //            AplicarReglas
 
         for ($i = 0; $i < count($cadena); $i++) {
             $cont = 0;
@@ -399,7 +398,8 @@ class Logica extends CActiveRecord {
         for ($i = 0; $i < count($accion); $i++):
             $aux .= $accion[$i];
             $algo = $this->prueba2($accion, $aux, $numCadena, $i, $a = $i + 1);
-            array_push($prueba, $algo);
+            if ($algo != NULL)
+                array_push($prueba, $algo);
             $aux = '';
             $cont += 1;
         endfor;
@@ -421,40 +421,58 @@ class Logica extends CActiveRecord {
         $letrasI = $this->traerLetraInicio($inicio2);
         $numeroI = $this->traerNumInicio($inicio2);
         $c = count($numeroI) - count($alfabeto);
+        $algo = $this->verificaLetrasVariables($alfabeto);
 
-        foreach ($cons as $value):
-            $b = explode(" ", $value);
-            $cont = intval($numeroI[0]);
-            $aux = '';
-            $letras = '';
-            for ($i = 0; $i < count($b); $i++):
-                if ($i % 2 == 0)
-                    $letras .= $b[$i];
-                else
-                    $aux .= $b[$i] . " ";
-            endfor;
-
-            if ($letras == $letrasI):
-                $a = 1;
-
-
-                for ($j = 0; $j < count($numeroI); $j++):
-
-                    if ($j + 1 < count($numeroI)):
-                        $d = intval($numeroI[$j]) + 1;
-                        $f = explode(" ", $aux);
-                        $e = intval($f[$j] + 1);
-                        if (intval($f[$j + 1]) == $e && intval($numeroI[$j + 1]) == $d && $f[$j + 1] != ''):
-                            $a += 1;
-                        endif;
-                    endif;
+            foreach ($cons as $value):
+                $b = explode(" ", $value);
+                $cont = intval($numeroI[0]);
+                $aux = '';
+                $letras = '';
+                for ($i = 0; $i < count($b); $i++):
+                    if ($i % 2 == 0)
+                        $letras .= $b[$i];
+                    else
+                        $aux .= $b[$i] . " ";
                 endfor;
 
-                if ($a == $c):
-                    array_push($prueba, $aux);
+                if ($letras == $letrasI):
+                    $a = 1;
+
+
+                    for ($j = 0; $j < count($numeroI); $j++):
+
+                        if ($j + 1 < count($numeroI)):
+                            $d = intval($numeroI[$j]) + 1;
+                            $f = explode(" ", $aux);
+                            $e = intval($f[$j] + 1);
+                            if (intval($f[$j + 1]) == $e && intval($numeroI[$j + 1]) == $d && $f[$j + 1] != ''):
+                                $a += 1;
+                            endif;
+                        endif;
+                    endfor;
+
+                    if ($a == $c):
+                        array_push($prueba, $aux);
+                    endif;
                 endif;
-            endif;
-        endforeach;
+            endforeach;
+            
+             CVarDumper::dump($prueba, 10, true);
+            die;
+        
+        return $prueba;
+    }
+
+    public function verificaLetrasVariables($inicio) {
+        $prueba = array();
+        $aux = explode(" ", $inicio[0]);
+        for ($i = 0; $i < count($inicio); $i++):
+            $aux2 = explode(" ", $inicio[$i]);
+            if ($aux[0] == $aux2[0] && $aux[1] != $aux2[1]) {
+                array_push($prueba, $aux[1] . " " . $aux2[1]);
+            }
+        endfor;
+
         return $prueba;
     }
 
@@ -672,6 +690,7 @@ class Logica extends CActiveRecord {
                 array_push($accion, $par2);
             endif;
         }
+
         return $accion;
     }
 
@@ -682,6 +701,7 @@ class Logica extends CActiveRecord {
         $aux = $result[0];
         $x = '';
         $cont = 0;
+
         foreach ($cadena as $value) {
             $valor = explode(' ', $value);
             if (intval($valor[1]) === $aux)
