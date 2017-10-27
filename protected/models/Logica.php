@@ -91,21 +91,608 @@ class Logica extends CActiveRecord {
         $comparacion = $this->traeInicioFin($inicio, $fin);
 
         if (count($alfabeto) > 0 && $comparacion == 2) {
-            $traeTotalCambios = $this->revisionInicio($cadena, $inicio, $fin, $alfabeto);
-        } else {
-            CVarDumper::dump("No entre", 10, true);
-            die();
+            $verificación = $this->variablesInicio($alfabeto, $inicio);
+
+            if (count($verificación) == strlen($inicio)) {
+                $traeTotalCambios = $this->numeroTotalInicio($cadena, $inicio, $fin, $alfabeto);
+            } else {
+                $traeTotalCambios = $this->revisionInicio($cadena, $inicio, $fin, $alfabeto);
+            }
+
+            if (count($traeTotalCambios) > 0) {
+                $cambio = $this->comparaInicioFin($inicio, $fin, $traeTotalCambios[0]);
+                $this->solucion = $this->revisionFin($traeTotalCambios, $cadena, $cambio, $sum, $inicio, $alfabeto, $fin);
+            }
+        } else if (count($alfabeto) > 0 && $comparacion < 2) {
+
+            $traeTotalCambios = $this->revisionRegla($alfabeto, $inicio, $fin, $cadena);
+            if (count($traeTotalCambios) > 0):
+                $this->solucion = $this->cambioFinal($traeTotalCambios, $cadena, $sum, $inicio, $alfabeto, $fin);
+            endif;
         }
-
-
-
-        if (count($traeTotalCambios) > 0) {
-            $cambio = $this->comparaInicioFin($inicio, $fin, $traeTotalCambios[0]);
-            $this->solucion = $this->revisionFin($traeTotalCambios, $cadena, $cambio, $sum, $inicio, $alfabeto, $fin);
-        }
-
         return $this->solucion;
     }
+
+    public function variablesInicio($alfabeto, $inicio) {
+        $inicio2 = str_split($inicio);
+        $numero = array();
+        for ($i = 0; $i < count($inicio2); $i++):
+            foreach ($alfabeto as $value):
+                if ($value == $inicio2[$i]):
+                    array_push($numero, $inicio2[$i]);
+                endif;
+
+            endforeach;
+        endfor;
+        return $numero;
+    }
+
+    /*
+     * Funcion Cuando no Tiene Inicio ni Fin y tiene Variables
+     */
+
+    public function revisionRegla($alfabeto, $inicio, $fin, $cadena) {
+
+        $accion = array();
+        $inicio2 = $inicio;
+        $inicio = str_split($inicio);
+        $numero = array();
+        $accion = array();
+        $valores = array();
+        $aux1 = '';
+        $aux2 = '';
+        $algo = array();
+        $numCadena = array();
+        $cadena2 = array();
+
+        if (strpos($inicio2, '(') !== false && strpos($inicio2, ')') !== false) {
+            $var = count($cadena) - 1;
+            if ($cadena[0] == '(' && $cadena[$var] == ')')
+                array_push($numero, '0 ' . $var);
+        }else {
+            for ($i = 0; $i < count($cadena); $i++):
+                foreach ($inicio as $row):
+                    if (strpos($cadena[$i], $row) !== false):
+                        array_push($accion, $cadena[$i] . ' ' . $i);
+                    endif;
+                endforeach;
+            endfor;
+
+            if ($accion != null):
+                $valores = $this->revisionInicio2($accion, $inicio,$alfabeto);
+                $consecutivo = $this->revisarReglaInicio($valores);
+                $revision = $this->quitarEspacio($consecutivo);
+
+                $inicio2 = $this->traerConsecutivo($inicio, $alfabeto);
+                $letrasI = $this->traerLetraInicio($inicio2);
+            endif;
+
+            for ($i = 0; $i < count($accion); $i++):
+                $value = explode(" ", $accion[$i]);
+                $aux1 .= $value[0];
+                $aux2 .= $value[1] . " ";
+
+                if (strlen($aux1) == count($inicio2)):
+                    array_push($cadena2, $aux1);
+                    array_push($numCadena, $aux2);
+                    $aux1 = '';
+                    $aux2 = '';
+                    $i -= count($inicio2) - 1;
+                endif;
+
+            endfor;
+
+            for ($i = 0; $i < count($cadena2); $i++):
+                if ($cadena2[$i] == $letrasI):
+                    array_push($numero, $numCadena[$i]);
+                endif;
+            endfor;
+        }
+
+        return $numero;
+    }
+
+    /**
+     * Retorna si la regla tiene es valida o no.
+     * Please note that you should have this exact method in all your CActiveRecord descendants!
+     * @param array $cadena es el resultado sacado de la funcion revisionInicio.
+     * @param array $inicio es la primera parte de la regla
+     * @param string $fin es lo que se le va a cambiar al axioma
+     * @param string $inicio2 es la primera parte de la regla
+     * @return accion las posibles respuesta al aplicar la regla
+     */
+    public function numeroTotalInicio($cadena, $inicio, $fin, $alfabeto) {
+        $accion = array();
+        $revisar = $this->revisarCadena($cadena);
+
+
+        $cont = 0;
+        $inicio2 = str_split($inicio);
+
+        foreach ($inicio2 as $key):
+            $accion[$key] = $revisar;
+            if (count($accion[$key]) == 1) {
+                CVarDumper::dump($accion[$key], 10, true);
+            } else {
+                $numero = $this->revisarParametros($cadena, $key, $inicio2);
+            }
+        endforeach;
+        die;
+    }
+
+    public function revisarCadena($cadena) {
+        $accion = array();
+        foreach ($cadena as $key):
+            if ($key != ' ')
+                array_push($accion, $key);
+        endforeach;
+        return $accion;
+    }
+
+    public function revisarParametros($cadena, $key, $inicio) {
+
+        $accion = array();
+        $cont = count($inicio) - 1;
+        $aux = 0;
+        foreach ($inicio as $key):
+            $accion[$key] = '';
+        endforeach;
+        print_r($accion);
+        die;
+    }
+
+    /* ------------------------------------------------------------------------------------------------------------------------------------------- */
+
+    /**
+     * Retorna si la regla tiene es valida o no.
+     * Please note that you should have this exact method in all your CActiveRecord descendants!
+     * @param array $cadena es el resultado sacado de la funcion revisionInicio.
+     * @param array $inicio es la primera parte de la regla
+     * @param string $fin es lo que se le va a cambiar al axioma
+     * @param string $inicio2 es la primera parte de la regla
+     * @return accion las posibles respuesta al aplicar la regla
+     */
+    public function cambioFinal($traeTotalCambios, $cadena, $sum, $inicio, $alfabeto, $fin) {
+
+        $inicio2 = $this->variablesInicio($alfabeto, $inicio);
+//        CVarDumper::dump('aqui ta');
+        CVarDumper::dump($inicio2, 10, true);
+        die;
+        $solucion = array();
+        $axioma = '';
+        foreach ($traeTotalCambios as $key):
+            $aux = explode(" ", $key);
+            if (count($aux) == 2):
+                $ini = intval($aux[0]) + 1;
+                $final = intval($aux[1]);
+                for ($i = $ini; $i < $final; $i++):
+                    $axioma .= $cadena[$i];
+                endfor;
+
+                if ($axioma != '')
+                    array_push($solucion, array('regla' => $sum + 1, 'axioma' => $axioma));
+//                 array_push($solucion, $axioma);
+            endif;
+        endforeach;
+
+        return $solucion;
+    }
+
+    /*     * ********************************************************************************************************************** */
+
+    /**
+     * Retorna si la regla tiene es valida o no.
+     * Please note that you should have this exact method in all your CActiveRecord descendants!
+     * @param array $cadena es el axioma.
+     * @param array $inicio es la primera parte de la regla
+     * @param string $fin es lo que se le va a cambiar al axioma
+     * @param array $alfabeto Cuales son las variables que tiene la regla
+     * @return numero las posibles respuesta al aplicar la regla
+     */
+    public function revisionInicio($cadena, $inicio, $fin, $alfabeto) {
+        $accion = array();
+        $inicio2 = $inicio;
+        $inicio = str_split($inicio);
+        $numero = array();
+
+        for ($i = 0; $i < count($cadena); $i++) {
+            $cont = 0;
+            foreach ($inicio as $resp) {
+
+                if (strpos($cadena[$i], $resp) !== false) {
+                    array_push($accion, $cadena[$i] . " " . $i);
+                }
+            }
+        }
+        
+        if ($accion != NULL) {
+            
+            $aritmetica = $this->verificaAritmetica($accion, $inicio, $fin, $inicio2);
+            
+            if (count($aritmetica) == 2) {
+                $numero = $this->revisarAritmetica($accion, $inicio, $fin, $alfabeto);
+            } else {
+
+                $reaccion = $this->revisionInicio2($accion, $inicio, $alfabeto);
+                
+                $numero = $this->traerInfo($accion, $reaccion);
+               
+//            CVarDumper::dump($numero, 10, true);
+//            die;
+            }
+        }
+        return $numero;
+    }
+
+    /* ------------------------------------------------------------------------------------------------------------------------------------------- */
+
+    /**
+     * Retorna si la regla tiene es valida o no.
+     * Please note that you should have this exact method in all your CActiveRecord descendants!
+     * @param array $cadena es el resultado sacado de la funcion revisionInicio.
+     * @param array $inicio es la primera parte de la regla
+     * @param string $fin es lo que se le va a cambiar al axioma
+     * @param string $inicio2 es la primera parte de la regla
+     * @return accion las posibles respuesta al aplicar la regla
+     */
+    public function verificaAritmetica($cadena, $inicio, $fin, $inicio2) {
+        $accion = array();
+        $interseccion = array();
+        $final = str_split($fin);
+        $algo = array();
+        $result = array();
+        $simbolo = array('+', '-', '/', '!', '*', '·', '#', '$', '&', '~', '%', '&', '¬', '/', '=', '?', '¿', '^');
+
+//        Verifica si la regla tiene aritmetica
+        foreach ($simbolo as $value):
+            if (strpos($inicio2, $value) !== false)
+                array_push($result, strpos($inicio2, $value));
+        endforeach;
+
+//        Si el resultado no es nulo mira las variables que tienen antes y despues del resultado
+        if ($result != null) {
+            $x = '';
+            $y = '';
+            $par1 = '';
+            $par2 = '';
+
+            for ($i = 0; $i < count($inicio); $i++):
+                if ($inicio [$i] == $final[0] && $i == 0) :
+                    $x = $inicio[$i];
+                endif;
+                if ($inicio[$i] == $final[count($final) - 1] && $i == count($inicio) - 1):
+                    $y = $inicio[$i];
+                endif;
+            endfor;
+
+            for ($i = 0; $i < count($inicio); $i++):
+                if ($inicio[$i] != $x && $inicio[$i] != $y):
+                    array_push($interseccion, $inicio[$i] . ' ' . $i);
+                endif;
+            endfor;
+
+            foreach ($result as $value):
+                $prueba = $this->verificarAritmetica($interseccion, $result);
+            endforeach;
+
+//            Verifica si la regla inicial tiene parentesis
+            if (strpos($inicio2, '(') !== false && strpos($inicio2, ')') !== false):
+                $par1 = strpos($inicio2, '(');
+                array_push($accion, $par1);
+                $par2 = strpos($inicio2, ')');
+                array_push($accion, $par2);
+            endif;
+
+            if (strpos($inicio2, '{') !== false && strpos($inicio2, '}') !== false):
+                $par1 = strpos($inicio2, '{');
+                array_push($accion, $par1);
+                $par2 = strpos($inicio2, '}');
+                array_push($accion, $par2);
+            endif;
+
+            if (strpos($inicio2, '[') !== false && strpos($inicio2, ']') !== false):
+                $par1 = strpos($inicio2, '[');
+                array_push($accion, $par1);
+                $par2 = strpos($inicio2, ']');
+                array_push($accion, $par2);
+            endif;
+        }
+        return $accion;
+    }
+
+    /**
+     * Retorna si la regla tiene es valida o no.
+     * Please note that you should have this exact method in all your CActiveRecord descendants!
+     * @param array $cadena es el resultado sacado de la funcion revisaAritmetica.
+     * @param array $result es la primera parte de la regla
+     * @return accion las posibles respuesta al aplicar la regla
+     */
+    public function verificarAritmetica($cadena, $result) {
+
+        $simbolo = '@#~$%&/¬()=?¿+-*^[]{},.';
+        $prueba = array();
+        $aux = $result[0];
+        $x = '';
+        $cont = 0;
+
+        foreach ($cadena as $value) {
+            $valor = explode(' ', $value);
+            if (intval($valor[1]) === $aux)
+                $x .= $cont;
+            $cont++;
+        }
+
+        if (strpos($cadena[intval($x) - 1], $simbolo) === false)
+            array_push($prueba, $cadena[intval($x) - 1]);
+        if (strpos($cadena[intval($x) + 1], $simbolo) === false)
+            array_push($prueba, $cadena[intval($x) + 1]);
+        return $prueba;
+    }
+
+    /* ---------------------------------------------------------------------------------------------------------------------- */
+
+    /**
+     * Retorna si la regla tiene es valida o no.
+     * Please note that you should have this exact method in all your CActiveRecord descendants!
+     * @param array $cadena es el resultado sacado de la funcion revisionInicio.
+     * @return accion las posibles respuesta al aplicar la regla
+     */
+    public function revisionInicio2($cadena, $inicio, $alfabeto) {
+
+        $accion = array();
+        for ($i = 0; $i < count($inicio); $i++) {
+            foreach ($cadena as $value):
+                $value = explode(" ", $value);
+                if ($inicio[$i] == $value[0]) {
+                    array_push($accion, $inicio[$i] . " " . $i);
+                    break;
+                } else {
+                    if (in_array($inicio[$i], $alfabeto) == false):
+                        array_push($accion, $inicio[$i] . " " . $i);
+                        break;
+                    endif;
+                }
+            endforeach;
+        }
+        return $accion;
+    }
+
+    /* ---------------------------------------------------------------------------------------------------------------------- */
+
+    /**
+     * Retorna si la regla tiene es valida o no.
+     * Please note that you should have this exact method in all your CActiveRecord descendants!
+     * @param array $cadena es el resultado sacado de la funcion revisionInicio.
+     * @param array $inicio inicio de la regla
+     * @return accion las posibles respuesta al aplicar la regla
+     */
+    public function traerInfo($cadena, $inicio) {
+        
+        $cadena2 = array();
+        $numCadena = array();
+        $inicio2 = '';
+        $numero = array();
+        $cont = 0;
+        $prueba = $this->prueba($cadena);
+        $aux1 = '';
+        $aux2 = '';
+        $aux = '';
+        $numero = count($inicio);
+        $accion2 = array();
+
+        //CVarDumper::dump($inicio);
+        $consecutivo = $this->revisarReglaInicio($inicio);
+        $revision = $this->quitarEspacio($consecutivo);
+        
+        if (count($inicio) == count($revision)) {
+            for ($i = 0; $i < count($prueba); $i++) {
+                $value = explode(" ", $prueba[$i]);
+                $aux1 .= $value[0];
+                $aux2 .= $value[1] . " ";
+                if (strlen($aux1) == count($inicio)):
+                    array_push($cadena2, $aux1);
+                    array_push($numCadena, $aux2);
+                    $aux1 = '';
+                    $aux2 = '';
+                    $i -= count($inicio) - 1;
+                endif;
+            }
+        }else {
+            
+            for ($i = 0; $i < count($cadena); $i++):
+                $aux .= $cadena[$i];
+                $algo = $this->prueba2($cadena, $aux, $numero, $i, $a = $i + 1);
+               CVarDumper::dump($algo,10,true);
+                if ($algo != NULL)
+                    array_push($accion2, $algo);
+                $aux = '';
+                $cont += 1;
+            endfor;
+            die;
+            $accion = $this->traerResultados($accion2);
+
+            foreach ($accion as $value):
+                $b = explode(" ", $value);
+                $aux = '';
+                $letras = '';
+                for ($i = 0; $i < count($b); $i++):
+                    if ($i % 2 == 0)
+                        $letras .= $b[$i];
+                    else
+                        $aux .= $b[$i] . " ";
+                endfor;
+                array_push($cadena2, $letras);
+                array_push($numCadena, $aux);
+            endforeach;
+        }
+
+        for ($i = 0; $i < count($inicio); $i++):
+            $value = explode(" ", $inicio[$i]);
+            $inicio2 .= $value[0];
+        endfor;
+        $numero = $this->traeParametros($cadena2, $inicio2, $numCadena, $inicio);
+        return $numero;
+    }
+
+    /**
+     * Retorna si la regla tiene es valida o no.
+     * Please note that you should have this exact method in all your CActiveRecord descendants!
+     * @param array $cadena es el resultado sacado de la funcion revisionInicio.
+     * @return accion las posibles respuesta al aplicar la regla
+     */
+    public function prueba($cadena) {
+        $accion = array();
+        $algo = explode(" ", $cadena[0]);
+        array_push($accion, $cadena[0]);
+        for ($i = 1; $i < count($cadena); $i++):
+            $pal = explode(" ", $cadena[$i]);
+            if ($pal[1] != $algo[1]):
+                $algo = explode(" ", $cadena[$i]);
+                array_push($accion, $cadena[$i]);
+            endif;
+        endfor;
+        return $accion;
+    }
+
+    /**
+     * Retorna si la regla tiene es valida o no.
+     * Please note that you should have this exact method in all your CActiveRecord descendants!
+     * @param array $cadena es el resultado sacado de la funcion revisionInicio.
+     * @param array $inicio inicio de la regla
+     * @param array $numCadena Posiciones que tiene 
+     * @return accion las posibles respuesta al aplicar la regla
+     */
+    public function traeParametros($cadena, $inicio, $numCadena, $inicio2) {
+        $numero = array();
+        $letras = strlen($inicio);
+        $revision = $this->revisarReglaInicio($inicio2);
+        $consecutivo = $this->quitarEspacio($revision);
+
+        if (count($consecutivo) > 0) {
+
+            for ($i = 0; $i < count($cadena); $i++):
+                if ($inicio == $cadena[$i]):
+                    if ($letras > 1) {
+
+                        $prueba2 = $this->verificaConsecutivo($revision, $cadena[$i], $numCadena[$i]);
+                        if ($prueba2 == count($consecutivo)):
+                            array_push($numero, $numCadena[$i]);
+                        endif;
+                    } else {
+                        array_push($numero, $numCadena[$i]);
+                    }
+                endif;
+            endfor;
+        } else {
+            for ($i = 0; $i < count($cadena); $i++):
+                if ($inicio == $cadena[$i]):
+                    array_push($numero, $numCadena[$i]);
+                endif;
+            endfor;
+        }
+
+        if (count($numero) == 0):
+            for ($i = 0; $i < count($cadena); $i++):
+                if ($inicio == $cadena[$i]):
+                    if ($letras > 1) {
+                        $prueba = explode(" ", $numCadena[$i]);
+                        $cont = $prueba[0];
+                        $aux = 1;
+                        $cont += 1;
+                        $string = $prueba[0];
+                        for ($j = 1; $j < count($prueba) - 1; $j++):
+                            if ($cont == intval($prueba[$j])) {
+                                $string .= " " . $prueba[$j];
+                                $aux += 1;
+                                $cont += 1;
+                            } else {
+                                $string = '';
+                            }
+                        endfor;
+
+                        if ($aux == $letras) {
+                            array_push($numero, $string);
+                        }
+                    } else
+                        array_push($numero, $numCadena[$i]);
+                endif;
+            endfor;
+        endif;
+        return $numero;
+    }
+
+    public function quitarEspacio($inicio) {
+        $accion = array();
+
+        for ($i = 0; $i < count($inicio); $i++):
+
+            if ($inicio[$i] != ' '):
+                array_push($accion, $inicio[$i]);
+            endif;
+        endfor;
+
+        return $accion;
+    }
+
+    public function verificaConsecutivo($inicio, $cadena, $numero) {
+        $cont = 0;
+        $aux = 0;
+        $consecutivo = 0;
+        $letras = strlen($cadena);
+
+        for ($i = 0; $i < count($inicio); $i++) {
+            if ($inicio[$i] != ' ') {
+                for ($j = 0; $j < $letras; $j++):
+                    $num = intval($numero[$j]);
+                    if ($cont == 0 && $inicio[$j] == $cadena[$j]) {
+                        $cont += 1;
+                        $consecutivo = intval($numero[$j]) + 1;
+                    } else if ($consecutivo == $num) {
+                        $aux += 1;
+                        $consecutivo = intval($numero[$j]) + 1;
+                    } else {
+                        $cont = 0;
+                    }
+
+                endfor;
+            }
+        }
+
+        return $aux;
+    }
+
+    /**
+     * Retorna cuales son las variables que estan seguidas.
+     * Please note that you should have this exact method in all your CActiveRecord descendants!
+     * @param array $inicio inicio de la regla
+     * @return accion cuales son las variables que van seguidas
+     */
+    public function revisarReglaInicio($inicio) {
+
+        $accion = array();
+        $revision = explode(" ", $inicio[0]);
+        $cont = intval($revision[1]) + 1;
+        if (count($inicio) == 1) {
+            array_push($accion, $revision[0]);
+        } else {
+            for ($i = 1; $i < count($inicio); $i++):
+                $aux = explode(" ", $inicio[$i]);
+
+                if ($cont == intval($aux[1])) {
+                    array_push($accion, $revision[0]);
+                    array_push($accion, $aux[0]);
+                    $cont += 1;
+                } else {
+                    $cont = intval($aux[1]) + 1;
+                    $revision = explode(" ", $inicio[$i]);
+                    array_push($accion, " ");
+                }
+            endfor;
+        }
+        return $accion;
+    }
+
+    /* ---------------------------------------------------------------------------------------------------------------------- */
 
     public function tieneVariables($inicio) {
         $alfabeto = array();
@@ -287,12 +874,16 @@ class Logica extends CActiveRecord {
         $value = explode(" ", $numero);
         $cadena2 = array();
 
-        for ($i = 0; $i < count($value) - 1; $i++):
-            array_push($cadena2, $cadena[intval($value[$i])]);
+        for ($i = 0; $i < count($value); $i++):
+            if ($value[$i] != ''):
+                array_push($cadena2, $cadena[intval($value[$i])]);
+            endif;
         endfor;
 
         $resultado = strpos($inicio, $cadena2[0]);
+
         $aux = count($cadena2) - 1;
+
         if ($aux > 0) {
             $resultado2 = strpos($inicio, $cadena2[$aux]);
             if ($resultado == $resultado2):
@@ -310,6 +901,10 @@ class Logica extends CActiveRecord {
             $resultado2 = $resultado;
         }
         $cantidad = $this->obtieneCantidadY($resultado2, $inicio);
+
+//            CVarDumper::dump($cantidad,10,true);
+//            
+//        die;
         $x = $this->obtieneXInicio($resultado, $inicio);
         $prueba = strlen($inicio) - 1;
 
@@ -348,37 +943,8 @@ class Logica extends CActiveRecord {
         return $y;
     }
 
-    public function revisionInicio($cadena, $inicio, $fin, $alfabeto) {
-        $accion = array();
-        $inicio2 = $inicio;
-        $inicio = str_split($inicio);
-        $numero = array();
-        //            AplicarReglas
-
-        for ($i = 0; $i < count($cadena); $i++) {
-            $cont = 0;
-            foreach ($inicio as $resp) {
-
-                if (strpos($cadena[$i], $resp) !== false) {
-                    array_push($accion, $cadena[$i] . " " . $i);
-                }
-            }
-        }
-
-        $aritmetica = $this->verificaAritmetica($accion, $inicio, $fin, $inicio2);
-
-        if (count($aritmetica) == 2) {
-            $numero = $this->revisarAritmetica($accion, $inicio, $fin, $alfabeto);
-        } else {
-            $reaccion = $this->revisionInicio2($accion, $inicio);
-            $numero = $this->traerInfo($accion, $reaccion);
-        }
-        return $numero;
-    }
-
     public function revisarAritmetica($accion, $inicio, $fin, $aritmetica) {
         //        revisionInicio
-
         $prueba = array();
         $letras = array();
         $numero = array();
@@ -397,6 +963,7 @@ class Logica extends CActiveRecord {
 
         for ($i = 0; $i < count($accion); $i++):
             $aux .= $accion[$i];
+
             $algo = $this->prueba2($accion, $aux, $numCadena, $i, $a = $i + 1);
             if ($algo != NULL)
                 array_push($prueba, $algo);
@@ -419,48 +986,89 @@ class Logica extends CActiveRecord {
         $cons = $this->traerResultados($cadena);
         $inicio2 = $this->traerConsecutivo($inicio, $alfabeto);
         $letrasI = $this->traerLetraInicio($inicio2);
+        CVarDumper::dump($letrasI, 10, true);
         $numeroI = $this->traerNumInicio($inicio2);
         $c = count($numeroI) - count($alfabeto);
         $algo = $this->verificaLetrasVariables($alfabeto);
 
-            foreach ($cons as $value):
-                $b = explode(" ", $value);
-                $cont = intval($numeroI[0]);
-                $aux = '';
-                $letras = '';
-                for ($i = 0; $i < count($b); $i++):
-                    if ($i % 2 == 0)
-                        $letras .= $b[$i];
-                    else
-                        $aux .= $b[$i] . " ";
+        foreach ($cons as $value):
+            $b = explode(" ", $value);
+            $cont = intval($numeroI[0]);
+            $aux = '';
+            $letras = '';
+            for ($i = 0; $i < count($b); $i++):
+                if ($i % 2 == 0)
+                    $letras .= $b[$i];
+                else
+                    $aux .= $b[$i] . " ";
+            endfor;
+
+            if ($letras == $letrasI):
+                $a = 1;
+
+
+                for ($j = 0; $j < count($numeroI); $j++):
+
+                    if ($j + 1 < count($numeroI)):
+                        $d = intval($numeroI[$j]) + 1;
+                        $f = explode(" ", $aux);
+                        $e = intval($f[$j] + 1);
+                        if (intval($f[$j + 1]) == $e && intval($numeroI[$j + 1]) == $d && $f[$j + 1] != ''):
+                            $a += 1;
+                        endif;
+                    endif;
                 endfor;
 
-                if ($letras == $letrasI):
-                    $a = 1;
+                if ($a == $c):
+                    array_push($prueba, $aux);
+                endif;
+            endif;
+        endforeach;
 
+        if (count($algo) > 0) {
+            $axioma = $cadena = str_split($this->axioma);
+            $separeted = implode(" ", $algo);
+            $sep = explode(" ", $separeted);
+//                for($i = 0; $i< count($inicio); $i++):
+//                    $ban = explode(" ", $inicio[$i]);
+//                   if(intval($ban[1]) > intval($sep[0]) && intval($ban[1]) < intval($sep[1])):
+//                       $solucion = $ban[1];                         
+//                   endif;
+//                endfor;
+            $solucion = array();
 
-                    for ($j = 0; $j < count($numeroI); $j++):
-
-                        if ($j + 1 < count($numeroI)):
-                            $d = intval($numeroI[$j]) + 1;
-                            $f = explode(" ", $aux);
-                            $e = intval($f[$j] + 1);
-                            if (intval($f[$j + 1]) == $e && intval($numeroI[$j + 1]) == $d && $f[$j + 1] != ''):
-                                $a += 1;
-                            endif;
+            for ($i = 0; $i < count($prueba); $i++):
+                $m = 0;
+                $rest = explode(" ", $prueba[$i]);
+                $x = '';
+                $y = '';
+                if ($rest[count($rest) - 2] != ''):
+                    for ($j = intval($rest[0]) + 1; $j < intval($rest[count($rest) - 2]); $j++):
+                        if ($j < intval($rest[1])):
+                            $x .= $axioma[$j];
                         endif;
+                        if ($j > intval($rest[1])):
+                            $y .= $axioma[$j];
+                        endif;
+
                     endfor;
 
-                    if ($a == $c):
-                        array_push($prueba, $aux);
+                    if ($x == $y):
+                        for ($k = 0; $k < count($solucion); $k++):
+                            if ($solucion[$k] == $prueba[$i]):
+                                $m = 1;
+                            endif;
+                        endfor;
+                        if ($m == 0):
+                            array_push($solucion, $prueba[$i]);
+                        endif;
                     endif;
                 endif;
-            endforeach;
-            
-             CVarDumper::dump($prueba, 10, true);
-            die;
-        
-        return $prueba;
+            endfor;
+            return $solucion;
+        }else {
+            return $prueba;
+        }
     }
 
     public function verificaLetrasVariables($inicio) {
@@ -543,9 +1151,9 @@ class Logica extends CActiveRecord {
             }
 
             $cantidad = intval(strlen($aux) / $cadena);
-
-            //revisarAritmetica  
-            if ($cantidad - 1 < $cadena && $k + 1 < count($accion)) {
+ 
+            if ($cantidad - 1 < $cadena && $k+1  < count($accion)) {
+                
                 $aux2 = $this->prueba3($accion, $aux3, $cadena, $k + 1, $a = $k + 1);
                 if ($aux2 != NULL)
                     array_push($alf, $aux2);
@@ -554,7 +1162,7 @@ class Logica extends CActiveRecord {
             }
             $aux = $algo;
         endfor;
-
+        
         foreach ($alf as $value):
             foreach ($value as $row):
                 $aux4 = explode(" ", $row);
@@ -630,184 +1238,6 @@ class Logica extends CActiveRecord {
 
 //        CVarDumper::dump($numCadena, 10, true);
         return $interseccion;
-    }
-
-    public function verificaAritmetica($cadena, $inicio, $fin, $inicio2) {
-        //        revisionInicio
-        $accion = array();
-        $interseccion = array();
-        $final = str_split($fin);
-        $algo = array();
-        $result = array();
-        $simbolo = array('+', '-', '/', '!', '*', '·', '#', '$', '&', '~', '%', '&', '¬', '/', '=', '?', '¿', '^');
-
-        foreach ($simbolo as $value):
-            if (strpos($inicio2, $value) !== false)
-                array_push($result, strpos($inicio2, $value));
-        endforeach;
-
-        if ($result != null) {
-            $x = '';
-            $y = '';
-            $par1 = '';
-            $par2 = '';
-            for ($i = 0; $i < count($inicio); $i++):
-                if ($inicio [$i] == $final[0] && $i == 0) :
-                    $x = $inicio[$i];
-                endif;
-                if ($inicio[$i] == $final[count($final) - 1] && $i == count($inicio) - 1):
-                    $y = $inicio[$i];
-                endif;
-            endfor;
-
-            for ($i = 0; $i < count($inicio); $i++):
-                if ($inicio[$i] != $x && $inicio[$i] != $y):
-                    array_push($interseccion, $inicio[$i] . ' ' . $i);
-                endif;
-            endfor;
-            foreach ($result as $value):
-                $prueba = $this->verificarAritmetica($interseccion, $result);
-            endforeach;
-
-            if (strpos($inicio2, '(') !== false && strpos($inicio2, ')') !== false):
-                $par1 = strpos($inicio2, '(');
-                array_push($accion, $par1);
-                $par2 = strpos($inicio2, ')');
-                array_push($accion, $par2);
-            endif;
-
-            if (strpos($inicio2, '{') !== false && strpos($inicio2, '}') !== false):
-                $par1 = strpos($inicio2, '{');
-                array_push($accion, $par1);
-                $par2 = strpos($inicio2, '}');
-                array_push($accion, $par2);
-            endif;
-
-            if (strpos($inicio2, '[') !== false && strpos($inicio2, ']') !== false):
-                $par1 = strpos($inicio2, '[');
-                array_push($accion, $par1);
-                $par2 = strpos($inicio2, ']');
-                array_push($accion, $par2);
-            endif;
-        }
-
-        return $accion;
-    }
-
-    public function verificarAritmetica($cadena, $result) {
-        //            Verifica Aritmetica
-        $simbolo = '@#~$%&/¬()=?¿+-*^[]{},.';
-        $prueba = array();
-        $aux = $result[0];
-        $x = '';
-        $cont = 0;
-
-        foreach ($cadena as $value) {
-            $valor = explode(' ', $value);
-            if (intval($valor[1]) === $aux)
-                $x .= $cont;
-            $cont++;
-        }
-
-        if (strpos($cadena[intval($x) - 1], $simbolo) === false)
-            array_push($prueba, $cadena[intval($x) - 1]);
-        if (strpos($cadena[intval($x) + 1], $simbolo) === false)
-            array_push($prueba, $cadena[intval($x) + 1]);
-        return $prueba;
-    }
-
-    public function revisionInicio2($cadena, $inicio) {
-        $accion = array();
-        for ($i = 0; $i < count($inicio); $i++) {
-            foreach ($cadena as $value):
-                $value = explode(" ", $value);
-                if ($inicio[$i] == $value[0]) {
-                    array_push($accion, $inicio[$i] . " " . $i);
-                    break;
-                }
-            endforeach;
-        }
-        return $accion;
-    }
-
-    public function traerInfo($cadena, $inicio) {
-        $cadena2 = array();
-        $numCadena = array();
-        $inicio2 = '';
-        $numero = array();
-        $cont = 0;
-        $prueba = $this->prueba($cadena);
-        $aux1 = '';
-        $aux2 = '';
-        for ($i = 0; $i < count($prueba); $i++) {
-            $value = explode(" ", $prueba[$i]);
-            $aux1 .= $value[0];
-            $aux2 .= $value[1] . " ";
-            if (strlen($aux1) == count($inicio)):
-                array_push($cadena2, $aux1);
-                array_push($numCadena, $aux2);
-                $aux1 = '';
-                $aux2 = '';
-                $i -= count($inicio) - 1;
-            endif;
-        }
-
-        for ($i = 0; $i < count($inicio); $i++):
-            $value = explode(" ", $inicio[$i]);
-            $inicio2 .= $value[0];
-        endfor;
-//        CVarDumper::dump($cadena2, 10, true);
-//         CVarDumper::dump($numCadena, 10, true);
-
-        $numero = $this->traeParametros($cadena2, $inicio2, $numCadena);
-        return $numero;
-    }
-
-    public function prueba($cadena) {
-        $prueba = array();
-        $algo = explode(" ", $cadena[0]);
-        array_push($prueba, $cadena[0]);
-        for ($i = 1; $i < count($cadena); $i++):
-            $pal = explode(" ", $cadena[$i]);
-            if ($pal[1] != $algo[1]):
-                $algo = explode(" ", $cadena[$i]);
-                array_push($prueba, $cadena[$i]);
-            endif;
-        endfor;
-        return $prueba;
-    }
-
-    public function traeParametros($cadena, $inicio, $numCadena) {
-        $numero = array();
-        $letras = strlen($inicio);
-
-        for ($i = 0; $i < count($cadena); $i++):
-            if ($inicio == $cadena[$i]):
-                if ($letras > 1) {
-
-                    $prueba = explode(" ", $numCadena[$i]);
-                    $cont = $prueba[0];
-                    $aux = 1;
-                    $cont += 1;
-                    $string = $prueba[0];
-                    for ($j = 1; $j < count($prueba) - 1; $j++):
-                        if ($cont == intval($prueba[$j])) {
-                            $string .= " " . $prueba[$j];
-                            $aux += 1;
-                            $cont += 1;
-                        } else {
-                            $string = '';
-                        }
-                    endfor;
-
-                    if ($aux == $letras) {
-                        array_push($numero, $string);
-                    }
-                } else
-                    array_push($numero, $numCadena[$i]);
-            endif;
-        endfor;
-        return $numero;
     }
 
     public function contar() {

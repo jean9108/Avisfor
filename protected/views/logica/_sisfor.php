@@ -72,6 +72,7 @@
         <?php $cadena2 = array(); ?>
         <?php $cadena3 = array();?>
         <?php if (count($model->solucion) > 0) { ?>
+            <?php // CVarDumper::dump($model->solucion);die;?>
             <?php foreach ($model->solucion as $value): ?>
                 <?php $cont = 0; ?>
                 <?php $p = ''; ?>
