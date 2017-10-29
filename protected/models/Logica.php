@@ -106,6 +106,7 @@ class Logica extends CActiveRecord {
         } else if (count($alfabeto) > 0 && $comparacion < 2) {
 
             $traeTotalCambios = $this->revisionRegla($alfabeto, $inicio, $fin, $cadena);
+             
             if (count($traeTotalCambios) > 0):
                 $this->solucion = $this->cambioFinal($traeTotalCambios, $cadena, $sum, $inicio, $alfabeto, $fin);
             endif;
@@ -124,6 +125,7 @@ class Logica extends CActiveRecord {
 
             endforeach;
         endfor;
+        
         return $numero;
     }
 
@@ -157,12 +159,11 @@ class Logica extends CActiveRecord {
                     endif;
                 endforeach;
             endfor;
-
+           
             if ($accion != null):
                 $valores = $this->revisionInicio2($accion, $inicio,$alfabeto);
                 $consecutivo = $this->revisarReglaInicio($valores);
                 $revision = $this->quitarEspacio($consecutivo);
-
                 $inicio2 = $this->traerConsecutivo($inicio, $alfabeto);
                 $letrasI = $this->traerLetraInicio($inicio2);
             endif;
@@ -181,7 +182,7 @@ class Logica extends CActiveRecord {
                 endif;
 
             endfor;
-
+            
             for ($i = 0; $i < count($cadena2); $i++):
                 if ($cadena2[$i] == $letrasI):
                     array_push($numero, $numCadena[$i]);
@@ -202,9 +203,10 @@ class Logica extends CActiveRecord {
      * @return accion las posibles respuesta al aplicar la regla
      */
     public function numeroTotalInicio($cadena, $inicio, $fin, $alfabeto) {
+       
         $accion = array();
         $revisar = $this->revisarCadena($cadena);
-
+        CVarDumper::dump($revisar);
 
         $cont = 0;
         $inicio2 = str_split($inicio);
@@ -255,14 +257,14 @@ class Logica extends CActiveRecord {
     public function cambioFinal($traeTotalCambios, $cadena, $sum, $inicio, $alfabeto, $fin) {
 
         $inicio2 = $this->variablesInicio($alfabeto, $inicio);
-//        CVarDumper::dump('aqui ta');
-        CVarDumper::dump($inicio2, 10, true);
-        die;
+        
         $solucion = array();
         $axioma = '';
         foreach ($traeTotalCambios as $key):
             $aux = explode(" ", $key);
-            if (count($aux) == 2):
+            $revision = $this->quitarEspacio($key);
+        
+            if (count($revision) == 2){
                 $ini = intval($aux[0]) + 1;
                 $final = intval($aux[1]);
                 for ($i = $ini; $i < $final; $i++):
@@ -272,12 +274,44 @@ class Logica extends CActiveRecord {
                 if ($axioma != '')
                     array_push($solucion, array('regla' => $sum + 1, 'axioma' => $axioma));
 //                 array_push($solucion, $axioma);
-            endif;
+            }else{
+//                CVarDumper::dump('aqui ta');
+                $prueba = $this->contarVariables($key, $inicio,$key);
+//                 CVarDumper::dump($inicio2, 10, true);
+            }
         endforeach;
-
+//       CVarDumper::dump($traeTotalCambios, 10, true);
+        die;
         return $solucion;
     }
+    
+    public function contarVariables($variable, $inicio,$inicio2){
+        $cadena = str_split($this->axioma);
+        $inicio = str_split($inicio);
+        $inicio2 = str_split($inicio2);
+        $prueba = $this->quitarEspacio($inicio2);
+        $variable = $this->isVariable($inicio[0]);
+        
+        if($variable == false){
+            if($inicio[0] == $cadena[0]){
+               for($i = 1; $i < count($prueba); $i++):
+                   CVarDumper::dump($prueba[$i],10,true);
+               endfor;
+            }
+            
+        }
+       die;
+    }
 
+    public function isVariable($inicio){
+        $variable = false;
+       
+        if (in_array($inicio, $this->variables)) {
+           $variable =  true;
+        }
+        
+        return $variable;
+    }
     /*     * ********************************************************************************************************************** */
 
     /**
@@ -314,11 +348,7 @@ class Logica extends CActiveRecord {
             } else {
 
                 $reaccion = $this->revisionInicio2($accion, $inicio, $alfabeto);
-                
                 $numero = $this->traerInfo($accion, $reaccion);
-               
-//            CVarDumper::dump($numero, 10, true);
-//            die;
             }
         }
         return $numero;
@@ -508,7 +538,7 @@ class Logica extends CActiveRecord {
                 $aux = '';
                 $cont += 1;
             endfor;
-            die;
+//            die;
             $accion = $this->traerResultados($accion2);
 
             foreach ($accion as $value):
@@ -902,9 +932,6 @@ class Logica extends CActiveRecord {
         }
         $cantidad = $this->obtieneCantidadY($resultado2, $inicio);
 
-//            CVarDumper::dump($cantidad,10,true);
-//            
-//        die;
         $x = $this->obtieneXInicio($resultado, $inicio);
         $prueba = strlen($inicio) - 1;
 
@@ -986,7 +1013,6 @@ class Logica extends CActiveRecord {
         $cons = $this->traerResultados($cadena);
         $inicio2 = $this->traerConsecutivo($inicio, $alfabeto);
         $letrasI = $this->traerLetraInicio($inicio2);
-        CVarDumper::dump($letrasI, 10, true);
         $numeroI = $this->traerNumInicio($inicio2);
         $c = count($numeroI) - count($alfabeto);
         $algo = $this->verificaLetrasVariables($alfabeto);

@@ -19514,3 +19514,79 @@ REQUEST_URI=/Avisfor/index.php/logica/update/?id=20
 in C:\xampp\htdocs\Avisfor\protected\models\Logica.php (470)
 in C:\xampp\htdocs\Avisfor\protected\models\Logica.php (318)
 in C:\xampp\htdocs\Avisfor\protected\models\Logica.php (99)
+2017/10/28 21:56:55 [error] [exception.CDbException] CDbException: CDbConnection failed to open the DB connection: SQLSTATE[HY000] [2002] No se puede establecer una conexiÛn ya que el equipo de destino denegÛ expresamente dicha conexiÛn.
+ in C:\xampp\htdocs\Avisfor\yii\framework\db\CDbConnection.php:399
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\yii\framework\db\CDbConnection.php(347): CDbConnection->open()
+#1 C:\xampp\htdocs\Avisfor\yii\framework\db\CDbConnection.php(325): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\Avisfor\yii\framework\base\CModule.php(394): CDbConnection->init()
+#3 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(459): CModule->getComponent('db')
+#4 C:\xampp\htdocs\Avisfor\yii\framework\db\ar\CActiveRecord.php(639): CApplication->getDb()
+#5 C:\xampp\htdocs\Avisfor\yii\framework\db\ar\CActiveRecord.php(1436): CActiveRecord->getDbConnection()
+#6 C:\xampp\htdocs\Avisfor\yii\framework\db\ar\CActiveRecord.php(1492): CActiveRecord->getTableAlias(true)
+#7 C:\xampp\htdocs\Avisfor\protected\modules\cruge\models\data\CrugeSession.php(90): CActiveRecord->findByPk('0')
+#8 C:\xampp\htdocs\Avisfor\protected\modules\cruge\components\CrugeFactory.php(46): CrugeSession::loadModel('0')
+#9 C:\xampp\htdocs\Avisfor\protected\modules\cruge\components\CrugeUserManager.php(412): CrugeFactory->getICrugeSession('0')
+#10 C:\xampp\htdocs\Avisfor\protected\modules\cruge\components\CrugeWebUser.php(451): CrugeUserManager->loadSession('0')
+#11 C:\xampp\htdocs\Avisfor\protected\modules\cruge\components\CrugeWebUser.php(229): CrugeWebUser->getICrugeSession()
+#12 C:\xampp\htdocs\Avisfor\protected\modules\cruge\components\CrugeWebUser.php(242): CrugeWebUser->getId()
+#13 C:\xampp\htdocs\Avisfor\yii\framework\web\auth\CWebUser.php(201): CrugeWebUser->getIsGuest()
+#14 C:\xampp\htdocs\Avisfor\protected\modules\cruge\components\CrugeWebUser.php(45): CWebUser->init()
+#15 C:\xampp\htdocs\Avisfor\yii\framework\base\CModule.php(394): CrugeWebUser->init()
+#16 C:\xampp\htdocs\Avisfor\yii\framework\base\CModule.php(103): CModule->getComponent('user')
+#17 C:\xampp\htdocs\Avisfor\protected\views\layouts\main.php(28): CModule->__get('user')
+#18 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#19 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#20 C:\xampp\htdocs\Avisfor\yii\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#21 C:\xampp\htdocs\Avisfor\yii\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#22 C:\xampp\htdocs\Avisfor\yii\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#23 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(215): COutputProcessor->run()
+#24 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(309): CBaseController->endWidget('CContentDecorat...')
+#25 C:\xampp\htdocs\Avisfor\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#26 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#27 C:\xampp\htdocs\Avisfor\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#28 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(787): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#29 C:\xampp\htdocs\Avisfor\protected\controllers\SiteController.php(32): CController->render('index')
+#30 C:\xampp\htdocs\Avisfor\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#31 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#32 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#33 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#34 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): CController->run('')
+#35 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#36 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#37 C:\xampp\htdocs\Avisfor\index.php(13): CApplication->run()
+#38 {main}
+REQUEST_URI=/avisfor/
+---
+2017/10/28 22:41:16 [error] [php] Undefined variable: os (C:\xampp\htdocs\Avisfor\protected\models\Logica.php:297)
+Stack trace:
+#0 C:\xampp\htdocs\Avisfor\protected\models\Logica.php(111): Logica->cambioFinal()
+#1 C:\xampp\htdocs\Avisfor\protected\controllers\LogicaController.php(183): Logica->aplicarReglas()
+#2 unknown(0): LogicaController->actionUpdate()
+#3 C:\xampp\htdocs\Avisfor\yii\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs()
+#4 C:\xampp\htdocs\Avisfor\yii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#5 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#6 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(134): LogicaController->runAction()
+#7 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#9 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CInlineFilter.php(58): LogicaController->filterAccessControl()
+#10 C:\xampp\htdocs\Avisfor\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#11 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(291): CFilterChain->run()
+#12 C:\xampp\htdocs\Avisfor\yii\framework\web\CController.php(265): LogicaController->runActionWithFilters()
+#13 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(282): LogicaController->run()
+#14 C:\xampp\htdocs\Avisfor\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#15 C:\xampp\htdocs\Avisfor\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#16 C:\xampp\htdocs\Avisfor\index.php(13): CWebApplication->run()
+REQUEST_URI=/avisfor/index.php/logica/update/?id=22
+in C:\xampp\htdocs\Avisfor\protected\models\Logica.php (297)
+in C:\xampp\htdocs\Avisfor\protected\models\Logica.php (291)
+in C:\xampp\htdocs\Avisfor\protected\models\Logica.php (278)
+2017/10/28 22:59:19 [error] [application] UiController
+CrugeUser->validate es false
+<div class="errorSummary"><p>Por favor corrija los siguientes errores de ingreso:</p>
+<ul>
+<li>Contrase√±a: no puede ser nulo.</li>
+<li>clave invalida</li>
+</ul></div>
+in C:\xampp\htdocs\Avisfor\protected\modules\cruge\controllers\UiController.php (157)
+in C:\xampp\htdocs\Avisfor\index.php (13)
