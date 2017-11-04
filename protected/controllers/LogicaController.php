@@ -30,7 +30,7 @@ class LogicaController extends Controller {
 //                'users' => array('*'),
 //            ),
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
-                'actions' => array('create', 'update', 'misSistemas'),
+                'actions' => array('create', 'update', 'misSistemas','createpdf'),
                 'users' => array('@'),
             ),
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -69,11 +69,10 @@ class LogicaController extends Controller {
             'model' => $this->loadModel($id),
         ));
     }
-    
-    
+
     /**
      *  Manejo de los Sistemas que la persona crea 
-     **/
+     * */
     public function actionMisSistemas() {
         $estudiante = Estudiantes::model()->find("cruge_user_iduser=:cruge_user_iduser", array(":cruge_user_iduser" => Yii::app()->user->id));
 
@@ -127,8 +126,6 @@ class LogicaController extends Controller {
         ));
     }
 
-    
-
     /**
      * Updates a particular model.
      * If update is successful, the browser will be redirected to the 'view' page.
@@ -138,14 +135,16 @@ class LogicaController extends Controller {
         Yii::import('ext.multimodelform.MultiModelForm');
         $model = $this->loadModel($id);
         $model->derivacion = $model->axioma;
+        $model->axioma2 = $model->axioma;
         $var = 0;
         $clic = '';
         $cl = 0;
-        
+        $reg = '';
+        $casper = new Casper;
         $regla = new Reglas;
         $validateRules = array();
-        
-        if(count($model->prueba) == 0){
+
+        if (count($model->prueba) == 0) {
             array_push($model->prueba, $model->axioma);
         }
 //        $model->resultado = '20';
@@ -153,44 +152,46 @@ class LogicaController extends Controller {
         // $this->performAjaxValidation($model);
         if (isset($_POST['button1'])) {
             $model->attributes = $_POST['button1'];
-            
         }
-        if(isset($_POST['button2'])){
+        if (isset($_POST['button2'])) {
             $rule = $_POST['button2'];
             $reglas = $_POST['Reglas'];
             $areg = explode(" ", $rule);
-            $sum = intval($areg[1])-1;
-            $var =  $reglas['pk__'][$sum]['idreglas'];
-//            CVarDumper::dump($var,10,true);
+            $sum = intval($areg[1]) - 1;
+            $var = $reglas['pk__'][$sum]['idreglas'];
             
+            CVarDumper::dump($rule,10,true);
         }
-        
-        if(isset($_POST['button3'])){
+
+        if (isset($_POST['button3'])) {
             $clic = $_POST['button3'];
-            if($clic != '') 
+            CVarDumper::dump($reg,10,true);
+            CVarDumper::dump($clic,10,true);
+            
+            if ($clic != '')
                 $cl = 1;
         }
-        
-        if(isset($_POST['button4'])){
+
+        if (isset($_POST['button4'])) {
             $algo = $_POST['button4'];
-            var_dump($algo);
+//            var_dump($algo);
         }
         if (isset($_POST['Logica'])) {
             $model->attributes = $_POST['Logica'];
             $model->resultado = $model->contar();
-            if($var != 0){
-                 $model->solucion = array();
-                 $model->solucion = $model->aplicarReglas($var,$sum);
+            if ($var != 0) {
+                $model->solucion = array();
+                $model->solucion = $model->aplicarReglas($var, $sum);
             }
-           
-            if($cl == 1){
+
+            if ($cl == 1) {
                 array_push($model->prueba, $clic);
                 $contar = count($model->prueba);
-                $model->axioma = $model->prueba[$contar-1];
+                $model->axioma = $model->prueba[$contar - 1];
             }
             //die($model->ident);
             $rulesValues = array('Logica_idLogica' => $model->idLogica);
-            
+
             MultiModelForm::save($regla, $validateRules, $deleteReglas, $rulesValues) && $model->save();
             //$this->redirect(array('admin', 'id' => $model->idLogica));
         }
@@ -215,6 +216,47 @@ class LogicaController extends Controller {
             $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
     }
 
+    /*     * Prueba Pdf* */
+
+   public function actionCreatepdf(){
+ 
+        $pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+        spl_autoload_register(array('YiiBase','autoload'));
+ 
+        // set document information
+        $pdf->SetCreator(PDF_CREATOR);  
+ 
+        $pdf->SetTitle("Selling Report -2013");                
+        $pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, "Selling Report -2013", "selling report for Jun- 2013");
+        $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+        $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
+        $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+        $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
+        $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
+        $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+        $pdf->SetFont('helvetica', '', 8);
+        $pdf->SetTextColor(80,80,80);
+        $pdf->AddPage();
+ 
+        //Write the html
+        $html = "<div style='margin-bottom:15px;'>This is testing HTML.</div>";
+        //Convert the Html to a pdf document
+        $pdf->writeHTML($html, true, false, true, false, '');
+ 
+        $header = array('Country', 'Capital', 'Area (sq km)', 'Pop. (thousands)'); //TODO:you can change this Header information according to your need.Also create a Dynamic Header.
+ 
+        // data loading
+        $data = $pdf->LoadData(Yii::getPathOfAlias('ext.tcpdf').DIRECTORY_SEPARATOR.'table_data_demo.txt'); //This is the example to load a data from text file. You can change here code to generate a Data Set from your model active Records. Any how we need a Data set Array here.
+        // print colored table
+        $pdf->ColoredTable($header, $data);
+        // reset pointer to the last page
+        $pdf->lastPage();
+ 
+        //Close and output PDF document
+        $pdf->Output('filename.pdf', 'I');
+        Yii::app()->end();
+ 
+    }
     /**
      * Lists all models.
      */
