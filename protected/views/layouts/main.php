@@ -177,6 +177,7 @@
             <div class="col-sm-6 ini1">
                 <p>Ambiente visual para el aprendizaje de los conceptos básicos  asociados a <br/> Los sistemas formales.</p>
             </div>
+            
 
             <div class="col-sm-6 ini">
                 <a href="http://www.escuelaing.edu.co" target="_blank">

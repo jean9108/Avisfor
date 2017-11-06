@@ -172,8 +172,8 @@ return array(
         'db' => array(
             'connectionString' => 'mysql:host=localhost;dbname=avisfor',
             'emulatePrepare' => true,
-            'username' => 'root',
-            'password' => '',
+            'username' => 'joana',
+            'password' => '910821',
             'charset' => 'utf8',
         ),
 //        'db' => array(

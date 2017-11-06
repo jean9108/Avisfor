@@ -30,7 +30,7 @@ class LogicaController extends Controller {
 //                'users' => array('*'),
 //            ),
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
-                'actions' => array('create', 'update', 'misSistemas','createpdf'),
+                'actions' => array('create', 'update', 'misSistemas', 'createpdf','generarPdf'),
                 'users' => array('@'),
             ),
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -159,15 +159,15 @@ class LogicaController extends Controller {
             $areg = explode(" ", $rule);
             $sum = intval($areg[1]) - 1;
             $var = $reglas['pk__'][$sum]['idreglas'];
-            
-            CVarDumper::dump($rule,10,true);
+
+            CVarDumper::dump($rule, 10, true);
         }
 
         if (isset($_POST['button3'])) {
             $clic = $_POST['button3'];
-            CVarDumper::dump($reg,10,true);
-            CVarDumper::dump($clic,10,true);
-            
+            CVarDumper::dump($reg, 10, true);
+            CVarDumper::dump($clic, 10, true);
+
             if ($clic != '')
                 $cl = 1;
         }
@@ -216,17 +216,34 @@ class LogicaController extends Controller {
             $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
     }
 
+    public function actionGenerarPdf() {
+        $model = Estudiantes::model()->find("cruge_user_iduser =:cruge_user_iduser", array(":cruge_user_iduser" => Yii::app()->user->id));
+//        $model->estudiantes_idestudiantes = $estudiante->idestudiante;
+        $mPDF1 = Yii::app()->ePdf->mpdf('utf-8', 'A4', '', '', 15, 15, 35, 25, 9, 9, 'P'); //Esto lo pueden configurar como quieren, para eso deben de entrar en la web de MPDF para ver todo lo que permite.
+        $mPDF1->useOnlyCoreFonts = true;
+        $mPDF1->SetTitle("Ejercicio Modelos Matemáticos ".date('Y'));
+        $mPDF1->SetAuthor( $model->nombre.' '.$model->apellido);
+//        $mPDF1->SetWatermarkText("JuzgadoSys");
+        $mPDF1->showWatermarkText = true;
+        $mPDF1->watermark_font = 'DejaVuSansCondensed';
+        $mPDF1->watermarkTextAlpha = 0.1;
+        $mPDF1->SetDisplayMode('fullpage');
+        $mPDF1->WriteHTML($this->renderPartial('pdfReport', array('model' => $model), true)); //hacemos un render partial a una vista preparada, en este caso es la vista pdfReport
+        $mPDF1->Output('Reporte_Productos' . date('YmdHis'), 'I');  //Nombre del pdf y parámetro para ver pdf o descargarlo directamente.
+        exit;
+    }
+
     /*     * Prueba Pdf* */
 
-   public function actionCreatepdf(){
- 
+    public function actionCreatepdf() {
+
         $pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
-        spl_autoload_register(array('YiiBase','autoload'));
- 
+        spl_autoload_register(array('YiiBase', 'autoload'));
+
         // set document information
-        $pdf->SetCreator(PDF_CREATOR);  
- 
-        $pdf->SetTitle("Selling Report -2013");                
+        $pdf->SetCreator(PDF_CREATOR);
+
+        $pdf->SetTitle("Selling Report -2013");
         $pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, "Selling Report -2013", "selling report for Jun- 2013");
         $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
         $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
@@ -235,28 +252,27 @@ class LogicaController extends Controller {
         $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
         $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
         $pdf->SetFont('helvetica', '', 8);
-        $pdf->SetTextColor(80,80,80);
+        $pdf->SetTextColor(80, 80, 80);
         $pdf->AddPage();
- 
+
         //Write the html
         $html = "<div style='margin-bottom:15px;'>This is testing HTML.</div>";
         //Convert the Html to a pdf document
         $pdf->writeHTML($html, true, false, true, false, '');
- 
+
         $header = array('Country', 'Capital', 'Area (sq km)', 'Pop. (thousands)'); //TODO:you can change this Header information according to your need.Also create a Dynamic Header.
- 
         // data loading
-        $data = $pdf->LoadData(Yii::getPathOfAlias('ext.tcpdf').DIRECTORY_SEPARATOR.'table_data_demo.txt'); //This is the example to load a data from text file. You can change here code to generate a Data Set from your model active Records. Any how we need a Data set Array here.
+        $data = $pdf->LoadData(Yii::getPathOfAlias('ext.tcpdf') . DIRECTORY_SEPARATOR . 'table_data_demo.txt'); //This is the example to load a data from text file. You can change here code to generate a Data Set from your model active Records. Any how we need a Data set Array here.
         // print colored table
         $pdf->ColoredTable($header, $data);
         // reset pointer to the last page
         $pdf->lastPage();
- 
+
         //Close and output PDF document
         $pdf->Output('filename.pdf', 'I');
         Yii::app()->end();
- 
     }
+
     /**
      * Lists all models.
      */
