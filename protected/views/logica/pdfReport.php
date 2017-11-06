@@ -49,7 +49,7 @@
 
 <div>
     <p>
-        <span style = "text-align: left"><b>Nombre: </b><u><?php echo ucwords($model->nombre.' '.$model->apellido) ?></u></span>
+        <span style = "text-align: left"><b>Nombre: </b><u><?php echo ucwords($estudiante->nombre.' '.$estudiante->apellido) ?></u></span>
         <span style="text-align: right"><b>Fecha: </b><?php echo date("d/m/Y"); ?></span>
     </p>
 </div>
@@ -57,6 +57,8 @@
 
 <h3 style = "text-align: center">Taller Aplicación de Sistemas Formales</h3>
 
-<p style = "text-align:justify">Construir un sistema formal que partiendo de  __ como axioma genere cadena de la forma:</p>
+<p style = "text-align:justify">Construir un sistema formal que partiendo de <?php echo $model->axioma?> como axioma genere cadena de la forma:</p>
+<p style = "text-align:justify"><b><?php echo $model->conjetura?></b></p>
+
  </body>
  </html>

@@ -30,7 +30,7 @@ class LogicaController extends Controller {
 //                'users' => array('*'),
 //            ),
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
-                'actions' => array('create', 'update', 'misSistemas', 'createpdf','generarPdf'),
+                'actions' => array('create', 'update', 'misSistemas', 'createpdf', 'generarPdf'),
                 'users' => array('@'),
             ),
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -216,26 +216,28 @@ class LogicaController extends Controller {
             $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
     }
 
-    public function actionGenerarPdf() {
-        $model = Estudiantes::model()->find("cruge_user_iduser =:cruge_user_iduser", array(":cruge_user_iduser" => Yii::app()->user->id));
-//        $model->estudiantes_idestudiantes = $estudiante->idestudiante;
-        $mPDF1 = Yii::app()->ePdf->mpdf('utf-8', 'A4', '', '', 15, 15, 35, 25, 9, 9, 'P'); //Esto lo pueden configurar como quieren, para eso deben de entrar en la web de MPDF para ver todo lo que permite.
-        $mPDF1->useOnlyCoreFonts = true;
-        $mPDF1->SetTitle("Ejercicio Modelos Matemáticos ".date('Y'));
-        $mPDF1->SetAuthor( $model->nombre.' '.$model->apellido);
+    public function actionGenerarPdf($id) {
+        $model = Logica::model()->find("idLogica =:idLogica", array(":idLogica" => $id));
+        $estudiante = Estudiantes::model()->find("cruge_user_iduser =:cruge_user_iduser", array(":cruge_user_iduser" => Yii::app()->user->id));
+        if ($estudiante->idestudiante == $model->estudiantes_idestudiantes) {
+            $mPDF1 = Yii::app()->ePdf->mpdf('utf-8', 'A4', '', '', 15, 15, 35, 25, 9, 9, 'P'); //Esto lo pueden configurar como quieren, para eso deben de entrar en la web de MPDF para ver todo lo que permite.
+            $mPDF1->useOnlyCoreFonts = true;
+            $mPDF1->SetTitle("Ejercicio Modelos Matemáticos " . date('Y'));
+            $mPDF1->SetAuthor($estudiante->nombre . ' ' . $estudiante->apellido);
 //        $mPDF1->SetWatermarkText("JuzgadoSys");
-        $mPDF1->showWatermarkText = true;
-        $mPDF1->watermark_font = 'DejaVuSansCondensed';
-        $mPDF1->watermarkTextAlpha = 0.1;
-        $mPDF1->SetDisplayMode('fullpage');
-        $mPDF1->WriteHTML($this->renderPartial('pdfReport', array('model' => $model), true)); //hacemos un render partial a una vista preparada, en este caso es la vista pdfReport
-        $mPDF1->Output('Reporte_Productos' . date('YmdHis'), 'I');  //Nombre del pdf y parámetro para ver pdf o descargarlo directamente.
+            $mPDF1->showWatermarkText = true;
+            $mPDF1->watermark_font = 'DejaVuSansCondensed';
+            $mPDF1->watermarkTextAlpha = 0.1;
+            $mPDF1->SetDisplayMode('fullpage');
+            $mPDF1->WriteHTML($this->renderPartial('pdfReport', array('model' => $model), true)); //hacemos un render partial a una vista preparada, en este caso es la vista pdfReport
+            $mPDF1->Output('Reporte_Productos' . date('YmdHis'), 'I');  //Nombre del pdf y parámetro para ver pdf o descargarlo directamente. 
+        }
         exit;
     }
 
     /*     * Prueba Pdf* */
 
-    public function actionCreatepdf() {
+    public function actionCreatepdf($id) {
 
         $pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
         spl_autoload_register(array('YiiBase', 'autoload'));

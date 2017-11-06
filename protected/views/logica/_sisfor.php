@@ -237,7 +237,7 @@
             ));
             ?>
         </table>
-        <?php echo CHtml::link(CHtml::image(Yii::app()->baseUrl."/images/pdf.png","PDF",array("title"=>"Exportar a PDF")),array("generarpdf"),array("target"=>"_blank")); ?>
+        <?php echo CHtml::link(CHtml::image(Yii::app()->baseUrl."/images/pdf.png","PDF",array("title"=>"Exportar a PDF")),array("generarpdf", 'id'=>$model->idLogica),array("target"=>"_blank")); ?>
 
         <?php // echo CHtml::link(CHtml::image(Yii::app()->baseUrl . "/images/pdf.png", "PDF", array("title" => "Exportar a PDF")), array("createpdf")); ?>
 
