@@ -185,6 +185,13 @@
 
         </table>
     </div>
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4" style="text-align: right">
+         <?php echo CHtml::link('<i class="fa fa-file-pdf-o" aria-hidden="true"></i>  Imprimir',array("generarpdf", 'id'=>$model->idLogica),array("target"=>"_blank", "class" => "btn btn-danger")); ?>
+        
+    </div>
+   
 
     <div class="col-sm-12 tituloP">
         <h1> Actualizar Reglas </h1>
@@ -237,10 +244,6 @@
             ));
             ?>
         </table>
-        <?php echo CHtml::link(CHtml::image(Yii::app()->baseUrl."/images/pdf.png","PDF",array("title"=>"Exportar a PDF")),array("generarpdf", 'id'=>$model->idLogica),array("target"=>"_blank")); ?>
-
-        <?php // echo CHtml::link(CHtml::image(Yii::app()->baseUrl . "/images/pdf.png", "PDF", array("title" => "Exportar a PDF")), array("createpdf")); ?>
-
     </div>
 
     <div class="row buttons col-sm-12">

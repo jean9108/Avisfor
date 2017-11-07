@@ -23,7 +23,7 @@ class Logica extends CActiveRecord {
     public $solucion = array();
     public $variables = array("W", "X", "Y", "Z", "x", "y", "z", "w");
     public $aviso = 0;
-    public $axioma2;
+    public $axioma3;
     public $cadena3 = array();
 
     /**
@@ -42,7 +42,7 @@ class Logica extends CActiveRecord {
         return array(
             array('axioma, conjetura', 'required'),
             array('estudiantes_idestudiantes,resultado,ident', 'numerical', 'integerOnly' => true),
-            array('axioma,axioma2, conjetura,letras,derivacion', 'length', 'max' => 255),
+            array('axioma,axioma3, conjetura,letras,derivacion,axioma3,regla', 'length', 'max' => 255),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
             array('idLogica, axioma, conjetura, estudiantes_idestudiantes', 'safe', 'on' => 'search'),
@@ -78,7 +78,9 @@ class Logica extends CActiveRecord {
             'ident' => 'identificador',
             'variables' => 'variables',
             'axioma2'=> 'Axioma',
+            'axioma2'=>'Axioma',
             'cadena3' => 'cadena',
+            'regla'=>'regla',
         );
     }
 

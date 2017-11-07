@@ -99,7 +99,37 @@ nav.navbar.shrink{
     color: #ffc107 !important;
 }
 
+/*Imagen Estudiante*/
+.est{
+    width: 100%;
+    position: relative;
+    background: url(../images/estudiante.jpg);
+    background-size: cover;
+    height: auto;
+    background-image: url(../images/estudiante.jpg);
+}
+
+
+#est.est{
+   padding: 20% 0 0 0; 
+}
+
+.slogan#slo2 h2{
+    color: #000 !important;
+}
+
+
 /*Tablas*/
+.tabla .btn-success{
+    background-color: #9EBA9E !important;
+    border-color: #9EBA9E!important;
+}
+
+.tabla .btn-danger{
+    background-color: #F24130 !important;
+    border-color: #F24130 !important;
+}
+
 .grid-view table.items th {
     background: #052837 !important;
     font-family: 'Khula', sans-serif;

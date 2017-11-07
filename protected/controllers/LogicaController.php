@@ -101,7 +101,8 @@ class LogicaController extends Controller {
 
         if (isset($_POST['Logica'])) {
             $model->attributes = $_POST['Logica'];
-
+            $model->axioma2 = $model->axioma;
+            
             $detailOk = MultiModelForm::validate($regla, $validateRules, $deleteItems);
 
             if ($detailOk && empty($validateRules)) {
@@ -160,13 +161,13 @@ class LogicaController extends Controller {
             $sum = intval($areg[1]) - 1;
             $var = $reglas['pk__'][$sum]['idreglas'];
 
-            CVarDumper::dump($rule, 10, true);
+//            CVarDumper::dump($rule, 10, true);
         }
 
         if (isset($_POST['button3'])) {
             $clic = $_POST['button3'];
-            CVarDumper::dump($reg, 10, true);
-            CVarDumper::dump($clic, 10, true);
+//            CVarDumper::dump($reg, 10, true);
+//            CVarDumper::dump($clic, 10, true);
 
             if ($clic != '')
                 $cl = 1;

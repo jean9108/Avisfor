@@ -37,7 +37,7 @@ $this->breadcrumbs = array(
     
 	'columns'=>array(
 		
-                'axioma',
+                'axioma2',
                 'conjetura',
 		array(
 			'class'=>'CButtonColumn',
@@ -49,13 +49,13 @@ $this->breadcrumbs = array(
                         ),
                             'update' => array(
                             'label'=>'Editar',
-                            'label' => '<span class = "btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i> Modificar</span>',
+                            'label' => '<span class = "tabla btn btn-success "><i class="fa fa-window-restore" aria-hidden="true"></i>Ir al Simulador</span>',
                             'imageUrl' => false,
                             'url'=>'array("logica/update/?id=$data->idLogica")'
                         ),
                             'delete' => array(
                             'label'=>'Eliminar',
-                            'label' => '<span class = "btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Eliminar</span>',    
+                            'label' => '<span class = "tabla btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Eliminar</span>',    
                             'imageUrl' => false,
                             'url'=>'array("logica/delete/?id=$data->idLogica")'
                         ),

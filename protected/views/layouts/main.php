@@ -52,7 +52,7 @@
                                 <?php echo Chtml::link('<i class="fa fa-sign-in" aria-hidden="true"></i> Ingresar', array('/cruge/ui/login')) ?>
                             </li>
                             <li>
-                                <?php echo Chtml::link('<i class="fa fa-users" aria-hidden="true"></i> Registrarse', array('/site/login')) ?>
+                                <?php echo Chtml::link('<i class="fa fa-users" aria-hidden="true"></i> Registrarse', array('/cruge/ui/registration')) ?>
                             </li>
                         </ul>
                     </div>
@@ -110,9 +110,9 @@
 
         <!--Estudiante y tpro-->
         <?php if (Yii::app()->user->checkAccess('tpro') && !Yii::app()->user->isSuperAdmin || Yii::app()->user->checkAccess('estudiante') && !Yii::app()->user->isSuperAdmin) { ?>
-            <section id = "admin" class="admin">
-                <div class="slogan" id = "slo">
-                    <h2>Administrador de Usuarios<br />
+            <section id = "est" class="est">
+                <div class="slogan" id = "slo2">
+                    <h2>Estudiante<br />
                         Escuela Colombiana de Ingeniería
                     </h2>
                 </div>
